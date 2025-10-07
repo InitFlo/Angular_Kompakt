@@ -2,8 +2,12 @@ import { Routes } from '@angular/router';
 import { DefaultPageComponent } from './pages/default-page/default-page.component';
 import { StartPageComponent } from './pages/start-page/start-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { customerRoutes } from './features/customer/customer.routes';
 
 export const routes: Routes = [
+    // Feature Routes
+    ...customerRoutes, // Spread Operator
+    // Common Routes
     {
         path: '',
         redirectTo: '/start',
