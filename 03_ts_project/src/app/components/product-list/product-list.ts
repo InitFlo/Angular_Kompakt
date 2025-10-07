@@ -3,6 +3,9 @@ import type { Product } from "../../model/product";
 import { ProductService } from "../../services/product.service";
 
 // Web Component
+@Component({
+    selector: 'product-list'
+})
 class ProductListComponent extends HTMLElement {
 
     /**
@@ -52,8 +55,3 @@ class ProductListComponent extends HTMLElement {
     }
 
 }
-
-Component({
-    selector: 'product-list'
-})(ProductListComponent)
-// console.log(typeof ProductListComponent);
