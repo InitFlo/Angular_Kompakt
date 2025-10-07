@@ -5,9 +5,11 @@ import { NavigationComponent } from "./components/navigation/navigation.componen
 @Component({
   selector: 'app-root',
   template: `
-    <app-navigation></app-navigation>
-    <h1>{{ title }}</h1>
-    <app-footer></app-footer>
+<app-navigation></app-navigation>
+<div class="container my-4 style = margin-buttom: 80px">
+  <h1>{{ title }}</h1>
+</div>
+<app-footer></app-footer>
   `,
   imports: [FooterComponent, NavigationComponent]
 })
