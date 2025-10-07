@@ -2,3 +2,35 @@
 <pre>
 {{ customers | json}}
 </pre>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Kreditlimit</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(customer of customers; track customer.id) {
+        <tr>
+            <td>
+                {{customer.id}}
+            </td>
+            <td>
+                {{customer.name}}
+            </td>
+            <td class="text-end">
+                {{
+                    customer.credit_limit | currency:'EUR':'symbol'
+                }}
+            </td>
+            <td class="text-end">
+                <button class="btn btn-info btn-sm me-1">Bearbeiten</button>
+                <button class="btn btn-danger btn-sm">Löschen</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
