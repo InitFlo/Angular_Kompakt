@@ -13,7 +13,6 @@ import { RouterOutlet } from '@angular/router';
 <app-navigation></app-navigation>
 
 <div class="container my-4" style="margin-bottom: 80px">
-  <h1 class="display-3">{{ title }}</h1>
   <router-outlet></router-outlet>
 </div>
 

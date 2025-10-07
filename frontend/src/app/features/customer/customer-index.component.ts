@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-customer-index',
-  imports: [],
+  imports: [RouterOutlet],
   template: `
-    <p>
-      customer-index works!
-    </p>
+    <h1 class="display-3">
+      Kundenverwaltung
+    </h1>
+    <router-outlet></router-outlet>
   `
 })
 export class CustomerIndexComponent {
