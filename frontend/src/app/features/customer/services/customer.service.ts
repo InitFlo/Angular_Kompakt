@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Customer } from '../model/customer';
+import { environment } from '../../../../environments/environment.development';
+
+const url = environment.appUrl + 'customers/';
+
 const mock = [
   {
     id: 3,
