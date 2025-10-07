@@ -12,7 +12,7 @@ import { RouterOutlet } from '@angular/router';
 
 <app-navigation></app-navigation>
 
-<div class="container my-4" style="margin-bottom: 80px">
+<div class="container my-4" style="padding-bottom: 100px">
   <router-outlet></router-outlet>
 </div>
 

@@ -1,30 +1,28 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Customer } from '../model/customer';
-import { environment } from '../../../../environments/environment.development';
+import type { Customer } from '../model/customer';
+import { environment } from '../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
-const url = environment.appUrl + 'customers/';
+const url = environment.apiUrl + 'customers/';
 
-const mock = [
-  {
-    id: 3,
-    name: 'Tim',
-    credit_limit: 299
-  },
-  {
-    id: 4,
-    name: 'Tom',
-    credit_limit: 50
-  }
-]
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  constructor() { }
+  #http = inject(HttpClient);
+  
+  // constructor(private http: HttpClient) { }
 
   getAll(): Observable<Customer[]> {
-    return of(mock);
+    console.log(environment);
+    console.log(url);
+
+    return this.#http.get<Customer[]>(url);
+    
+    //return of(mock);
   }
 }

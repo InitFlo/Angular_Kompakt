@@ -6,24 +6,29 @@ import { CustomerService } from '../../services/customer.service';
 @Component({
   selector: 'app-customer-list',
   imports: [
-    // JsonPipe
-    CommonModule
+   // JsonPipe
+   CommonModule
   ],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
 })
 export class CustomerListComponent implements OnInit {
+    
+  public customers: Customer[] = [];
 
-  public customers: Customer[] = []
+  constructor(private customerService: CustomerService){}
 
-  constructor(private customerService: CustomerService) { }
-
+  // entsprcht connectedCallback 
   ngOnInit(): void {
-    this.customerService.getAll().subscribe((customers) => {
-      console.log(customers);
-      this.customers = customers;
-    })
+    this.loadCustomers();
   }
 
+  loadCustomers() {
+    this.customerService.getAll()
+      .subscribe((customers) => {
+        console.log(customers)
+        this.customers = customers;
+      });
+  }
 
 }

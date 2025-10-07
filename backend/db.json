@@ -1,4 +1,21 @@
 {
+  "customers":  [
+    {
+      "id": 3,
+      "name" : "Tim",
+      "credit_limit": 299
+    },
+    {
+      "id": 4,
+      "name": "Tom",
+      "credit_limit": 50
+    },
+    {
+      "id": 5,
+      "name": "Matt",
+      "credit_limit": 75
+    }
+  ],
   "products": [
     { 
     "id": 1,
