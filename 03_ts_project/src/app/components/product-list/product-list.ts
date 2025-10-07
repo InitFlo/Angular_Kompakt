@@ -1,3 +1,4 @@
+import { Component } from "../../lib/core";
 import type { Product } from "../../model/product";
 import { ProductService } from "../../services/product.service";
 
@@ -52,5 +53,7 @@ class ProductListComponent extends HTMLElement {
 
 }
 
-customElements.define('product-list', ProductListComponent);
+Component({
+    selector: 'product-list'
+})(ProductListComponent)
 // console.log(typeof ProductListComponent);
