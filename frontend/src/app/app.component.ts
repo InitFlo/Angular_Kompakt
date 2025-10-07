@@ -5,15 +5,20 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  imports: [
+    FooterComponent, NavigationComponent, 
+    RouterOutlet],
   template: `
+
 <app-navigation></app-navigation>
-<div class="container my-4 style = margin-buttom: 80px">
-  <h1 class ="display-3">{{ title }}</h1>
+
+<div class="container my-4" style="margin-bottom: 80px">
+  <h1 class="display-3">{{ title }}</h1>
   <router-outlet></router-outlet>
 </div>
+
 <app-footer></app-footer>
   `,
-  imports: [FooterComponent, NavigationComponent, RouterOutlet]
 })
 export class AppComponent {
   title = 'frontend';
