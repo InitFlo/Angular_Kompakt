@@ -16,13 +16,13 @@ describe('CustomerListComponent', () => {
           provide: CustomerService,
           useValue: {
             getAll: () => {
-              return of([]);
+              return of([])
             }
           }
         }
       ]
     })
-      .compileComponents();
+    .compileComponents();
 
     fixture = TestBed.createComponent(CustomerListComponent);
     component = fixture.componentInstance;

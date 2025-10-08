@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import type { Customer } from '../../model/customer';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { CustomerService } from '../../services/customer.service';
-import { LoadingIndicatorComponent } from "../../../../components/loading-indicator/loading-indicator.component";
+import { LoadingIndicatorComponent } from '../../../../components/loading-indicator/loading-indicator.component';
 import { ErrorBoxComponent } from "../../../../components/error-box/error-box.component";
+import { CustomerTableComponent } from "../../components/customer-table/customer-table.component";
 
 @Component({
   selector: 'app-customer-list',
@@ -11,7 +12,8 @@ import { ErrorBoxComponent } from "../../../../components/error-box/error-box.co
     // JsonPipe
     CommonModule,
     LoadingIndicatorComponent,
-    ErrorBoxComponent
+    ErrorBoxComponent,
+    CustomerTableComponent
 ],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
@@ -32,6 +34,7 @@ export class CustomerListComponent implements OnInit {
   loadCustomers() {
     this.loading = true;
     this.errorMessage = null;
+
     this.customerService.getAll()
       .subscribe({
         next: (customers) => {
@@ -44,5 +47,4 @@ export class CustomerListComponent implements OnInit {
         }
       });
   }
-
 }
