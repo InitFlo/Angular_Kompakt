@@ -1,4 +1,4 @@
-import { environment } from "./environment.development"
+import { environment } from "./environment.development";
 
 describe("environment development", () => {
     it("should have api", () => {

@@ -1,7 +1,7 @@
 import { appConfig } from "./app.config"
 
 describe("app config", () => {
-    it("should exists", () => {
+    it("should exist", () => {
         expect(appConfig).toBeTruthy()
     })
 })

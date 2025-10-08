@@ -14,11 +14,12 @@ import { CustomerTableComponent } from "../../components/customer-table/customer
     LoadingIndicatorComponent,
     ErrorBoxComponent,
     CustomerTableComponent
-],
+  ],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
 })
 export class CustomerListComponent implements OnInit {
+
 
   public customers: Customer[] = [];
   public loading = true;
@@ -46,5 +47,9 @@ export class CustomerListComponent implements OnInit {
           this.loading = false;
         }
       });
+  }
+
+  deleteCustomer({ id }: Customer) {
+    console.log(id);
   }
 }

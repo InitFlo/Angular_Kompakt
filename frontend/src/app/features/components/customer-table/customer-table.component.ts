@@ -1,5 +1,6 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Customer } from '../../customer/model/customer';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-customer-table',
@@ -8,6 +9,15 @@ import { Component } from '@angular/core';
   styleUrl: './customer-table.component.scss'
 })
 export class CustomerTableComponent {
-customers: any;
+  @Input()
+  public customers: Customer[] = []
 
+  @Output()
+  deleteCustomer = new EventEmitter();
+
+
+  deleteHandler(customer: Customer) {
+    console.log(customer);
+    this.deleteCustomer.emit(customer);
+  }
 }

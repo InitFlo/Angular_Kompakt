@@ -16,8 +16,5 @@
 @if(loading) {
    <app-loading-indicator></app-loading-indicator>
 } @else if (errorMessage === null) {
-    
-    <app-customer-table [customers]="customers"></app-customer-table>
-
-
+    <app-customer-table [customers]="customers" (deleteCustomer)="deleteCustomer($event)"></app-customer-table>
 }
