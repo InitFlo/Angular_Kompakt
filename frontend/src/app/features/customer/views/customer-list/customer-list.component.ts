@@ -52,16 +52,17 @@ export class CustomerListComponent implements OnInit {
   deleteCustomer({ id }: Customer) {
     this.loading = true;
     this.errorMessage = null;
+
     this.customerService.deleteById(id)
-      .subscribe({
-        next: () => {
-          this.loadCustomers();
-          //this.loading = false;
-        },
-        error: (e: Error) => {
-          this.errorMessage = e.message;
-          this.loading = false;
-        }
-      });
+    .subscribe({
+      next: () => {
+        this.loadCustomers()
+        // this.loading = false;
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      }
+    })
   }
 }

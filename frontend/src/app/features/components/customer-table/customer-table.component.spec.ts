@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerTableComponent } from './customer-table.component';
+import { Customer } from '../../customer/model/customer';
 
 describe('CustomerTableComponent', () => {
   let component: CustomerTableComponent;
@@ -10,7 +11,7 @@ describe('CustomerTableComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CustomerTableComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CustomerTableComponent);
     component = fixture.componentInstance;
@@ -20,4 +21,15 @@ describe('CustomerTableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  describe('deleteHandler', () => {
+    it('should exist'), () => {
+      expect(component.deleteCustomer).toBeTruthy();
+
+      const emitSpy = jest.spyOn(component.deleteCustomer, 'emit');
+      component.deleteHandler({} as Customer);
+      expect(emitSpy).toHaveBeenCalled();
+    }
+  })
 });

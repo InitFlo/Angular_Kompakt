@@ -14,7 +14,7 @@ const url = environment.apiUrl + 'customers/';
 export class CustomerService {
 
   #http = inject(HttpClient);
-
+  
   // constructor(private http: HttpClient) { }
 
   getAll(): Observable<Customer[]> {
