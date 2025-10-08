@@ -15,6 +15,7 @@ import { CustomerService } from '../../services/customer.service';
 export class CustomerListComponent implements OnInit {
     
   public customers: Customer[] = [];
+  public loading = true;
 
   constructor(private customerService: CustomerService){}
 
@@ -24,9 +25,11 @@ export class CustomerListComponent implements OnInit {
   }
 
   loadCustomers() {
+    this.loading = true;
     this.customerService.getAll()
       .subscribe((customers) => {
         this.customers = customers;
+        this.loading = false;
       });
   }
 
