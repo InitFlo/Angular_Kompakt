@@ -1,8 +1,8 @@
 {
-  "customers":  [
+  "customers": [
     {
       "id": 3,
-      "name" : "Tim",
+      "name": "Tim",
       "credit_limit": 299
     },
     {
@@ -17,15 +17,15 @@
     }
   ],
   "products": [
-    { 
-    "id": 1,
-    "name": "Shirt",
-    "price": 75
+    {
+      "id": 1,
+      "name": "Shirt",
+      "price": 75
     },
     {
-    "id": 2,
-    "name": "Sneaker",
-    "price": 120
+      "id": 2,
+      "name": "Sneaker",
+      "price": 120
     }
   ]
 }

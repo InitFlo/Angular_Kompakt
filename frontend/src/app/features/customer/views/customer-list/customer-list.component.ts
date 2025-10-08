@@ -10,16 +10,17 @@ import { LoadingIndicatorComponent } from "../../../../components/loading-indica
     // JsonPipe
     CommonModule,
     LoadingIndicatorComponent
-],
+  ],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
 })
 export class CustomerListComponent implements OnInit {
-    
+
   public customers: Customer[] = [];
   public loading = true;
+  public errorMessage: string | null = null;
 
-  constructor(private customerService: CustomerService){}
+  constructor(private customerService: CustomerService) { }
 
   // entsprcht connectedCallback 
   ngOnInit(): void {
@@ -28,10 +29,17 @@ export class CustomerListComponent implements OnInit {
 
   loadCustomers() {
     this.loading = true;
+    this.errorMessage = null;
     this.customerService.getAll()
-      .subscribe((customers) => {
-        this.customers = customers;
-        this.loading = false;
+      .subscribe({
+        next: (customers) => {
+          this.customers = customers;
+          this.loading = false;
+        },
+        error: (e: Error) => {
+          this.errorMessage = e.message;
+          this.loading = false;
+        }
       });
   }
 
