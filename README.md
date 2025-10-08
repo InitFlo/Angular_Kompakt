@@ -513,12 +513,11 @@ Dokumentation: [https://getbootstrap.com/docs/5.3/getting-started/introduction/]
 - Rückgabe eines generischen **Promises (`Promise<T>`)** für asynchrone Operationen
 - Anwendung von **Generics** in Kombination mit `fetch()`:
 
-````
   ```ts
   function getData<T>(url: string): Promise<T> {
       return fetch(url).then(response => response.json());
   }
-````
+  ```
 
 - Erstellung von **Interfaces** zur Definition von Objektstrukturen:
 
