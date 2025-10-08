@@ -72,5 +72,20 @@ describe('CustomerListComponent', () => {
       component.deleteCustomer({ id: 1 } as Customer)
       expect(customerServiceMock.deleteById).toHaveBeenCalled();
     })
+
+    it('should handle Error', () => {
+      const errorMessage = "Fehler2";
+      customerServiceMock.deleteById.mockReturnValue(
+        throwError(() => {
+          return new Error(errorMessage)
+        })
+      )
+
+      expect(component.errorMessage).toBeNull();
+      component.deleteCustomer({ id: 1 } as Customer)
+      expect(customerServiceMock.deleteById).toHaveBeenCalled();
+      expect(component.errorMessage).toEqual(errorMessage);
+
+    })
   });
 });
