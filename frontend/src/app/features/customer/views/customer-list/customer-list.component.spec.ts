@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerListComponent } from './customer-list.component';
+import { CustomerService } from '../../services/customer.service';
+import { of } from 'rxjs';
 
 describe('CustomerListComponent', () => {
   let component: CustomerListComponent;
@@ -8,9 +10,19 @@ describe('CustomerListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomerListComponent]
+      imports: [CustomerListComponent],
+      providers: [
+        {
+          provide: CustomerService,
+          useValue: {
+            getAll: () => {
+              return of([]);
+            }
+          }
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CustomerListComponent);
     component = fixture.componentInstance;
