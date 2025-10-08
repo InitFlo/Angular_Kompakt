@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerListComponent } from './customer-list.component';
 import { CustomerService } from '../../services/customer.service';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { Customer } from '../../model/customer';
 
-const createCustomerSericeMock = function () {
-   const service = {
+const createCustomerServiceMock = function () {
+  const service = {
     getAll: jest.fn(),
     deleteById: jest.fn(),
   }
@@ -20,9 +20,10 @@ const createCustomerSericeMock = function () {
 describe('CustomerListComponent', () => {
   let component: CustomerListComponent;
   let fixture: ComponentFixture<CustomerListComponent>;
-  let customerServiceMock = createCustomerSericeMock();
+  let customerServiceMock: any;
 
   beforeEach(async () => {
+    customerServiceMock = createCustomerServiceMock();
     await TestBed.configureTestingModule({
       imports: [CustomerListComponent],
       providers: [
@@ -32,7 +33,7 @@ describe('CustomerListComponent', () => {
         }
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CustomerListComponent);
     component = fixture.componentInstance;
@@ -48,12 +49,27 @@ describe('CustomerListComponent', () => {
       expect(component.loadCustomers).toBeTruthy();
       expect(customerServiceMock.getAll).toHaveBeenCalled();
     })
+
+    it('should handle Error', () => {
+      const errorMessage = "Fehler";
+      customerServiceMock.getAll.mockReturnValue(
+        throwError(() => {
+          return new Error(errorMessage)
+        })
+      )
+
+      expect(component.errorMessage).toBeNull();
+      component.loadCustomers();
+      expect(customerServiceMock.getAll).toHaveBeenCalled();
+      expect(component.errorMessage).toEqual(errorMessage);
+
+    })
   });
 
   describe('deleteCustomer', () => {
     it('should exist and work', () => {
       expect(component.deleteCustomer).toBeTruthy();
-      component.deleteCustomer({id: 1} as Customer)
+      component.deleteCustomer({ id: 1 } as Customer)
       expect(customerServiceMock.deleteById).toHaveBeenCalled();
     })
   });
