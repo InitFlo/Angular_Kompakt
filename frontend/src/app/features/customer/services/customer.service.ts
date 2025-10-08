@@ -18,11 +18,6 @@ export class CustomerService {
   // constructor(private http: HttpClient) { }
 
   getAll(): Observable<Customer[]> {
-    console.log(environment);
-    console.log(url);
-
     return this.#http.get<Customer[]>(url);
-    
-    //return of(mock);
   }
 }
