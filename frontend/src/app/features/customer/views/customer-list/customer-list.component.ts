@@ -3,14 +3,16 @@ import type { Customer } from '../../model/customer';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { CustomerService } from '../../services/customer.service';
 import { LoadingIndicatorComponent } from "../../../../components/loading-indicator/loading-indicator.component";
+import { ErrorBoxComponent } from "../../../../components/error-box/error-box.component";
 
 @Component({
   selector: 'app-customer-list',
   imports: [
     // JsonPipe
     CommonModule,
-    LoadingIndicatorComponent
-  ],
+    LoadingIndicatorComponent,
+    ErrorBoxComponent
+],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
 })
