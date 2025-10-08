@@ -14,10 +14,14 @@ const url = environment.apiUrl + 'customers/';
 export class CustomerService {
 
   #http = inject(HttpClient);
-  
+
   // constructor(private http: HttpClient) { }
 
   getAll(): Observable<Customer[]> {
     return this.#http.get<Customer[]>(url);
+  }
+
+  deleteById(id: number) {
+    return this.#http.delete(url + id);
   }
 }
