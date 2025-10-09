@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CustomerFormComponent } from './customer-form.component';
 
 describe('CustomerFormComponent', () => {
@@ -26,8 +25,8 @@ describe('CustomerFormComponent', () => {
       expect(component.formHandler).toBeTruthy();
 
       const emitSpy = jest.spyOn(component.customerSubmit, 'emit');
-      component.formHandler()
+      component.formHandler();
       expect(emitSpy).toHaveBeenCalled();
     })
-  });
-})
+  })
+});

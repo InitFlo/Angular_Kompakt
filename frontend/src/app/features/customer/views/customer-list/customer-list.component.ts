@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import type { Customer } from '../../model/customer';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { CustomerService } from '../../services/customer.service';
 import { LoadingIndicatorComponent } from '../../../../components/loading-indicator/loading-indicator.component';
 import { ErrorBoxComponent } from "../../../../components/error-box/error-box.component";
@@ -28,7 +28,7 @@ export class CustomerListComponent implements OnInit {
   public loading = true;
   public errorMessage: string | null = null;
 
-  constructor(private customerService: CustomerService) { }
+  private customerService: CustomerService = inject(CustomerService)
 
   // entsprcht connectedCallback 
   ngOnInit(): void {

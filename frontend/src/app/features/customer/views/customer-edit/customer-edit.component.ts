@@ -21,14 +21,13 @@ export class CustomerEditComponent implements OnInit {
   #router = inject(Router)
   id = +(inject(ActivatedRoute).snapshot.paramMap.get('customerId') as string);
 
-  constructor(private customerService: CustomerService) { }
+  private customerService: CustomerService = inject(CustomerService)
 
   ngOnInit(): void {
     this.loadOneCustomer();
   }
 
   loadOneCustomer() {
-    console.log(this.id, typeof this.id)
 
     this.saving = true;
     this.errorMessage = null;
@@ -56,11 +55,16 @@ export class CustomerEditComponent implements OnInit {
     this.customerService.putOne(customer)
       .subscribe({
         next: (customer) => {
-          console.log(customer);
+          console.log(customer)
           this.customer = customer;
           this.saving = false;
-          this.#router.navigate(['/customers']);
+          this.#router.navigate(['/customers'])
+        },
+        error: (e: Error) => {
+          this.errorMessage = e.message;
+          this.saving = false;
         }
       });
+
   }
 }

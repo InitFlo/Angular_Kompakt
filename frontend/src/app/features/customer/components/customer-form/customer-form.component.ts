@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, Input, input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Customer } from '../../model/customer';
 

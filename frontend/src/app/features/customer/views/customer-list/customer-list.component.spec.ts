@@ -5,23 +5,13 @@ import { CustomerService } from '../../services/customer.service';
 import { of, throwError } from 'rxjs';
 import { Customer } from '../../model/customer';
 import { provideRouter } from '@angular/router';
+import { createCustomerServiceMock } from '../../../../../../testdata/mocks/services/customer.service.mock';
 
-const createCustomerServiceMock = function () {
-   const service = {
-    getAll: jest.fn(),
-    deleteById: jest.fn(),
-  }
-
-  service.deleteById.mockReturnValue(of({}))
-  service.getAll.mockReturnValue(of([]))
-
-  return service;
-}
 
 describe('CustomerListComponent', () => {
   let component: CustomerListComponent;
   let fixture: ComponentFixture<CustomerListComponent>;
-  let customerServiceMock: any;
+  let customerServiceMock: Partial<CustomerService>;
 
   beforeEach(async () => {
     customerServiceMock = createCustomerServiceMock();
