@@ -1,16 +1,17 @@
-<form>
+<form (ngSubmit)="formHandler()" [formGroup]="fields">
     <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
-        <input type="text" name="name" id="name" class="form-control">
+        <input type="text" name="name" id="name" class="form-control" formControlName="name">
     </div>
 
     <div class="mb-3">
         <label for="credit-limit" class="form-label">Kreditlimit:</label>
-        <input type="number" name="credit_limit" id="credit-limit" class="form-control">
+        <input type="number" step="0.01" min="0" name="credit_limit" id="credit-limit" class="form-control"
+            formControlName="credit_limit">
     </div>
 
     <div class="mb-3">
-        <button class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" [disabled]="fields.invalid">
             <ng-content></ng-content>
         </button>
     </div>
