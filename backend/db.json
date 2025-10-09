@@ -14,6 +14,11 @@
       "id": 5,
       "name": "Matt",
       "credit_limit": 75
+    },
+    {
+      "name": "eeeee",
+      "credit_limit": 0,
+      "id": 6
     }
   ],
   "products": [
