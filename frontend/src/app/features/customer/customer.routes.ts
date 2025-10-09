@@ -1,6 +1,8 @@
 import { Routes } from "@angular/router";
 import { CustomerIndexComponent } from "./customer-index.component";
 import { CustomerListComponent } from "./views/customer-list/customer-list.component";
+import { CustomerEditComponent } from "./views/customer-edit/customer-edit.component";
+import { CustomerNewComponent } from "./views/customer-new/customer-new.component";
 
 export const customerRoutes: Routes = [
     {
@@ -15,6 +17,14 @@ export const customerRoutes: Routes = [
             {
                 path: 'dashboard',
                 component: CustomerListComponent
+            },
+            {
+                path: 'new',
+                component: CustomerNewComponent
+            },
+            {
+                path: 'edit/:customerId',
+                component: CustomerEditComponent
             }
         ]
     }
