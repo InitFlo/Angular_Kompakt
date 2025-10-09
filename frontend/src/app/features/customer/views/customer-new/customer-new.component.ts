@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CustomerFormComponent } from "../../components/customer-form/customer-form.component";
 import { Customer } from '../../model/customer';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-customer-new',
@@ -10,8 +11,17 @@ import { Customer } from '../../model/customer';
 })
 export class CustomerNewComponent {
 
+  constructor(private customerService: CustomerService) {
+
+  }
+
   createCustomer(customer: Partial<Customer>) {
-    console.log(customer);
+    this.customerService.postOne(customer)
+      .subscribe({
+        next: (customer) => {
+          console.log("Neu angelegt: " + customer);
+        }
+      })
   }
 
 }

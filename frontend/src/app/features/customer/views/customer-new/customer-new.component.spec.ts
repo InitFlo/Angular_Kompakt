@@ -10,7 +10,7 @@ describe('CustomerNewComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CustomerNewComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CustomerNewComponent);
     component = fixture.componentInstance;
@@ -20,4 +20,8 @@ describe('CustomerNewComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('createCustomer', ( ()=> {
+
+  }))
 });
