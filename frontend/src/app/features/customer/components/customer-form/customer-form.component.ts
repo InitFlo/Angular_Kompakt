@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -12,23 +12,28 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
   styleUrl: './customer-form.component.scss'
 })
 export class CustomerFormComponent {
-  formHandler() {
-    const customer = this.fields.value;
-    console.log(customer);
-  }
+
+  @Output()
+  public customerSubmit = new EventEmitter();
 
   fields = inject(FormBuilder).group({
-    name: ['', 
+    name: ['',
       [
-      Validators.required,
-      Validators.minLength(2)
-    ]
-  ],
+        Validators.required,
+        Validators.minLength(2)
+      ]
+    ],
     credit_limit: [0,
       [
-      Validators.required,
-      Validators.min(0)
+        Validators.required,
+        Validators.min(0)
       ]
     ]
   })
+
+  formHandler() {
+    const customer = this.fields.value;
+    console.log(customer);
+    this.customerSubmit.emit(customer);
+  }
 }
