@@ -7,7 +7,7 @@
 @if(saving) {
 <app-loading-indicator></app-loading-indicator>
 } @else {
-<app-customer-form>
+<app-customer-form [formData]="customer">
     Änderungen speichern
 </app-customer-form>
 }

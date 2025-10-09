@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, input, OnInit, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Customer } from '../../model/customer';
 
 @Component({
   selector: 'app-customer-form',
@@ -11,7 +12,10 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
   templateUrl: './customer-form.component.html',
   styleUrl: './customer-form.component.scss'
 })
-export class CustomerFormComponent {
+export class CustomerFormComponent implements OnInit {
+
+  @Input()
+  public formData?: Customer;
 
   @Output()
   public customerSubmit = new EventEmitter();
@@ -32,6 +36,12 @@ export class CustomerFormComponent {
       ]
     ]
   });
+
+  ngOnInit(): void {
+    if (this.formData) {
+      this.fields.patchValue(this.formData);
+    }
+  }
 
   formHandler() {
     const customer = this.fields.value;
