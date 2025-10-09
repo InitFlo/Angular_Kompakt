@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CustomerFormComponent } from "../../components/customer-form/customer-form.component";
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from '../../model/customer';
 import { CustomerService } from '../../services/customer.service';
 import { ErrorBoxComponent } from "../../../../components/error-box/error-box.component";
@@ -12,15 +12,22 @@ import { LoadingIndicatorComponent } from "../../../../components/loading-indica
   templateUrl: './customer-edit.component.html',
   styleUrl: './customer-edit.component.scss'
 })
-export class CustomerEditComponent {
+export class CustomerEditComponent implements OnInit {
 
   constructor(private customerService: CustomerService) {
 
+  }
+  ngOnInit(): void {
+    this.loadOneCustomer();
+  }
+  loadOneCustomer() {
+    console.log(this.id, typeof this.id);
   }
 
   public saving = false;
   public errorMessage: string | null = null;
   #router = inject(Router);
+  id = +(inject(ActivatedRoute).snapshot.paramMap.get('customerId') as string);
 
   createCustomer(customer: Partial<Customer>) {
     this.saving = true;
