@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-form',
   imports: [
+    CommonModule,
     ReactiveFormsModule
   ],
   templateUrl: './customer-form.component.html',
