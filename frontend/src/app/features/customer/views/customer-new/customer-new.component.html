@@ -1,4 +1,11 @@
 <h2>Neuer Kunde</h2>
+@if(errorMessage !== null) {
+<app-error-box>{{errorMessage}}</app-error-box>
+}
+@if(saving) {
+<app-loading-indicator></app-loading-indicator>
+} @else {
 <app-customer-form (customerSubmit)="createCustomer($event)">
     Jetzt anlegen
 </app-customer-form>
+}
