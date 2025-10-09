@@ -18,6 +18,9 @@ export class CustomerEditComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    if (isNaN(this.id)) {
+      this.#router.navigate(['/customers']);
+    }
     this.loadOneCustomer();
   }
   loadOneCustomer() {
