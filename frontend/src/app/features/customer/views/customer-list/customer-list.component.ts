@@ -12,10 +12,11 @@ import { RouterLink } from '@angular/router';
   imports: [
     // JsonPipe
     CommonModule,
+    RouterLink,
+
     LoadingIndicatorComponent,
     ErrorBoxComponent,
-    CustomerTableComponent,
-    RouterLink
+    CustomerTableComponent
   ],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
@@ -56,15 +57,15 @@ export class CustomerListComponent implements OnInit {
     this.errorMessage = null;
 
     this.customerService.deleteById(id)
-      .subscribe({
-        next: () => {
-          this.loadCustomers()
-          // this.loading = false;
-        },
-        error: (e: Error) => {
-          this.errorMessage = e.message;
-          this.loading = false;
-        }
-      })
+    .subscribe({
+      next: () => {
+        this.loadCustomers()
+        // this.loading = false;
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      }
+    })
   }
 }

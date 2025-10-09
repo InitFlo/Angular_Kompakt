@@ -4,9 +4,10 @@ import { CustomerListComponent } from './customer-list.component';
 import { CustomerService } from '../../services/customer.service';
 import { of, throwError } from 'rxjs';
 import { Customer } from '../../model/customer';
+import { provideRouter } from '@angular/router';
 
 const createCustomerServiceMock = function () {
-  const service = {
+   const service = {
     getAll: jest.fn(),
     deleteById: jest.fn(),
   }
@@ -27,13 +28,14 @@ describe('CustomerListComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CustomerListComponent],
       providers: [
+        provideRouter([]),
         {
           provide: CustomerService,
           useValue: customerServiceMock
         }
       ]
     })
-      .compileComponents();
+    .compileComponents();
 
     fixture = TestBed.createComponent(CustomerListComponent);
     component = fixture.componentInstance;
@@ -69,7 +71,7 @@ describe('CustomerListComponent', () => {
   describe('deleteCustomer', () => {
     it('should exist and work', () => {
       expect(component.deleteCustomer).toBeTruthy();
-      component.deleteCustomer({ id: 1 } as Customer)
+      component.deleteCustomer({id: 1} as Customer)
       expect(customerServiceMock.deleteById).toHaveBeenCalled();
     })
 
@@ -82,7 +84,7 @@ describe('CustomerListComponent', () => {
       )
 
       expect(component.errorMessage).toBeNull();
-      component.deleteCustomer({ id: 1 } as Customer)
+      component.deleteCustomer({id : 1} as Customer);
       expect(customerServiceMock.deleteById).toHaveBeenCalled();
       expect(component.errorMessage).toEqual(errorMessage);
 

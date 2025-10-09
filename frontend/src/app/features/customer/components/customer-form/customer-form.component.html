@@ -1,22 +1,22 @@
 <form (ngSubmit)="formHandler()" [formGroup]="fields">
     <div class="mb-3">
-        @if(fields.controls['name'].invalid && fields.touched){
-            <p>Mindestens 2 Buchstaben sind erforderlich</p>
-        }
         <label for="name" class="form-label">Name:</label>
-        <input type="text" minlength="2" name="name" id="name" class="form-control" formControlName="name" [ngClass]="{
+        @if(fields.controls['name'].invalid && fields.touched){
+           <p> Mindestens 2 Buchtstaben erforderlich.</p>
+        }
+        <p></p>
+        <input type="text" name="name" id="name" class="form-control" formControlName="name" [ngClass]="{
             'is-invalid': fields.controls['name'].invalid && fields.touched,
             'is-valid': fields.controls['name'].valid,
         }">
     </div>
 
     <div class="mb-3">
-        <label for="credit-limit" class="form-label">Kreditlimit:</label>
-        <input type="number" step="0.01" min="0" name="credit_limit" id="credit-limit" class="form-control"
-            formControlName="credit_limit" [ngClass]="{
-                'is-invalid': fields.controls['credit_limit'].invalid && fields.touched,
-                'is-valid': fields.controls['credit_limit'].valid,
-            }">
+        <label for="credit_limit" class="form-label">Kreditlimit:</label>
+        <input type="number" step="0.01" min="0" name="credit_limit" id="credit_limit" class="form-control" formControlName="credit_limit" [ngClass]="{
+            'is-invalid': fields.controls['credit_limit'].invalid && fields.touched,
+            'is-valid': fields.controls['credit_limit'].valid && fields.touched,
+        }">
     </div>
 
     <div class="mb-3">

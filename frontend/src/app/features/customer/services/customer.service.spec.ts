@@ -4,6 +4,7 @@ import { CustomerService } from './customer.service';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { firstValueFrom } from 'rxjs';
+import { customersMock } from '../../../../../testdata/mocks/api/customers';
 
 describe('CustomerService', () => {
   let service: CustomerService;
@@ -42,30 +43,29 @@ describe('CustomerService', () => {
       expect(req.request.method).toBe('GET');
 
       // mock-Daten 
-      req.flush([]);
+      req.flush(customersMock);
 
-      expect(await customersPromise).toEqual([])
+      expect(await customersPromise).toEqual(customersMock)
 
       httpTesting.verify();
 
     })
+    describe('getAll', () => {
+      it('should call delete', async () => {
+        // $ bedeutet Observable
+        const deleteId = customersMock[0].id;
+        service.deleteById(deleteId).subscribe();
 
-    it('should call delete', async () => {
-      // $ bedeutet Observable
-      const deleteId = 1;
+        const url = 'http://localhost:3001/customers/' + deleteId;
 
-      service.deleteById(deleteId).subscribe();
+        // Der Aufruf, wie er ausgesehen hätte
+        const req = httpTesting.expectOne(url);
+        expect(req.request.method).toBe('DELETE');
 
-      const url = 'http://localhost:3001/customers/' + deleteId;
-
-      // Der Aufruf, wie er ausgesehen hätte
-      const req = httpTesting.expectOne(url);
-      expect(req.request.method).toBe('DELETE');
-
-      // mock-Daten 
-      req.flush({});
-      httpTesting.verify();
-
+        // mock-Daten 
+        req.flush({});
+        httpTesting.verify();
+      })
     })
-  })
+  });
 });

@@ -6,7 +6,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
   selector: 'app-customer-form',
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './customer-form.component.html',
   styleUrl: './customer-form.component.scss'
@@ -16,20 +16,22 @@ export class CustomerFormComponent {
   @Output()
   public customerSubmit = new EventEmitter();
 
-  fields = inject(FormBuilder).group({
-    name: ['',
+  public fields = inject(FormBuilder).group({
+    name: [
+      '',
       [
         Validators.required,
         Validators.minLength(2)
       ]
     ],
-    credit_limit: [0,
+    credit_limit: [
+      0,
       [
         Validators.required,
         Validators.min(0)
       ]
     ]
-  })
+  });
 
   formHandler() {
     const customer = this.fields.value;

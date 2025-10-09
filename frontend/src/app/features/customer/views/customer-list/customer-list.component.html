@@ -10,11 +10,11 @@
 </div>
 
 @if(errorMessage !== null) {
-<app-error-box>{{errorMessage}}</app-error-box>
+    <app-error-box>{{errorMessage}}</app-error-box>
 }
 
 @if(loading) {
-<app-loading-indicator></app-loading-indicator>
+   <app-loading-indicator></app-loading-indicator>
 } @else if (errorMessage === null) {
-<app-customer-table [customers]="customers" (deleteCustomer)="deleteCustomer($event)"></app-customer-table>
+    <app-customer-table [customers]="customers" (deleteCustomer)="deleteCustomer($event)"></app-customer-table>
 }
