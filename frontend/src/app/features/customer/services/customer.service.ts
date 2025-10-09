@@ -14,7 +14,7 @@ const url = environment.apiUrl + 'customers/';
 export class CustomerService {
 
   #http = inject(HttpClient);
-  
+
   // constructor(private http: HttpClient) { }
 
   getAll(): Observable<Customer[]> {
@@ -23,5 +23,9 @@ export class CustomerService {
 
   deleteById(id: number) {
     return this.#http.delete(url + id);
+  }
+
+  postOne(customer: Partial<Customer>): Observable<Customer> {
+    return this.#http.post<Customer>(url, customer);
   }
 }

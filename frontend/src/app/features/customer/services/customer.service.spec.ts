@@ -6,6 +6,8 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { firstValueFrom } from 'rxjs';
 import { customersMock } from '../../../../../testdata/mocks/api/customers';
 
+const url = 'http://localhost:3001/customers/'
+
 describe('CustomerService', () => {
   let service: CustomerService;
   let httpTesting: HttpTestingController;
@@ -35,8 +37,6 @@ describe('CustomerService', () => {
       // $ bedeutet Observable
       const customers$ = service.getAll();
       const customersPromise = firstValueFrom(customers$);
-
-      const url = 'http://localhost:3001/customers/'
 
       // Der Aufruf, wie er ausgesehen hätte
       const req = httpTesting.expectOne(url);
@@ -68,4 +68,27 @@ describe('CustomerService', () => {
       })
     })
   });
+
+  describe('should post one Customer', () => {
+    it('should exists', () => {
+      expect(service.postOne).toBeTruthy();
+    });
+
+    it('should post one Customer', async () => {
+      const customerToPost = customersMock[0];
+      const customerResponse = customerToPost;
+
+      const customer$ = service.postOne(customerToPost);
+      const customersPromise = firstValueFrom(customer$);
+      const req = httpTesting.expectOne(url);
+      expect(req.request.method).toBe('POST');
+
+      req.flush(customerResponse);
+
+      expect(await customersPromise).toEqual(customerResponse);
+
+      httpTesting.verify();
+    })
+  }
+  )
 });
