@@ -10,7 +10,7 @@ describe('CustomerFormComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CustomerFormComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CustomerFormComponent);
     component = fixture.componentInstance;
@@ -20,4 +20,14 @@ describe('CustomerFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+
+  describe('formHandler', () => {
+    it('should exist and trigger customerSubmit', () => {
+      expect(component.formHandler).toBeTruthy();
+
+      const emitSpy = jest.spyOn(component.customerSubmit, 'emit');
+      component.formHandler()
+      expect(emitSpy).toHaveBeenCalled();
+    })
+  });
+})
