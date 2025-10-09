@@ -6,19 +6,21 @@ import { HttpClient } from '@angular/common/http';
 
 const url = environment.apiUrl + 'customers/';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
   #http = inject(HttpClient);
-
+  
   // constructor(private http: HttpClient) { }
 
   getAll(): Observable<Customer[]> {
     return this.#http.get<Customer[]>(url);
+  }
+
+  getById(id: number): Observable<Customer> {
+    return this.#http.get<Customer>(url + id);
   }
 
   deleteById(id: number) {

@@ -1,51 +1,49 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CustomerFormComponent } from "../../components/customer-form/customer-form.component";
 import { ActivatedRoute, Router } from '@angular/router';
-import { Customer } from '../../model/customer';
 import { CustomerService } from '../../services/customer.service';
-import { ErrorBoxComponent } from "../../../../components/error-box/error-box.component";
 import { LoadingIndicatorComponent } from "../../../../components/loading-indicator/loading-indicator.component";
+import { ErrorBoxComponent } from "../../../../components/error-box/error-box.component";
+import { Customer } from '../../model/customer';
 
 @Component({
   selector: 'app-customer-edit',
-  imports: [CustomerFormComponent, ErrorBoxComponent, LoadingIndicatorComponent],
+  imports: [CustomerFormComponent, LoadingIndicatorComponent, ErrorBoxComponent],
   templateUrl: './customer-edit.component.html',
   styleUrl: './customer-edit.component.scss'
 })
 export class CustomerEditComponent implements OnInit {
 
-  constructor(private customerService: CustomerService) {
-
-  }
-  ngOnInit(): void {
-    if (isNaN(this.id)) {
-      this.#router.navigate(['/customers']);
-    }
-    this.loadOneCustomer();
-  }
-  loadOneCustomer() {
-    console.log(this.id, typeof this.id);
-  }
-
   public saving = false;
   public errorMessage: string | null = null;
-  #router = inject(Router);
+  public customer !: Customer;
+
+  #router = inject(Router)
   id = +(inject(ActivatedRoute).snapshot.paramMap.get('customerId') as string);
 
-  createCustomer(customer: Partial<Customer>) {
+  constructor(private customerService: CustomerService) { }
+
+  ngOnInit(): void {
+    this.loadOneCustomer();
+  }
+
+  loadOneCustomer() {
+    console.log(this.id, typeof this.id)
+
     this.saving = true;
     this.errorMessage = null;
-    this.customerService.postOne(customer)
+
+    this.customerService.getById(this.id)
       .subscribe({
         next: (customer) => {
-          console.log("Neu angelegt: " + customer);
+          console.log(customer)
+          this.customer = customer;
           this.saving = false;
-          this.#router.navigate(['/customers'])
         },
         error: (e: Error) => {
-          this.saving = false;
           this.errorMessage = e.message;
+          this.saving = false;
         }
-      })
+      });
   }
 }

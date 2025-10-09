@@ -50,28 +50,61 @@ describe('CustomerService', () => {
       httpTesting.verify();
 
     })
-    describe('getAll', () => {
-      it('should call delete', async () => {
-        // $ bedeutet Observable
-        const deleteId = customersMock[0].id;
-        service.deleteById(deleteId).subscribe();
+  });
 
-        const url = 'http://localhost:3001/customers/' + deleteId;
 
-        // Der Aufruf, wie er ausgesehen hätte
-        const req = httpTesting.expectOne(url);
-        expect(req.request.method).toBe('DELETE');
+  describe('getById', () => {
+    it('should exist', () => {
+      expect(service.getById).toBeTruthy();
+    })
 
-        // mock-Daten 
-        req.flush({});
-        httpTesting.verify();
-      })
+    it('should call get', async () => {
+      // $ bedeutet Observable
+      const getId = customersMock[0].id
+      const customer$ = service.getById(getId);
+      const customerPromise = firstValueFrom(customer$);
+
+      // Der Aufruf, wie er ausgesehen hätte
+      const req = httpTesting.expectOne(url + getId);
+      expect(req.request.method).toBe('GET');
+
+      // mock-Daten 
+      req.flush(customersMock[0]);
+
+      expect(await customerPromise).toEqual(customersMock[0])
+
+      httpTesting.verify();
+
     })
   });
 
-  describe('should post one Customer', () => {
-    it('should exists', () => {
+  describe('deleteById', () => {
+    it('should call delete', async () => {
+      // $ bedeutet Observable
+      const deleteId = customersMock[0].id;
+      service.deleteById(deleteId).subscribe();
+
+      const url = 'http://localhost:3001/customers/' + deleteId;
+
+      // Der Aufruf, wie er ausgesehen hätte
+      const req = httpTesting.expectOne(url);
+      expect(req.request.method).toBe('DELETE');
+
+      // mock-Daten 
+      req.flush({});
+      httpTesting.verify();
+    })
+  });
+
+  // Suite
+  describe('postOne', () => {
+    // Spec / Test
+    it('should exist', () => {
+
+      // Expectation
+      // Matcher .toBeTruthy() 
       expect(service.postOne).toBeTruthy();
+
     });
 
     it('should post one Customer', async () => {
@@ -79,16 +112,15 @@ describe('CustomerService', () => {
       const customerResponse = customerToPost;
 
       const customer$ = service.postOne(customerToPost);
-      const customersPromise = firstValueFrom(customer$);
+      const customerPromise = firstValueFrom(customer$);
       const req = httpTesting.expectOne(url);
       expect(req.request.method).toBe('POST');
 
       req.flush(customerResponse);
 
-      expect(await customersPromise).toEqual(customerResponse);
+      expect(await customerPromise).toEqual(customerResponse)
 
       httpTesting.verify();
     })
-  }
-  )
+  });
 });
