@@ -5,6 +5,7 @@ import { CustomerService } from '../../services/customer.service';
 import { LoadingIndicatorComponent } from '../../../../components/loading-indicator/loading-indicator.component';
 import { ErrorBoxComponent } from "../../../../components/error-box/error-box.component";
 import { CustomerTableComponent } from "../../components/customer-table/customer-table.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -13,7 +14,8 @@ import { CustomerTableComponent } from "../../components/customer-table/customer
     CommonModule,
     LoadingIndicatorComponent,
     ErrorBoxComponent,
-    CustomerTableComponent
+    CustomerTableComponent,
+    RouterLink
   ],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
@@ -54,15 +56,15 @@ export class CustomerListComponent implements OnInit {
     this.errorMessage = null;
 
     this.customerService.deleteById(id)
-    .subscribe({
-      next: () => {
-        this.loadCustomers()
-        // this.loading = false;
-      },
-      error: (e: Error) => {
-        this.errorMessage = e.message;
-        this.loading = false;
-      }
-    })
+      .subscribe({
+        next: () => {
+          this.loadCustomers()
+          // this.loading = false;
+        },
+        error: (e: Error) => {
+          this.errorMessage = e.message;
+          this.loading = false;
+        }
+      })
   }
 }

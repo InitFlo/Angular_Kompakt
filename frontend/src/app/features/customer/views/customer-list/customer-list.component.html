@@ -1,7 +1,7 @@
 <h2>Kundenliste</h2>
 
 <div class="d-flex justify-content-between my-4">
-    <button class="btn btn-primary">
+    <button class="btn btn-primary" routerLink="/customers/new">
         Neuer Kunde
     </button>
     <button class="btn btn-outline-secondary" (click)="loadCustomers()">
@@ -10,11 +10,11 @@
 </div>
 
 @if(errorMessage !== null) {
-    <app-error-box>{{errorMessage}}</app-error-box>
+<app-error-box>{{errorMessage}}</app-error-box>
 }
 
 @if(loading) {
-   <app-loading-indicator></app-loading-indicator>
+<app-loading-indicator></app-loading-indicator>
 } @else if (errorMessage === null) {
-    <app-customer-table [customers]="customers" (deleteCustomer)="deleteCustomer($event)"></app-customer-table>
+<app-customer-table [customers]="customers" (deleteCustomer)="deleteCustomer($event)"></app-customer-table>
 }
