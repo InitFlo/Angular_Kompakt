@@ -1,1 +1,17 @@
-<p>customer-form works!</p>
+<form>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" name="name" id="name" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="credit-limit" class="form-label">Kreditlimit:</label>
+        <input type="number" name="credit_limit" id="credit-limit" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-primary">
+            <ng-content></ng-content>
+        </button>
+    </div>
+</form>
