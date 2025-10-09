@@ -46,4 +46,21 @@ export class CustomerEditComponent implements OnInit {
         }
       });
   }
+
+  updateCustomer(customer: Customer) {
+    customer.id = this.id;
+
+    this.saving = true;
+    this.errorMessage = null;
+
+    this.customerService.putOne(customer)
+      .subscribe({
+        next: (customer) => {
+          console.log(customer);
+          this.customer = customer;
+          this.saving = false;
+          this.#router.navigate(['/customers']);
+        }
+      });
+  }
 }

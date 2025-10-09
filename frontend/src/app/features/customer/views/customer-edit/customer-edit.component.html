@@ -6,8 +6,8 @@
 
 @if(saving) {
 <app-loading-indicator></app-loading-indicator>
-} @else {
-<app-customer-form [formData]="customer">
+} @else if(errorMessage === null) {
+<app-customer-form [formData]="customer" (customerSubmit)="updateCustomer($event)">
     Änderungen speichern
 </app-customer-form>
 }

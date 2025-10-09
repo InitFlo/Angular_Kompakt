@@ -12,7 +12,7 @@ const url = environment.apiUrl + 'customers/';
 export class CustomerService {
 
   #http = inject(HttpClient);
-  
+
   // constructor(private http: HttpClient) { }
 
   getAll(): Observable<Customer[]> {
@@ -29,5 +29,9 @@ export class CustomerService {
 
   postOne(customer: Partial<Customer>): Observable<Customer> {
     return this.#http.post<Customer>(url, customer);
+  }
+
+  putOne(customer: Customer): Observable<Customer> {
+    return this.#http.put<Customer>(url + customer.id, customer);
   }
 }
