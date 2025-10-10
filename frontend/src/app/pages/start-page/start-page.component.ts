@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-start-page',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './start-page.component.scss'
 })
 export class StartPageComponent {
-
+  counter = signal(0);
+  
+  increment() {
+    this.counter.update((c) => ++c);
+  }
 }
