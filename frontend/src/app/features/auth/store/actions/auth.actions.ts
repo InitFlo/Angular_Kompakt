@@ -1,4 +1,4 @@
-import { createActionGroup, props } from '@ngrx/store';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { LoginData } from '../../model/login-data';
 import { User } from '../../model/user';
 
@@ -8,5 +8,6 @@ export const AuthActions = createActionGroup({
     'Login': props<{ data: LoginData}>(),
     'Login Success': props<{ user: User }>(),
     'Login Failure': props<{ error: unknown }>(),
+    'Logout': emptyProps(),
   }
 });

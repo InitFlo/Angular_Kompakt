@@ -24,11 +24,17 @@ export const reducer = createReducer(
       loading: true,
     }
   }),
-  on(AuthActions.loginSuccess, (state, {user}): State => {
+  on(AuthActions.loginSuccess, (state, { user }): State => {
     return {
       ...state,
       loading: false,
       user,
+    }
+  }),
+  on(AuthActions.logout, (state): State => {
+    return {
+      ...state,
+      user: null,
     }
   })
 );

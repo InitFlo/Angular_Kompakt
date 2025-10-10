@@ -1,23 +1,30 @@
-<nav class="navbar navbar-expand-sm bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/">CRM</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+@let loggedIn = loggedIn$ | async;
 
-          <li class="nav-item" routerLinkActive="bg-info">
-            <a class="nav-link" routerLink="/start">Start</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="bg-info" routerLink="/customers">Kundenverwaltung</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="bg-info" routerLink="/about">Über uns</a>
-          </li>
-        </ul>
-<button class="btn btn-warning" routerLink="/login">Login</button>
-      </div>
+<nav class="navbar navbar-expand-sm bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">CRM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item" routerLinkActive="bg-info">
+          <a class="nav-link" routerLink="/start">Start</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="bg-info" routerLink="/customers">Kundenverwaltung</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="bg-info" routerLink="/about">Über uns</a>
+        </li>
+      </ul>
+      @if(loggedIn) {
+      <button class="btn btn-outline-secondary" (click)="logout()">Logout</button>
+      } @else {
+      <button class="btn btn-warning" routerLink="/login">Login</button>
+      }
     </div>
-  </nav>
+  </div>
+</nav>
