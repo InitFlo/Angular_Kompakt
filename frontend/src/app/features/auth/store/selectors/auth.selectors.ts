@@ -12,8 +12,8 @@ export const selectLoading = createSelector(
 
 export const selectLoggedIn = createSelector(
   selectAuthState,
-  auth => !!auth.user //cast zu einem boolean
-);
+  auth => !!auth.user // cast zu einem boolean
+)
 
 export const selectUserName = createSelector(
   selectAuthState,
