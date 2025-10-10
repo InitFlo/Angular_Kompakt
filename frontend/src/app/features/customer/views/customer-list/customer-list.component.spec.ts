@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerListComponent } from './customer-list.component';
 import { CustomerService } from '../../services/customer.service';
-import { of, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { Customer } from '../../model/customer';
 import { provideRouter } from '@angular/router';
 import { createCustomerServiceMock } from '../../../../../../testdata/mocks/services/customer.service.mock';
@@ -25,7 +25,7 @@ describe('CustomerListComponent', () => {
         }
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CustomerListComponent);
     component = fixture.componentInstance;
@@ -61,7 +61,7 @@ describe('CustomerListComponent', () => {
   describe('deleteCustomer', () => {
     it('should exist and work', () => {
       expect(component.deleteCustomer).toBeTruthy();
-      component.deleteCustomer({id: 1} as Customer)
+      component.deleteCustomer({ id: 1 } as Customer)
       expect(customerServiceMock.deleteById).toHaveBeenCalled();
     })
 
@@ -74,7 +74,7 @@ describe('CustomerListComponent', () => {
       )
 
       expect(component.errorMessage).toBeNull();
-      component.deleteCustomer({id : 1} as Customer);
+      component.deleteCustomer({ id: 1 } as Customer);
       expect(customerServiceMock.deleteById).toHaveBeenCalled();
       expect(component.errorMessage).toEqual(errorMessage);
 
