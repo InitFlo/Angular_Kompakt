@@ -13,16 +13,14 @@ IT-Entwickler\*innen
 ### 🧠 Voraussetzungen
 
 Entwickler\*innen von Web- und Clientanwendungen.  
-Kenntnisse zumindest einer (objektorientierten) Programmiersprache und Erfahrung mit **JavaScript**, **HTML** und **CSS
-**,  
+Kenntnisse zumindest einer (objektorientierten) Programmiersprache und Erfahrung mit **JavaScript**, **HTML** und **CSS**,
 sowie Kenntnisse im Umgang mit Datentypen und Erstellen von eigenen Funktionen.
 
 ### 🎓 Ziele
 
 Die Teilnehmenden kennen die Aspekte für die Umsetzung von Angular-Enterprise-Anwendungen.  
 Sie wissen, wie man wiederverwendbaren Code mit Modularisierung erreicht.  
-Sie verwenden erweitertes Routing und Zustandsverwaltung mit **NgRx** und implementieren **Unit-Tests** und **E2E-Tests
-**.
+Sie verwenden erweitertes Routing und Zustandsverwaltung mit **NgRx** und implementieren **Unit-Tests** und **E2E-Tests**.
 
 ---
 
@@ -517,7 +515,6 @@ Dokumentation: [https://getbootstrap.com/docs/5.3/getting-started/introduction/]
   function getData<T>(url: string): Promise<T> {
       return fetch(url).then(response => response.json());
   }
-  ```
 
 - Erstellung von **Interfaces** zur Definition von Objektstrukturen:
 
@@ -1708,15 +1705,7 @@ Web Component → ProductService → HttpClient → JSON Server → Response →
 └── 📄 README.md                       # Schulungsdokumentation
 ```
 
-Sehr gut 👏 — das ist der perfekte nächste Schritt in deiner Schulung:
-Ihr startet jetzt mit einem **eigenständigen TypeScript-Projekt** auf Basis von **Vite**.
-
-Hier ist der direkt passende Abschnitt für dein `README.md` – **formatiert wie in Tag 01**,
-und markiert als offizieller Beginn von **📅 Tag 2 – Einstieg in moderne Build-Tools (Vite + TS)**.
-
 ---
-
-# 📅 Tag 2 – 07.10.2025
 
 ## ⚡ Einstieg in moderne TypeScript-Entwicklung mit Vite
 
@@ -3250,13 +3239,13 @@ export class CustomerListComponent {
 
 ### 🧠 Erklärung der Template-Features
 
-| Feature                                        | Beschreibung                                                      |                                                                     |
-| ---------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `@for`                                         | Neue Angular-Control-Flow-Syntax für Iterationen (statt `*ngFor`) |                                                                     |
-| `track customer.id`                            | Optimiert Rendering durch Nachverfolgung einzelner Datensätze     |                                                                     |
-| `                                              | json`                                                             | Gibt Rohdaten-Objekte als formatierten JSON-Text aus (zum Debuggen) |
-| `                                              | currency : 'EUR' : 'symbol'`                                      | Formatiert Zahlen als Euro-Beträge                                  |
-| Bootstrap-Klassen (`table`, `btn`, `text-end`) | Gestalten die Tabelle responsiv und klar strukturiert             |                                                                     |
+| Feature                                        | Beschreibung                                                        |
+| ---------------------------------------------- | ------------------------------------------------------------------- |
+| `@for`                                         | Neue Angular-Control-Flow-Syntax für Iterationen (statt `*ngFor`)   |
+| `track customer.id`                            | Optimiert Rendering durch Nachverfolgung einzelner Datensätze       |
+| `json`                                         | Gibt Rohdaten-Objekte als formatierten JSON-Text aus (zum Debuggen) |
+| `currency : 'EUR' : 'symbol'`                  | Formatiert Zahlen als Euro-Beträge                                  |
+| Bootstrap-Klassen (`table`, `btn`, `text-end`) | Gestalten die Tabelle responsiv und klar strukturiert               |
 
 ---
 
@@ -3625,3 +3614,6211 @@ export class CustomerService {
 - Vorbereitung für **echte HTTP-Requests mit `HttpClient`**
 
 ---
+
+# 📅 Tag 3 - 08.10.25
+
+### 📂 Projektstruktur (Tag 03 – Beginn)
+
+```
+📁 frontend/
+│
+├── 📁 src/
+│   ├── 📁 app/
+│   │   ├── 📁 components/
+│   │   │   └── ... (z. B. Navigation, Footer)
+│   │   │
+│   │   ├── 📁 features/
+│   │   │   └── 📁 customer/
+│   │   │       ├── 📁 model/
+│   │   │       │   └── 📄 customer.ts
+│   │   │       │
+│   │   │       ├── 📁 services/
+│   │   │       │   ├── 📄 customer.service.ts
+│   │   │       │   └── 📄 customer.service.spec.ts
+│   │   │       │
+│   │   │       ├── 📁 views/
+│   │   │       │   └── 📁 customer-list/
+│   │   │       │       ├── 📄 customer-list.component.html
+│   │   │       │       ├── 📄 customer-list.component.scss
+│   │   │       │       ├── 📄 customer-list.component.ts
+│   │   │       │       └── 📄 customer-list.component.spec.ts
+│   │   │       │
+│   │   │       ├── 📄 customer-index.component.ts
+│   │   │       ├── 📄 customer-index.component.spec.ts
+│   │   │       └── 📄 customer.routes.ts
+│   │   │
+│   │   ├── 📁 pages/
+│   │   │   ├── 📄 app.component.ts
+│   │   │   ├── 📄 app.component.spec.ts
+│   │   │   ├── 📄 app.config.ts
+│   │   │   └── 📄 app.routes.ts
+│   │   │
+│   │   └── ...
+│   │
+│   ├── 📁 environments/
+│   │   ├── 📄 environment.ts
+│   │   └── 📄 environment.development.ts
+│   │
+│   ├── 📄 index.html
+│   ├── 📄 main.ts
+│   └── 📄 styles.scss
+│
+├── 📄 angular.json
+├── 📄 jest.config.js
+├── 📄 package.json
+├── 📄 package-lock.json
+├── 📄 setup-jest.ts
+├── 📄 tsconfig.json
+├── 📄 tsconfig.app.json
+├── 📄 tsconfig.spec.json
+├── 📄 .editorconfig
+├── 📄 .gitignore
+└── 📄 README.md
+```
+
+---
+
+## 🧪 Einführung in Unit-Testing mit Jest
+
+Um automatisierte Tests für unsere Angular-Anwendung auszuführen,  
+wurde das moderne Testframework **Jest** eingerichtet.  
+Jest ersetzt die Standardlösung **Karma + Jasmine** und bietet eine  
+schnellere, einfachere und besser integrierte Testumgebung.
+
+---
+
+### ⚙️ Installation der Abhängigkeiten
+
+Im Frontend-Ordner wurde Jest samt Angular-Preset installiert:
+
+```bash
+npm install jest jest-preset-angular@14 @types/jest --save-dev
+```
+
+➡️ **Erläuterung:**
+
+- `jest` → Testframework
+- `jest-preset-angular` → Angular-spezifische Integration (Templates, Decorators, Zonen)
+- `@types/jest` → TypeScript-Typdefinitionen für Jest
+
+---
+
+### ⚙️ Konfiguration der `tsconfig.spec.json`
+
+Damit TypeScript weiß, wie Testdateien kompiliert werden, wurde sie so angepasst:
+
+```json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": ["jest"]
+  },
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
+}
+```
+
+---
+
+### ⚙️ Erstellung der `jest.config.js`
+
+Diese Datei legt fest, wie Jest mit Angular-Code arbeitet:
+
+```js
+module.exports = {
+  preset: "jest-preset-angular",
+  setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
+  testPathIgnorePatterns: ["/node_modules/", "/dist/"],
+  coverageDirectory: "coverage",
+  collectCoverageFrom: [
+    "src/app/**/*.ts",
+    "!src/main.ts",
+    "!src/app/**/*.module.ts",
+    "!src/**/*.spec.ts",
+  ],
+};
+```
+
+➡️ **Wichtig:**
+`setupFilesAfterEnv` verweist auf die Datei, die Jest für das Zone-Handling benötigt.
+
+---
+
+### ⚙️ Erstellung der Datei `setup-jest.ts`
+
+Diese Datei wurde im `frontend`-Verzeichnis angelegt, um die Angular-Test-Umgebung zu initialisieren:
+
+```ts
+import { setupZoneTestEnv } from "jest-preset-angular/setup-env/zone";
+
+setupZoneTestEnv();
+```
+
+➡️ **Erklärung:**
+
+- `setupZoneTestEnv()` richtet die Test-Zonen korrekt ein,
+  sodass Angular-Features wie Change Detection und `fakeAsync()` funktionieren.
+- Diese Datei wird beim Start jedes Tests automatisch ausgeführt.
+
+---
+
+### ⚙️ Anpassung der `package.json`
+
+Die `scripts`-Sektion wurde erweitert:
+
+```json
+"scripts": {
+  "test": "jest",
+  "test:watch": "jest --watch",
+  "test:coverage": "jest --coverage"
+}
+```
+
+➡️ Damit stehen nun folgende Testbefehle bereit:
+
+| Befehl                  | Beschreibung                                         |
+| ----------------------- | ---------------------------------------------------- |
+| `npm run test`          | Führt alle Tests einmalig aus                        |
+| `npm run test:watch`    | Beobachtet Änderungen und führt Tests erneut aus     |
+| `npm run test:coverage` | Erstellt Code-Coverage-Bericht im Ordner `coverage/` |
+
+---
+
+### 🧩 Beispieltest (Service)
+
+```ts
+import { CustomerService } from "./customer.service";
+import { Customer } from "../model/customer";
+
+describe("CustomerService", () => {
+  let service: CustomerService;
+
+  beforeEach(() => {
+    service = new CustomerService();
+  });
+
+  it("should return mock customers", (done) => {
+    service.getAll().subscribe((customers: Customer[]) => {
+      expect(customers.length).toBeGreaterThan(0);
+      expect(customers[0].name).toBe("Tim");
+      done();
+    });
+  });
+});
+```
+
+---
+
+### 🧠 Lernziele
+
+- Einrichtung von Jest als Ersatz für Karma + Jasmine
+- Nutzung von `jest-preset-angular` für Angular-Tests
+- Verständnis des `setup-jest.ts`-Zone-Setups
+- Ausführen von Tests im Watch- und Coverage-Modus
+- Schreiben von Unit-Tests für Services und Komponenten
+
+---
+
+### 🔗 Nützliche Links
+
+- 📘 [Jest – Offizielle Dokumentation](https://jestjs.io/docs/getting-started)
+- 🧩 [jest-preset-angular](https://github.com/thymikee/jest-preset-angular)
+- 🧠 [Angular Testing Guide](https://angular.dev/guide/testing)
+- 💡 [TypeScript + Jest Setup](https://kulshekhar.github.io/ts-jest/docs/getting-started/installation/)
+
+---
+
+Perfekt 💪 — das ist super wertvoller Inhalt für deine **README (Tag 03 – Jest-Einführung)**!
+Hier ist dein kompletter Abschnitt **im passenden Stil deiner bisherigen Dokumentation**,
+sofort einsatzbereit zum Einfügen unter dem Jest-Kapitel oder als eigenständiger Unterabschnitt:
+
+---
+
+## 🧪 Jest – Tests gezielt ausführen
+
+Jest bietet zahlreiche Möglichkeiten, um **spezifische Tests** gezielt auszuführen,
+anstatt das gesamte Test-Set laufen zu lassen.
+Hier findest du eine Übersicht der wichtigsten Optionen für den Arbeitsalltag mit Angular + Jest.
+
+---
+
+### 1️⃣ Nach Test-Datei filtern
+
+**Direkter Pfad:**
+
+```bash
+npm test src/app/my-component.spec.ts
+```
+
+**Pattern Matching:**
+
+```bash
+npm test -- --testPathPattern=component
+npm test -- --testPathPattern="app/services"
+```
+
+---
+
+### 2️⃣ Nach Testnamen filtern
+
+**Mit `-t` oder `--testNamePattern`:**
+
+```bash
+# Führt nur Tests aus, die "should create" im Namen haben
+npm test -- -t "should create"
+
+# Regex-Pattern
+npm test -- -t "should (create|render)"
+
+# Mehrere Wörter
+npm test -- --testNamePattern="login.*success"
+```
+
+---
+
+### 3️⃣ Im Code: `.only` und `.skip`
+
+**Nur bestimmte Tests ausführen:**
+
+```typescript
+// Nur dieser Test wird ausgeführt
+it.only("should create", () => {
+  expect(component).toBeTruthy();
+});
+
+// Ganze Suite ausführen
+describe.only("MyComponent", () => {
+  it("test 1", () => {});
+  it("test 2", () => {});
+});
+```
+
+**Tests überspringen:**
+
+```typescript
+it.skip("should do something", () => {
+  // Wird übersprungen
+});
+
+describe.skip("MyComponent", () => {
+  // Alle Tests hier werden übersprungen
+});
+```
+
+---
+
+### 4️⃣ Weitere nützliche Optionen
+
+**Nur geänderte Tests ausführen:**
+
+```bash
+npm test -- -o
+# oder
+npm test -- --onlyChanged
+```
+
+**Nur fehlgeschlagene Tests wiederholen:**
+
+```bash
+npm test -- --onlyFailures
+```
+
+**Coverage für bestimmte Dateien sammeln:**
+
+```bash
+npm test -- --collectCoverageFrom="src/app/services/**/*.ts"
+```
+
+**Mehrere Filter kombinieren:**
+
+```bash
+npm test -- --testPathPattern=services -t "should fetch"
+```
+
+---
+
+### 5️⃣ Eigene Scripts in der `package.json`
+
+Um Tests einfacher auszuführen, können eigene Skripte definiert werden:
+
+```json
+{
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:component": "jest --testPathPattern=components",
+    "test:services": "jest --testPathPattern=services",
+    "test:unit": "jest --testPathPattern='spec.ts$'",
+    "test:failed": "jest --onlyFailures"
+  }
+}
+```
+
+Beispiel:
+
+```bash
+npm run test:component
+npm run test:failed
+```
+
+---
+
+### 6️⃣ Watch-Modus – interaktiv filtern
+
+Starte Jest im Watch-Modus:
+
+```bash
+npm run test:watch
+```
+
+Verfügbare Tastenkürzel:
+
+| Taste | Funktion                              |
+| ----- | ------------------------------------- |
+| **p** | Filter nach Dateiname-Pattern         |
+| **t** | Filter nach Test-Name-Pattern         |
+| **a** | Alle Tests ausführen                  |
+| **f** | Nur fehlgeschlagene Tests wiederholen |
+
+**Beispiel:**
+
+```bash
+npm run test:watch
+# Danach "p" drücken und z. B. "login" eingeben
+```
+
+---
+
+### 💡 Häufige Use Cases
+
+| Ziel             | Befehl                                           |
+| ---------------- | ------------------------------------------------ |
+| Einzelne Datei   | `npm test src/app/login/login.component.spec.ts` |
+| Testnamen        | `npm test -- -t "should login successfully"`     |
+| Schnell debuggen | `.only()` im Testcode verwenden                  |
+
+---
+
+## 🧩 AppComponent Unit-Test mit Jest & Angular Router
+
+Nachdem Jest erfolgreich eingerichtet wurde,
+wurde nun die erste Angular-Komponente (`AppComponent`) mit einer echten Testkonfiguration versehen.
+
+---
+
+### 📄 Datei: `app.component.spec.ts`
+
+```typescript
+import { TestBed } from "@angular/core/testing";
+import { AppComponent } from "./app.component";
+import { provideRouter } from "@angular/router";
+
+describe("AppComponent", () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AppComponent],
+      providers: [
+        provideRouter([]), // Router für die Testumgebung bereitstellen
+      ],
+    }).compileComponents();
+  });
+
+  it("should create the app", () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it(`should have the 'frontend' title`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual("frontend");
+  });
+
+  /*
+  // Optionaler Test für gerenderten Inhalt
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, frontend');
+  });
+  */
+});
+```
+
+---
+
+### 🧠 Erklärung
+
+- `TestBed` erstellt eine isolierte **Testumgebung** für Angular-Komponenten.
+- `provideRouter([])` stellt den Angular **Router-Service** bereit,
+  damit auch Komponenten mit Routing-Abhängigkeiten getestet werden können.
+- `compileComponents()` sorgt dafür, dass Templates und Styles geladen werden.
+- `fixture.componentInstance` gibt die konkrete Instanz der Komponente zurück.
+- `expect(app).toBeTruthy()` prüft, ob die Komponente erfolgreich erstellt wurde.
+
+---
+
+### ▶️ Test ausführen
+
+Um gezielt nur diese Datei zu testen:
+
+```bash
+npm test -- app.component.spec.ts
+```
+
+Oder im Watch-Modus:
+
+```bash
+npm run test:watch
+# Danach "p" drücken und z. B. "app.component" eingeben
+```
+
+---
+
+### ✅ Ergebnis
+
+Nach dem erfolgreichen Lauf zeigt Jest z. B.:
+
+```
+PASS src/app/pages/app.component.spec.ts
+  AppComponent
+    ✓ should create the app (xx ms)
+    ✓ should have the 'frontend' title (xx ms)
+```
+
+Damit wurde erfolgreich bestätigt,
+dass der Jest-Test-Stack korrekt mit Angulars `TestBed` und `Router` funktioniert.
+
+---
+
+## 🧩 Component- und Service-Tests mit Jest
+
+Nachdem Jest erfolgreich konfiguriert wurde,
+wurden mehrere **Unit-Tests** für Angular-Komponenten und -Services erstellt.
+Dabei kamen **Mocks**, **Dependency Injection**, und **HttpClientTesting** zum Einsatz.
+
+---
+
+### 📄 `customer-list.component.spec.ts`
+
+```typescript
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { CustomerListComponent } from "./customer-list.component";
+import { CustomerService } from "../../../services/customer.service";
+import { of } from "rxjs";
+
+describe("CustomerListComponent", () => {
+  let component: CustomerListComponent;
+  let fixture: ComponentFixture<CustomerListComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CustomerListComponent],
+      providers: [
+        {
+          provide: CustomerService,
+          useValue: {
+            getAll: () => of([]), // Mock-Datenquelle statt echter HTTP-Request
+          },
+        },
+      ],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(CustomerListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- Test prüft, ob die Komponente erstellt werden kann
+- `CustomerService` wird per Mock simuliert
+- kein realer API-Aufruf nötig
+- verhindert unnötige `console.log()`-Ausgaben im Produktionscode
+
+---
+
+### 📄 `customer-list.component.ts` (angepasst)
+
+```typescript
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
+import { Customer } from "../../../model/customer";
+import { CustomerService } from "../../../services/customer.service";
+
+@Component({
+  selector: "app-customer-list",
+  imports: [CommonModule],
+  templateUrl: "./customer-list.component.html",
+  styleUrl: "./customer-list.component.scss",
+})
+export class CustomerListComponent {
+  public customers: Customer[] = [];
+
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit(): void {
+    this.loadCustomers();
+  }
+
+  loadCustomers() {
+    this.customerService.getAll().subscribe((customers) => {
+      this.customers = customers;
+    });
+  }
+}
+```
+
+🧠 **Änderung:**
+
+- Alle `console.log()` entfernt → Tests übernehmen die Validierung.
+- Logik bleibt identisch, aber produktionsreif.
+
+---
+
+### 📄 `customer.service.spec.ts`
+
+```typescript
+import { TestBed } from "@angular/core/testing";
+import { CustomerService } from "./customer.service";
+import { provideHttpClient } from "@angular/common/http";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
+
+describe("CustomerService", () => {
+  let service: CustomerService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(CustomerService);
+  });
+
+  it("should be created", () => {
+    expect(service).toBeTruthy();
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- `CustomerService` kann korrekt instanziiert werden
+- `HttpClientTestingModule` sorgt für sichere Test-Isolation ohne echte API-Aufrufe
+
+---
+
+### 📄 `customer.service.ts` (angepasst)
+
+```typescript
+import { inject, Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Customer } from "../model/customer";
+import { environment } from "../../../../environments/environment";
+import { HttpClient } from "@angular/common/http";
+
+const url = environment.apiUrl + "/customers";
+
+@Injectable({
+  providedIn: "root",
+})
+export class CustomerService {
+  #http = inject(HttpClient);
+
+  getAll(): Observable<Customer[]> {
+    return this.#http.get<Customer[]>(url);
+  }
+}
+```
+
+🧠 **Änderung:**
+
+- `inject(HttpClient)` anstelle von Konstruktor-Injection
+- Entfernte `console.log()` → saubere Service-Logik
+
+---
+
+### 📄 `navigation.component.spec.ts`
+
+```typescript
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { NavigationComponent } from "./navigation.component";
+import { provideRouter } from "@angular/router";
+
+describe("NavigationComponent", () => {
+  let component: NavigationComponent;
+  let fixture: ComponentFixture<NavigationComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [NavigationComponent],
+      providers: [provideRouter([])],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(NavigationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- Testet, ob die Navigation korrekt initialisiert werden kann
+- Router wird mit `provideRouter([])` bereitgestellt
+
+---
+
+### ▶️ Tests ausführen
+
+Einzelne Testdatei:
+
+```bash
+npm test -- customer-list.component.spec.ts
+
+npm test -- customer.service.spec.ts
+
+npm test -- navigation.component.spec.ts
+```
+
+Oder Watch-Modus:
+
+```bash
+npm run test:watch
+# Danach "p" drücken und z. B. "customer" eingeben
+#
+# Dann wird jedes pattern mit "customer" getestet:
+#
+PASS  src/app/features/customer/services/customer.service.spec.ts
+
+PASS  src/app/features/customer/views/customer-list/customer-list/customer-list.component.spec.ts
+
+PASS  src/app/features/customer/customer-index.component.spec.ts
+
+# Es verhält sich somit bei allen anderen pattern gleich
+# z.B. "navigation, app, page, usw. ..."
+```
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich         | Ziel                                        | Werkzeug                    |
+| --------------- | ------------------------------------------- | --------------------------- |
+| Komponententest | Prüfung auf Initialisierung & DOM-Verhalten | Jest + Angular TestBed      |
+| Servicetest     | Prüfung der API-Integration & HTTP-Aufrufe  | HttpClientTestingModule     |
+| Mocking         | Vermeidung echter API-Calls                 | RxJS `of()` + DI `useValue` |
+| Router-Test     | Isolierte Navigationstests                  | `provideRouter([])`         |
+
+---
+
+## 🌀 LoadingIndicator Component
+
+Um während des Ladens von Daten eine visuelle Rückmeldung anzuzeigen, wurde ein **LoadingIndicator** erstellt.
+Dieser zeigt einen Bootstrap-Spinner, solange die Daten über den Service geladen werden.
+
+---
+
+### 📄 `loading-indicator.component.html`
+
+```html
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 100%;"
+>
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+```
+
+✅ **Ergebnis:**
+
+- Nutzt den Bootstrap Flex Spinner
+- Wird zentriert angezeigt
+- Dient als generische Ladeanzeige für verschiedene Komponenten
+
+---
+
+### 📄 `customer-list.component.ts` (angepasst)
+
+```typescript
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
+import { Customer } from "../../../model/customer";
+import { CustomerService } from "../../../services/customer.service";
+
+@Component({
+  selector: "app-customer-list",
+  imports: [CommonModule],
+  templateUrl: "./customer-list.component.html",
+  styleUrl: "./customer-list.component.scss",
+})
+export class CustomerListComponent {
+  public customers: Customer[] = [];
+  public loading = true;
+
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit(): void {
+    this.loadCustomers();
+  }
+
+  loadCustomers() {
+    this.loading = true;
+    this.customerService.getAll().subscribe((customers) => {
+      this.customers = customers;
+      this.loading = false;
+    });
+  }
+}
+```
+
+🧠 **Änderung:**
+
+- Neues Property `loading` hinzugefügt
+- Wird beim Start des Datenladens auf `true` gesetzt
+- Nach erfolgreichem Abruf auf `false` gesetzt
+
+---
+
+### 📄 `customer-list.component.html` (angepasst)
+
+```html
+<h2>Kundenliste</h2>
+
+<app-loading-indicator *ngIf="loading"></app-loading-indicator>
+
+<div *ngIf="!loading">
+  <ul>
+    <li *ngFor="let customer of customers">{{ customer.name }}</li>
+  </ul>
+</div>
+```
+
+✅ **Ergebnis:**
+
+- Zeigt den Spinner nur während des Ladens (`loading === true`)
+- Nach Abschluss des Ladevorgangs werden die Kundendaten eingeblendet
+- Verbesserung der User Experience durch visuelles Feedback
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich              | Ziel                                 | Werkzeug / Konzept                 |
+| -------------------- | ------------------------------------ | ---------------------------------- |
+| UI-Feedback          | Anzeige während Datenabfrage         | Bootstrap Spinner                  |
+| Zustandshandling     | Steuerung über `loading`-Variable    | Angular Template Binding (`*ngIf`) |
+| Wiederverwendbarkeit | Separate Ladeanzeige für alle Module | `LoadingIndicator` Component       |
+
+---
+
+## 🧩 Vergleich: `*ngIf` vs. `@if` (Angular 17+)
+
+| Thema             | `*ngIf` (klassisch)                              | `@if` / `@else` (neu seit Angular 17) |
+| ----------------- | ------------------------------------------------ | ------------------------------------- |
+| **Status**        | ✅ weiterhin voll unterstützt                    | 🧪 neu, „Block Syntax“                |
+| **Import nötig?** | Nein                                             | Nein                                  |
+| **Lesbarkeit**    | Gut, aber verschachtelt bei komplexen Strukturen | Besser für verschachtelte Bedingungen |
+| **Syntax**        | Template-basierte Structural Directive           | Neue Template Block Syntax            |
+
+---
+
+### 🧱 Beispiel: klassisch mit `*ngIf`
+
+```html
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="!loading">Content</div>
+```
+
+### 🚀 Neues Angular 17+ Syntax mit `@if`
+
+```html
+@if (loading) {
+<div>Loading...</div>
+} @else {
+<div>Content</div>
+}
+```
+
+Beide funktionieren **identisch**, aber `@if` ist etwas moderner und klarer bei komplexeren Strukturen — insbesondere wenn du `@for`, `@switch` oder `@defer` verwendest (alles Teil der neuen Template-Control-Flow-Syntax in Angular 17).
+
+---
+
+### 🧠 Fazit
+
+| Empfehlung                                                                        | Grund                               |
+| --------------------------------------------------------------------------------- | ----------------------------------- |
+| ✅ Verwende `*ngIf`, wenn du Abwärtskompatibilität oder bestehenden Code pflegst. | 100 % stabil und bekannt            |
+| 🚀 Verwende `@if`, wenn du Angular 17+ nutzt und neue Features einführen willst.  | Modernere Syntax, klarere Templates |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧭 **Angular Structural Directives (klassisch, inkl. `*ngIf`):**
+  [https://angular.io/guide/structural-directives](https://angular.io/guide/structural-directives)
+
+- 🚀 **Angular Template Control Flow (`@if`, `@for`, `@switch`, `@defer` – ab Angular 17):**
+  [https://angular.dev/guide/template-control-flow](https://angular.dev/guide/template-control-flow)
+
+- 🧱 **Ankündigung / Migration zur neuen Syntax:**
+  [https://blog.angular.dev/angular-v17-is-here-43651aef84e7#b9c0](https://blog.angular.dev/angular-v17-is-here-43651aef84e7#b9c0)
+
+- 💅 **Bootstrap Spinner Dokumentation:**
+  [https://getbootstrap.com/docs/5.3/components/spinners/](https://getbootstrap.com/docs/5.3/components/spinners/)
+
+- ⚙️ **Angular Komponenten-Erstellung:**
+  [https://angular.io/cli/generate#component-command](https://angular.io/cli/generate#component-command)
+
+---
+
+## ⚠️ Error Handling & Modernes Template Control Flow
+
+Um Fehler während des Datenabrufs abzufangen und dem Benutzer anzuzeigen, wurde ein **Error Handling** in der `CustomerListComponent` integriert.
+Zudem nutzt die Komponente jetzt die **neue Template Control Flow Syntax** (`@if`, `@for`) aus Angular 17+.
+
+---
+
+### 📄 `customer-list.component.ts` (angepasst)
+
+```typescript
+import { CommonModule, JsonPipe } from "@angular/common";
+import { Component } from "@angular/core";
+import { Customer } from "../../../model/customer";
+import { CustomerService } from "../../../services/customer.service";
+import { LoadingIndicatorComponent } from "../../../../../components/loading-indicator/loading-indicator.component";
+
+@Component({
+  selector: "app-customer-list",
+  imports: [CommonModule, LoadingIndicatorComponent],
+  templateUrl: "./customer-list.component.html",
+  styleUrl: "./customer-list.component.scss",
+})
+export class CustomerListComponent {
+  public customers: Customer[] = [];
+  public loading = true;
+  public errorMessage: string | null = null;
+
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit(): void {
+    this.loadCustomers();
+  }
+
+  loadCustomers() {
+    this.loading = true;
+    this.errorMessage = null;
+
+    this.customerService.getAll().subscribe({
+      next: (customers) => {
+        this.customers = customers;
+        this.loading = false;
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      },
+    });
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Fehler werden abgefangen und in `errorMessage` gespeichert
+- `loading` wird bei Fehlern zuverlässig deaktiviert
+- UI reagiert dynamisch auf Lade- und Fehlerzustände
+
+---
+
+### 📄 `customer-list.component.html` (angepasst)
+
+```html
+<h2>Kundenliste</h2>
+
+<div class="d-flex justify-content-between my-4">
+  <button class="btn btn-primary">Neuer Kunde</button>
+  <button class="btn btn-outline-secondary" (click)="loadCustomers()">
+    Aktualisieren
+  </button>
+</div>
+
+@if(errorMessage !== null) {
+<div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+} @if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else {
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Kredit Limit</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(customer of customers; track customer.id) {
+    <tr>
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.name }}</td>
+      <td class="text-end">
+        {{ customer.credit_limit | currency : "EUR" : "symbol" }}
+      </td>
+      <td class="text-end">
+        <button class="btn btn-sm btn-primary">Bearbeiten</button>
+        <button class="btn btn-sm btn-danger">Löschen</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+}
+```
+
+✅ **Ergebnis:**
+
+- Anzeige einer roten Fehlermeldung über dem Inhalt
+- Spinner wird nur während des Ladens angezeigt
+- Kundenliste erscheint nach erfolgreichem Laden
+- Nutzung der modernen Angular 17-Syntax mit `@if` und `@for`
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                | Ziel                                  | Werkzeug / Konzept               |
+| ---------------------- | ------------------------------------- | -------------------------------- |
+| Fehlerbehandlung       | Anzeige von Fehlermeldungen im UI     | `errorMessage` + Bootstrap Alert |
+| Ladezustand            | Anzeige während Datenabfrage          | `loading` + `LoadingIndicator`   |
+| Template-Logik         | Klare Struktur durch neue Syntax      | `@if`, `@for` (Angular 17+)      |
+| Benutzerfreundlichkeit | Verständliche Rückmeldung bei Fehlern | UI-Alerts und Spinner            |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular Template Control Flow (neu ab v17):**
+  [https://angular.dev/guide/template-control-flow](https://angular.dev/guide/template-control-flow)
+
+- 🧱 **Bootstrap Alerts (Fehlermeldungen):**
+  [https://getbootstrap.com/docs/5.3/components/alerts/](https://getbootstrap.com/docs/5.3/components/alerts/)
+
+- 🧭 **RxJS Error Handling in Observables:**
+  [https://rxjs.dev/guide/operators#error-handling-operators](https://rxjs.dev/guide/operators#error-handling-operators)
+
+---
+
+## 🧱 ErrorBox Component
+
+Zur Vereinheitlichung der Fehlerdarstellung wurde eine eigene **ErrorBox Component** erstellt.
+Sie kapselt die Bootstrap-Alert-Darstellung und kann in allen Komponenten wiederverwendet werden.
+
+---
+
+### 📄 `error-box.component.html`
+
+```html
+<div class="alert alert-danger">
+  <ng-content></ng-content>
+</div>
+```
+
+✅ **Ergebnis:**
+
+- Nutzt das Bootstrap-Alert-Layout (`alert alert-danger`)
+- Übergibt den Fehltext per Content Projection (`<ng-content>`)
+- Kann überall eingebunden werden, wo Fehlermeldungen angezeigt werden sollen
+
+---
+
+### 📄 `customer-list.component.ts` (angepasst)
+
+```typescript
+import { CommonModule, JsonPipe } from "@angular/common";
+import { Component } from "@angular/core";
+import { Customer } from "../../../model/customer";
+import { CustomerService } from "../../../services/customer.service";
+import { LoadingIndicatorComponent } from "../../../../../components/loading-indicator/loading-indicator.component";
+import { ErrorBoxComponent } from "../../../../../components/error-box/error-box.component";
+
+@Component({
+  selector: "app-customer-list",
+  imports: [CommonModule, LoadingIndicatorComponent, ErrorBoxComponent],
+  templateUrl: "./customer-list.component.html",
+  styleUrl: "./customer-list.component.scss",
+})
+export class CustomerListComponent {
+  public customers: Customer[] = [];
+  public loading = true;
+  public errorMessage: string | null = null;
+
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit(): void {
+    this.loadCustomers();
+  }
+
+  loadCustomers() {
+    this.loading = true;
+    this.errorMessage = null;
+
+    this.customerService.getAll().subscribe({
+      next: (customers) => {
+        this.customers = customers;
+        this.loading = false;
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      },
+    });
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- `ErrorBoxComponent` wird als importiertes Modul verwendet
+- Kein doppelter Bootstrap-Code in Templates
+- Fehler werden über `errorMessage` zentral angezeigt
+
+---
+
+### 📄 `customer-list.component.html` (angepasst)
+
+```html
+<h2>Kundenliste</h2>
+
+<div class="d-flex justify-content-between my-4">
+  <button class="btn btn-primary">Neuer Kunde</button>
+  <button class="btn btn-outline-secondary" (click)="loadCustomers()">
+    Aktualisieren
+  </button>
+</div>
+
+@if(errorMessage !== null) {
+<app-error-box>{{ errorMessage }}</app-error-box>
+} @if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else {
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Kredit Limit</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(customer of customers; track customer.id) {
+    <tr>
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.name }}</td>
+      <td class="text-end">
+        {{ customer.credit_limit | currency : "EUR" : "symbol" }}
+      </td>
+      <td class="text-end">
+        <button class="btn btn-sm btn-primary">Bearbeiten</button>
+        <button class="btn btn-sm btn-danger">Löschen</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+}
+```
+
+✅ **Ergebnis:**
+
+- Fehleranzeige über `<app-error-box>`
+- Einheitliches Alert-Design in der gesamten App
+- Kombinierbar mit dem bestehenden `LoadingIndicator`
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich               | Ziel                                       | Werkzeug / Konzept           |
+| --------------------- | ------------------------------------------ | ---------------------------- |
+| Fehlerdarstellung     | Einheitliche Bootstrap-Fehlermeldung       | `ErrorBoxComponent`          |
+| Code-Wiederverwendung | Reduziert redundante HTML-Alert-Strukturen | Angular Content Projection   |
+| Integration           | Einbindung in `CustomerListComponent`      | `import` + `<app-error-box>` |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular Content Projection (`<ng-content>`):**
+  [https://angular.io/guide/content-projection](https://angular.io/guide/content-projection)
+
+- 💅 **Bootstrap Alerts:**
+  [https://getbootstrap.com/docs/5.3/components/alerts/](https://getbootstrap.com/docs/5.3/components/alerts/)
+
+- 🧭 **Angular Komponenten-Generierung (CLI):**
+  [https://angular.io/cli/generate#component-command](https://angular.io/cli/generate#component-command)
+
+---
+
+## 📋 CustomerTable Component mit `@Input()` Decorator
+
+Um den Code der `CustomerListComponent` zu vereinfachen und die Tabelle wiederverwendbar zu machen,
+wurde eine eigene **CustomerTableComponent** erstellt.
+Die Datenübergabe erfolgt über den Angular **`@Input()` Decorator**.
+
+---
+
+### 📁 Pfad
+
+```
+src/app/features/customer/components/customer-table/
+```
+
+---
+
+### 📄 `customer-table.component.ts`
+
+```typescript
+import { Component, Input } from "@angular/core";
+import { Customer } from "../../model/customer";
+import { CommonModule } from "@angular/common";
+
+@Component({
+  selector: "app-customer-table",
+  imports: [CommonModule],
+  templateUrl: "./customer-table.component.html",
+  styleUrl: "./customer-table.component.scss",
+})
+export class CustomerTableComponent {
+  @Input()
+  public customers: Customer[] = [];
+}
+```
+
+✅ **Ergebnis:**
+
+- `@Input()` ermöglicht den Datenempfang von der Elternkomponente
+- Tabelle kann mehrfach in unterschiedlichen Kontexten genutzt werden
+- Code bleibt übersichtlich und modular
+
+---
+
+### 📄 `customer-table.component.html`
+
+```html
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Kredit Limit</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(customer of customers; track customer.id) {
+    <tr>
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.name }}</td>
+      <td class="text-end">
+        {{ customer.credit_limit | currency : "EUR" : "symbol" }}
+      </td>
+      <td class="text-end">
+        <button class="btn btn-sm btn-primary">Bearbeiten</button>
+        <button class="btn btn-sm btn-danger">Löschen</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+```
+
+✅ **Ergebnis:**
+
+- Tabelle verwendet Bootstrap-Styles (`table table-striped`)
+- Darstellung identisch zur ursprünglichen Liste
+- Keine zusätzliche Logik nötig – erhält Daten rein über `@Input()`
+
+---
+
+### 📄 `customer-list.component.ts` (angepasst)
+
+```typescript
+import { CommonModule, JsonPipe } from "@angular/common";
+import { Component } from "@angular/core";
+import { Customer } from "../../../model/customer";
+import { CustomerService } from "../../../services/customer.service";
+import { LoadingIndicatorComponent } from "../../../../../components/loading-indicator/loading-indicator.component";
+import { ErrorBoxComponent } from "../../../../../components/error-box/error-box.component";
+import { CustomerTableComponent } from "../../components/customer-table/customer-table.component";
+
+@Component({
+  selector: "app-customer-list",
+  imports: [
+    CommonModule,
+    LoadingIndicatorComponent,
+    ErrorBoxComponent,
+    CustomerTableComponent,
+  ],
+  templateUrl: "./customer-list.component.html",
+  styleUrl: "./customer-list.component.scss",
+})
+export class CustomerListComponent {
+  public customers: Customer[] = [];
+  public loading = true;
+  public errorMessage: string | null = null;
+
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit(): void {
+    this.loadCustomers();
+  }
+
+  loadCustomers() {
+    this.loading = true;
+    this.errorMessage = null;
+
+    this.customerService.getAll().subscribe({
+      next: (customers) => {
+        this.customers = customers;
+        this.loading = false;
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      },
+    });
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- `CustomerTableComponent` wird eingebunden
+- Tabelle ist aus der `CustomerListComponent` entfernt
+- Übersichtlicher, wartbarer und besser testbar
+
+---
+
+### 📄 `customer-list.component.html` (angepasst)
+
+```html
+<h2>Kundenliste</h2>
+
+<div class="d-flex justify-content-between my-4">
+  <button class="btn btn-primary">Neuer Kunde</button>
+  <button class="btn btn-outline-secondary" (click)="loadCustomers()">
+    Aktualisieren
+  </button>
+</div>
+
+@if(errorMessage !== null) {
+<app-error-box>{{ errorMessage }}</app-error-box>
+} @if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else {
+<app-customer-table [customers]="customers"></app-customer-table>
+}
+```
+
+✅ **Ergebnis:**
+
+- Tabelle wird jetzt über `<app-customer-table>` eingebunden
+- Datenbindung erfolgt per `[customers]="customers"`
+- Sauberes Trennen von Datenlogik (List) und Darstellung (Table)
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich              | Ziel                                   | Werkzeug / Konzept                   |
+| -------------------- | -------------------------------------- | ------------------------------------ |
+| Code-Refactoring     | Tabelle aus Kundenliste ausgelagert    | `CustomerTableComponent`             |
+| Datenübergabe        | Kommunikation Eltern → Kind            | `@Input()` Decorator                 |
+| Modularität          | Wiederverwendbare UI-Komponente        | Angular Standalone Component         |
+| Lesbarkeit / Wartung | Sauber getrennte Logik und Darstellung | Strukturierte Komponentenarchitektur |
+
+---
+
+### 🔗 Nützliche Links
+
+- 📘 **Angular Input Decorator (`@Input()`):**
+  [https://angular.io/guide/inputs-outputs](https://angular.io/guide/inputs-outputs)
+
+- ⚙️ **Angular Standalone Components:**
+  [https://angular.dev/guide/standalone-components](https://angular.dev/guide/standalone-components)
+
+- 💅 **Bootstrap Tabellen:**
+  [https://getbootstrap.com/docs/5.3/content/tables/](https://getbootstrap.com/docs/5.3/content/tables/)
+
+---
+
+## 🗑️ Kunden löschen mit `@Output()` EventEmitter
+
+Um Benutzeraktionen (z. B. „Löschen“) aus der Kindkomponente (`CustomerTableComponent`) an die Elternkomponente (`CustomerListComponent`) zu übergeben,
+wurde ein **`@Output()` EventEmitter** implementiert.
+Damit kann die Elternkomponente auf Klicks im Tabellen-UI reagieren.
+
+---
+
+### 📄 `customer-table.component.ts` (angepasst)
+
+```typescript
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Customer } from "../../model/customer";
+import { CommonModule } from "@angular/common";
+
+@Component({
+  selector: "app-customer-table",
+  imports: [CommonModule],
+  templateUrl: "./customer-table.component.html",
+  styleUrl: "./customer-table.component.scss",
+})
+export class CustomerTableComponent {
+  @Input()
+  public customers: Customer[] = [];
+
+  @Output()
+  deleteCustomer = new EventEmitter<Customer>();
+
+  deleteHandler(customer: Customer) {
+    console.log("Delete customer", customer);
+    this.deleteCustomer.emit(customer);
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- `@Output()` erzeugt ein Event namens `deleteCustomer`
+- Die Kindkomponente kann damit Daten (den Kunden) an die Elternkomponente weiterreichen
+- `deleteHandler()` wird beim Klick auf den Button ausgelöst
+
+---
+
+### 📄 `customer-table.component.html` (angepasst)
+
+```html
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Kredit Limit</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(customer of customers; track customer.id) {
+    <tr>
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.name }}</td>
+      <td class="text-end">
+        {{ customer.credit_limit | currency : "EUR" : "symbol" }}
+      </td>
+      <td class="text-end">
+        <button class="btn btn-sm btn-primary">Bearbeiten</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteHandler(customer)">
+          Löschen
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+```
+
+✅ **Ergebnis:**
+
+- „Löschen“-Button triggert `deleteHandler()`
+- Übergibt den aktuellen Customer an den EventEmitter
+- Elternkomponente empfängt das Event über `(deleteCustomer)`
+
+---
+
+### 📄 `customer-list.component.ts` (angepasst)
+
+```typescript
+import { CommonModule, JsonPipe } from "@angular/common";
+import { Component } from "@angular/core";
+import { Customer } from "../../../model/customer";
+import { CustomerService } from "../../../services/customer.service";
+import { LoadingIndicatorComponent } from "../../../../../components/loading-indicator/loading-indicator.component";
+import { ErrorBoxComponent } from "../../../../../components/error-box/error-box.component";
+import { CustomerTableComponent } from "../../../components/customer-table/customer-table.component";
+
+@Component({
+  selector: "app-customer-list",
+  imports: [
+    CommonModule,
+    LoadingIndicatorComponent,
+    ErrorBoxComponent,
+    CustomerTableComponent,
+  ],
+  templateUrl: "./customer-list.component.html",
+  styleUrl: "./customer-list.component.scss",
+})
+export class CustomerListComponent {
+  public customers: Customer[] = [];
+  public loading = true;
+  public errorMessage: string | null = null;
+
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit(): void {
+    this.loadCustomers();
+  }
+
+  loadCustomers() {
+    this.loading = true;
+    this.customerService.getAll().subscribe({
+      next: (customers) => {
+        this.customers = customers;
+        this.loading = false;
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      },
+    });
+  }
+
+  deleteCustomer({ id }: Customer) {
+    console.log("Delete customer with id", id);
+    // Später: Service-Aufruf zum Löschen implementieren
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- `deleteCustomer()` wird durch das Event der Kindkomponente aufgerufen
+- Übergibt den selektierten Customer (Destructuring: `{ id }`)
+- Noch ohne Serverlogik → idealer Platz für zukünftige API-Integration
+
+---
+
+### 📄 `customer-list.component.html` (angepasst)
+
+```html
+<h2>Kundenliste</h2>
+
+<div class="d-flex justify-content-between my-4">
+  <button class="btn btn-primary">Neuer Kunde</button>
+  <button class="btn btn-outline-secondary" (click)="loadCustomers()">
+    Aktualisieren
+  </button>
+</div>
+
+@if(errorMessage !== null) {
+<app-error-box>{{ errorMessage }}</app-error-box>
+} @if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else if (errorMessage === null) {
+<app-customer-table
+  [customers]="customers"
+  (deleteCustomer)="deleteCustomer($event)"
+>
+</app-customer-table>
+}
+```
+
+✅ **Ergebnis:**
+
+- Event-Binding `(deleteCustomer)` verbindet Parent und Child
+- Saubere Kommunikation über definierte Schnittstelle
+- Konsistente Struktur im Template
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich             | Ziel                             | Werkzeug / Konzept                   |
+| ------------------- | -------------------------------- | ------------------------------------ |
+| Event-Kommunikation | Kind sendet Aktion an Eltern     | `@Output()` + EventEmitter           |
+| UI-Aktion           | Klick auf Löschen löst Event aus | `(click)` → `deleteHandler()`        |
+| Parent-Handler      | Reaktion auf Event               | `deleteCustomer($event)`             |
+| Erweiterbarkeit     | Basis für Service-Integration    | Platz für `CustomerService.delete()` |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular Output Decorator (`@Output()`):**
+  [https://angular.io/guide/inputs-outputs#sending-data-to-a-parent-component](https://angular.io/guide/inputs-outputs#sending-data-to-a-parent-component)
+
+- 🧩 **EventEmitter API Referenz:**
+  [https://angular.io/api/core/EventEmitter](https://angular.io/api/core/EventEmitter)
+
+- 💅 **Bootstrap Buttons:**
+  [https://getbootstrap.com/docs/5.3/components/buttons/](https://getbootstrap.com/docs/5.3/components/buttons/)
+
+---
+
+## 🧹 Kunden löschen über `CustomerService.deleteById()`
+
+Die `CustomerListComponent` unterstützt jetzt das **Löschen von Kunden** über den `CustomerService`.
+Dabei werden Ladezustand, Fehlerbehandlung und Datenaktualisierung automatisch gesteuert.
+
+---
+
+### 📄 `customer.service.ts` (angepasst)
+
+```typescript
+import { inject, Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Customer } from "../model/customer";
+import { environment } from "../../../../environments/environment";
+import { HttpClient } from "@angular/common/http";
+
+const url = environment.apiUrl + "/customers";
+
+@Injectable({
+  providedIn: "root",
+})
+export class CustomerService {
+  #http = inject(HttpClient);
+
+  getAll(): Observable<Customer[]> {
+    return this.#http.get<Customer[]>(url);
+  }
+
+  deleteById(id: number) {
+    return this.#http.delete(url + "/" + id);
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- `deleteById(id)` ruft per HTTP-DELETE den Backend-Endpunkt auf
+- Baut direkt auf der bestehenden `HttpClient`-Instanz auf
+- Trennt Datenlogik klar von der UI
+
+---
+
+### 📄 `customer-list.component.ts` (angepasst)
+
+```typescript
+import { CommonModule, JsonPipe } from "@angular/common";
+import { Component } from "@angular/core";
+import { Customer } from "../../../model/customer";
+import { CustomerService } from "../../../services/customer.service";
+import { LoadingIndicatorComponent } from "../../../../../components/loading-indicator/loading-indicator.component";
+import { ErrorBoxComponent } from "../../../../../components/error-box/error-box.component";
+import { CustomerTableComponent } from "../../../components/customer-table/customer-table.component";
+
+@Component({
+  selector: "app-customer-list",
+  imports: [
+    CommonModule,
+    LoadingIndicatorComponent,
+    ErrorBoxComponent,
+    CustomerTableComponent,
+  ],
+  templateUrl: "./customer-list.component.html",
+  styleUrl: "./customer-list.component.scss",
+})
+export class CustomerListComponent {
+  public customers: Customer[] = [];
+  public loading = true;
+  public errorMessage: string | null = null;
+
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit(): void {
+    this.loadCustomers();
+  }
+
+  loadCustomers() {
+    this.loading = true;
+    this.errorMessage = null;
+
+    this.customerService.getAll().subscribe({
+      next: (customers) => {
+        this.customers = customers;
+        this.loading = false;
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      },
+    });
+  }
+
+  deleteCustomer({ id }: Customer) {
+    this.loading = true;
+    this.errorMessage = null;
+
+    this.customerService.deleteById(id).subscribe({
+      next: () => {
+        this.loadCustomers(); // automatische Aktualisierung nach erfolgreichem Delete
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      },
+    });
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Ruft `deleteById()` des `CustomerService` auf
+- Zeigt währenddessen den LoadingIndicator an
+- Lädt nach erfolgreichem Löschen automatisch die aktualisierte Liste
+- Fehler werden über `ErrorBoxComponent` angezeigt
+
+---
+
+### 📄 `customer-list.component.html`
+
+```html
+<h2>Kundenliste</h2>
+
+<div class="d-flex justify-content-between my-4">
+  <button class="btn btn-primary">Neuer Kunde</button>
+  <button class="btn btn-outline-secondary" (click)="loadCustomers()">
+    Aktualisieren
+  </button>
+</div>
+
+@if(errorMessage !== null) {
+<app-error-box>{{ errorMessage }}</app-error-box>
+} @if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else if (errorMessage === null) {
+<app-customer-table
+  [customers]="customers"
+  (deleteCustomer)="deleteCustomer($event)"
+>
+</app-customer-table>
+}
+```
+
+✅ **Ergebnis:**
+
+- Gleiche Template-Struktur wie zuvor
+- Delete-Button im Child (`CustomerTableComponent`) ruft Parent-Methode auf
+- Benutzer erhält direkt Rückmeldung bei Lade- oder Fehlerzuständen
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                   | Ziel                                       | Werkzeug / Konzept       |
+| ------------------------- | ------------------------------------------ | ------------------------ |
+| Datenlöschung             | Kunde über API löschen                     | `HttpClient.delete()`    |
+| Eltern-Kind-Kommunikation | EventEmitter vom Child an Parent           | `(deleteCustomer)` Event |
+| Status-Handling           | Automatische UI-Aktualisierung nach Delete | `loadCustomers()` Aufruf |
+| Fehleranzeige             | Nutzerfreundliche Rückmeldung im UI        | `ErrorBoxComponent`      |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular HttpClient DELETE Methode:**
+  [https://angular.io/guide/http#deleting-data](https://angular.io/guide/http#deleting-data)
+
+- 🧭 **RxJS Subscribe mit next/error/complete:**
+  [https://rxjs.dev/api/index/function/subscribe](https://rxjs.dev/api/index/function/subscribe)
+
+- 💅 **Bootstrap Buttons (Delete-Design):**
+  [https://getbootstrap.com/docs/5.3/components/buttons/](https://getbootstrap.com/docs/5.3/components/buttons/)
+
+---
+
+## 🧪 Test: `CustomerTableComponent`
+
+Für die `CustomerTableComponent` wurde ein **Unit-Test mit Jest** erstellt,
+um sicherzustellen, dass die Komponente korrekt initialisiert wird
+und das **`deleteCustomer`-Event** beim Aufruf von `deleteHandler()` ausgelöst wird.
+
+---
+
+### 📄 `customer-table.component.spec.ts`
+
+```typescript
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { jest } from "@jest/globals";
+
+import { CustomerTableComponent } from "./customer-table.component";
+import { Customer } from "../../model/customer";
+
+describe("CustomerTableComponent", () => {
+  let component: CustomerTableComponent;
+  let fixture: ComponentFixture<CustomerTableComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CustomerTableComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(CustomerTableComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe("deleteHandler", () => {
+    it("should exist", () => {
+      expect(component.deleteCustomer).toBeTruthy();
+
+      const emitSpy = jest.spyOn(component.deleteCustomer, "emit");
+      component.deleteHandler({} as Customer);
+      expect(emitSpy).toHaveBeenCalled();
+    });
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- Test prüft, ob die Komponente erstellt werden kann
+- `deleteHandler()` löst das `deleteCustomer`-Event korrekt aus
+- `jest.spyOn()` überwacht die `emit()`-Methode
+- Keine realen API- oder DOM-Aufrufe notwendig
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich           | Ziel                                         | Werkzeug / Konzept        |
+| ----------------- | -------------------------------------------- | ------------------------- |
+| Komponenten-Setup | Sicherstellen, dass Komponente initialisiert | Angular TestBed + Jest    |
+| Event-Test        | Prüft EventEmitter-Funktionalität            | `jest.spyOn(..., 'emit')` |
+| Test-Isolation    | Keine Abhängigkeiten zu Services oder HTML   | Unit-Test mit Stubs       |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧭 **Angular Testing (Standalone Components):**
+  [https://angular.dev/guide/testing/components-basics](https://angular.dev/guide/testing/components-basics)
+
+- ⚙️ **Jest `spyOn()` Dokumentation:**
+  [https://jestjs.io/docs/jest-object#jestspyonobject-methodname](https://jestjs.io/docs/jest-object#jestspyonobject-methodname)
+
+- 🧩 **Angular Output Events testen:**
+  [https://angular.io/guide/testing-components-scenarios#triggering-eventemitters](https://angular.io/guide/testing-components-scenarios#triggering-eventemitters)
+
+---
+
+## 🧪 Test: `CustomerListComponent`
+
+Für die `CustomerListComponent` wurde ein Jest-Test erstellt,
+um das Zusammenspiel zwischen **Komponente** und dem **CustomerService** zu prüfen.
+Dabei werden die Service-Methoden `getAll()` und `deleteById()` **über Mocks simuliert**.
+
+---
+
+### 📄 `customer-list.component.spec.ts`
+
+```typescript
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { CustomerListComponent } from "./customer-list.component";
+import { CustomerService } from "../../../services/customer.service";
+import { of } from "rxjs";
+import { Customer } from "../../../model/customer";
+
+const createCustomerServiceMock = function () {
+  const service = {
+    getAll: jest.fn(),
+    deleteById: jest.fn(),
+  };
+
+  service.deleteById.mockReturnValue(of(void 0));
+  service.getAll.mockReturnValue(of([]));
+
+  return service;
+};
+
+describe("CustomerListComponent", () => {
+  let component: CustomerListComponent;
+  let fixture: ComponentFixture<CustomerListComponent>;
+  let customerServiceMock = createCustomerServiceMock();
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CustomerListComponent],
+      providers: [
+        {
+          provide: CustomerService,
+          useValue: customerServiceMock,
+        },
+      ],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(CustomerListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe("loadCustomers", () => {
+    it("should exist", () => {
+      expect(component.loadCustomers).toBeTruthy();
+      expect(customerServiceMock.getAll).toHaveBeenCalled();
+    });
+  });
+
+  describe("deleteCustomer", () => {
+    it("should exist", () => {
+      expect(component.deleteCustomer).toBeTruthy();
+      component.deleteCustomer({ id: 1 } as Customer);
+      expect(customerServiceMock.deleteById).toHaveBeenCalled();
+    });
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- `CustomerService` wird vollständig über ein Mock-Objekt ersetzt
+- Keine echten HTTP-Aufrufe (dank `of()` aus RxJS)
+- Überprüfung, dass `loadCustomers()` und `deleteCustomer()` aufgerufen werden
+- Saubere Isolierung der Logik von der UI
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich               | Ziel                                            | Werkzeug / Konzept           |
+| --------------------- | ----------------------------------------------- | ---------------------------- |
+| Komponenten-Setup     | Sicherstellen, dass Komponente erstellt         | Angular TestBed + Jest       |
+| Service-Kommunikation | Prüfung der Aufrufe von `getAll` & `deleteById` | Mock-Objekte mit `jest.fn()` |
+| Asynchrone Abläufe    | Simuliert mit RxJS `of()`                       | RxJS Observables             |
+| Test-Isolation        | Keine echten HTTP- oder UI-Abhängigkeiten       | Dependency Injection         |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **Angular Unit Testing Guide:**
+  [https://angular.dev/guide/testing](https://angular.dev/guide/testing)
+
+- ⚙️ **Mocking Services in Jest:**
+  [https://jestjs.io/docs/mock-functions](https://jestjs.io/docs/mock-functions)
+
+- 🧭 **RxJS `of()` Observable:**
+  [https://rxjs.dev/api/index/function/of](https://rxjs.dev/api/index/function/of)
+
+---
+
+## 🧪 Finaler Test: `CustomerListComponent`
+
+Der Test der `CustomerListComponent` wurde finalisiert und prüft nun:
+
+- die erfolgreiche Initialisierung der Komponente
+- das Laden von Kundendaten
+- die Fehlerbehandlung (`errorMessage`)
+- und den Löschvorgang (`deleteCustomer()` → `CustomerService.deleteById()`).
+
+---
+
+### 📄 `customer-list.component.spec.ts`
+
+```typescript
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+
+import { CustomerListComponent } from "./customer-list.component";
+import { CustomerService } from "../../../services/customer.service";
+import { of, throwError } from "rxjs";
+import { Customer } from "../../../model/customer";
+
+const createCustomerServiceMock = function () {
+  const service = {
+    getAll: jest.fn(),
+    deleteById: jest.fn(),
+  };
+
+  service.deleteById.mockReturnValue(of(void 0));
+  service.getAll.mockReturnValue(of([]));
+
+  return service;
+};
+
+describe("CustomerListComponent", () => {
+  let component: CustomerListComponent;
+  let fixture: ComponentFixture<CustomerListComponent>;
+  let customerServiceMock: any;
+
+  beforeEach(async () => {
+    customerServiceMock = createCustomerServiceMock();
+    await TestBed.configureTestingModule({
+      imports: [CustomerListComponent],
+      providers: [
+        {
+          provide: CustomerService,
+          useValue: customerServiceMock,
+        },
+      ],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(CustomerListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe("loadCustomers", () => {
+    it("should exist", () => {
+      expect(component.loadCustomers).toBeTruthy();
+      expect(customerServiceMock.getAll).toHaveBeenCalled();
+    });
+
+    it("should handle Error", () => {
+      const errorMessage = "Fehler";
+      customerServiceMock.getAll.mockReturnValueOnce(
+        throwError(() => {
+          return new Error(errorMessage);
+        })
+      );
+
+      expect(component.errorMessage).toBeNull();
+      component.loadCustomers();
+      expect(customerServiceMock.getAll).toHaveBeenCalled();
+      expect(component.errorMessage).toEqual(errorMessage);
+    });
+  });
+
+  describe("deleteCustomer", () => {
+    it("should exist", () => {
+      expect(component.deleteCustomer).toBeTruthy();
+      component.deleteCustomer({ id: 1 } as Customer);
+      expect(customerServiceMock.deleteById).toHaveBeenCalled();
+    });
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- **`createCustomerServiceMock()`** erzeugt realistische Mock-Funktionalität
+- Tests laufen vollständig isoliert ohne HTTP-Aufrufe
+- Fehler werden mit `throwError()` simuliert und überprüft
+- `deleteCustomer()` löst erwarteten Service-Aufruf aus
+- Durch `mockReturnValue(of([]))` werden RxJS-Observables korrekt simuliert
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich               | Ziel                                   | Werkzeug / Konzept          |
+| --------------------- | -------------------------------------- | --------------------------- |
+| Komponenten-Setup     | Testet erfolgreiche Erstellung         | Angular TestBed + Jest      |
+| Service-Kommunikation | Simuliert API-Aufrufe                  | Mocks mit `jest.fn()`       |
+| Fehlerbehandlung      | Überprüft `errorMessage` im Fehlerfall | `throwError()` von RxJS     |
+| Datenlöschung         | Prüft `deleteById()`-Aufruf            | Event-Simulation im Test    |
+| Test-Isolation        | Kein echter HTTP-Traffic               | Dependency Injection (Mock) |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧭 **Angular Unit Testing Guide:**
+  [https://angular.dev/guide/testing](https://angular.dev/guide/testing)
+
+- ⚙️ **Jest Mock Functions (`jest.fn`):**
+  [https://jestjs.io/docs/mock-functions](https://jestjs.io/docs/mock-functions)
+
+- ⚡ **RxJS Error Handling (`throwError`):**
+  [https://rxjs.dev/api/index/function/throwError](https://rxjs.dev/api/index/function/throwError)
+
+- 🧩 **Angular Service Testing (Error Handling):**
+  [https://angular.io/guide/testing-services#testing-error-handling](https://angular.io/guide/testing-services#testing-error-handling)
+
+---
+
+### 🧠 Was wurde umgesetzt – Error Handling im Test
+
+Im erweiterten Test der `CustomerListComponent` wurde gezielt geprüft,
+ob die **Fehlerbehandlung (`errorMessage`)** der Komponente korrekt reagiert,
+wenn der Service `CustomerService.getAll()` einen Fehler auslöst.
+
+Ziel war es, sicherzustellen, dass:
+
+- die Komponente **nicht abstürzt**,
+- der Fehler im UI über `errorMessage` angezeigt werden kann,
+- und der Ladezustand sauber beendet wird (`loading = false`).
+
+---
+
+### 🔍 Funktionsweise des Tests
+
+1. **Mocking des CustomerService:**
+   Statt den echten `CustomerService` zu verwenden, wird ein Mock erzeugt:
+
+   ```typescript
+   const createCustomerServiceMock = function () {
+     const service = {
+       getAll: jest.fn(),
+       deleteById: jest.fn(),
+     };
+
+     service.deleteById.mockReturnValue(of(void 0));
+     service.getAll.mockReturnValue(of([]));
+
+     return service;
+   };
+   ```
+
+   → Dadurch laufen alle Tests **vollständig ohne Backend oder HTTP-Aufrufe**.
+   → Der Rückgabewert `of([])` simuliert eine erfolgreiche Antwort (leeres Array).
+
+2. **Simulation eines Fehlers mit `throwError`:**
+   Im zweiten Testfall von `loadCustomers` wird `throwError()` aus RxJS genutzt,
+   um ein künstliches Fehler-Observable zu erzeugen:
+
+   ```typescript
+   customerServiceMock.getAll.mockReturnValueOnce(
+     throwError(() => new Error("Fehler"))
+   );
+   ```
+
+   → Damit verhält sich der Mock so, als hätte der Server oder das Netzwerk einen Fehler gemeldet.
+
+3. **Überprüfung der Fehlerbehandlung:**
+   Der Test prüft, ob:
+
+   - `errorMessage` **anfangs `null`** ist,
+   - `loadCustomers()` aufgerufen wird,
+   - und anschließend **`errorMessage` den erwarteten Text enthält**:
+
+   ```typescript
+   expect(component.errorMessage).toBeNull();
+   component.loadCustomers();
+   expect(component.errorMessage).toEqual("Fehler");
+   ```
+
+4. **Sicherstellung der Aufrufe:**
+   Zusätzlich wird geprüft, dass `getAll()` wirklich aufgerufen wurde,
+   was zeigt, dass der Datenabruf-Vorgang gestartet wurde.
+
+---
+
+### ✅ Ergebnis
+
+Durch diese Tests wird jetzt nicht nur das **Erfolgsverhalten**,
+sondern auch das **Fehlerverhalten** eurer `CustomerListComponent` automatisch überprüft.
+
+Damit stellt ihr sicher, dass:
+
+- Fehler im Backend (z. B. Netzwerkprobleme oder Serverfehler) **nicht zu Abstürzen führen**,
+- der Benutzer später im UI eine passende Fehlermeldung (`ErrorBox`) sieht,
+- und alle Zustände der Komponente (`loading`, `errorMessage`, `customers`)
+  im Test korrekt nachvollzogen werden.
+
+---
+
+### 💡 Fazit
+
+Mit dieser Erweiterung habt ihr euer Test-Setup **realitätsnäher und robuster** gemacht:
+
+| Bereich            | Ziel                                        | Ergebnis                           |
+| ------------------ | ------------------------------------------- | ---------------------------------- |
+| Mocking            | Backend vollständig simulieren              | Keine echten HTTP-Calls            |
+| Fehlerhandling     | Verhalten bei Serverfehler testen           | `errorMessage` korrekt gesetzt     |
+| Stabilität         | Absturzfreie Fehlerbehandlung sicherstellen | Test schützt zukünftige Änderungen |
+| Qualitätssicherung | UI-Logik (Lade- & Fehlerzustand) validiert  | Bessere Testabdeckung              |
+
+---
+
+## 🧪 Test: `CustomerService`
+
+Der `CustomerService` wurde mit dem **Angular HttpTestingController** getestet,
+um sicherzustellen, dass HTTP-Requests korrekt abgesetzt werden
+und das erwartete Verhalten beim Abruf von Kundendaten (`getAll()`) gewährleistet ist.
+
+---
+
+### 📄 `customer.service.spec.ts` (aktualisiert)
+
+```typescript
+import { TestBed } from "@angular/core/testing";
+
+import { CustomerService } from "./customer.service";
+import { provideHttpClient } from "@angular/common/http";
+import {
+  HttpTestingController,
+  provideHttpClientTesting,
+} from "@angular/common/http/testing";
+import { firstValueFrom } from "rxjs";
+
+describe("CustomerService", () => {
+  let service: CustomerService;
+  let httpTesting: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(CustomerService);
+    httpTesting = TestBed.inject(HttpTestingController);
+  });
+
+  it("should be created", () => {
+    expect(service).toBeTruthy();
+  });
+
+  describe("getAll", () => {
+    it("should exist", () => {
+      expect(service.getAll).toBeTruthy();
+    });
+
+    it("should call get", async () => {
+      // $ = Observable
+      const customers$ = service.getAll();
+      const customersPromise = firstValueFrom(customers$);
+
+      const url = "http://localhost:3001/customers/";
+      const req = httpTesting.expectOne(url);
+      req.flush([]); // Mock Response
+
+      expect(await customersPromise).toEqual([]);
+      httpTesting.verify();
+
+      expect(req.request.method).toBe("GET");
+    });
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- Der Test nutzt `HttpTestingController`, um HTTP-Aufrufe abzufangen
+- `expectOne(url)` prüft, ob genau **ein Request** an den richtigen Endpoint geschickt wurde
+- Mit `req.flush([])` wird eine **Mock-Response** gesendet
+- `firstValueFrom()` wandelt das Observable in ein Promise um, um auf das Ergebnis zu warten
+- Die Anfrage-Methode (`GET`) wird überprüft
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                 | Ziel                                            | Werkzeug / Konzept            |
+| ----------------------- | ----------------------------------------------- | ----------------------------- |
+| HTTP-Testumgebung       | Simuliert Backend-Aufrufe                       | `HttpTestingController`       |
+| Service-Methodenprüfung | Überprüfung von URL, Request-Methode & Response | `expectOne()` + `req.flush()` |
+| Observable-Handling     | Umwandlung in Promise für asynchrone Prüfung    | `firstValueFrom()` aus RxJS   |
+| Test-Isolation          | Kein echter HTTP-Verkehr                        | `provideHttpClientTesting()`  |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular HttpClient Testing Guide:**
+  [https://angular.io/guide/http#testing-http-requests](https://angular.io/guide/http#testing-http-requests)
+
+- 🧩 **RxJS `firstValueFrom()` Dokumentation:**
+  [https://rxjs.dev/api/index/function/firstValueFrom](https://rxjs.dev/api/index/function/firstValueFrom)
+
+- 🧭 **HttpTestingController API:**
+  [https://angular.io/api/common/http/testing/HttpTestingController](https://angular.io/api/common/http/testing/HttpTestingController)
+
+---
+
+## 🧪 Test: `CustomerService`
+
+Der `CustomerService` wurde um einen **DELETE-Test** erweitert,
+um sicherzustellen, dass Kunden korrekt über die REST-API gelöscht werden.
+Damit sind jetzt sowohl das Laden (`getAll()`) als auch das Löschen (`deleteById()`) vollständig abgedeckt.
+
+---
+
+### 📄 `customer.service.spec.ts` (aktualisiert)
+
+```typescript
+import { TestBed } from "@angular/core/testing";
+
+import { CustomerService } from "./customer.service";
+import { provideHttpClient } from "@angular/common/http";
+import {
+  HttpTestingController,
+  provideHttpClientTesting,
+} from "@angular/common/http/testing";
+import { firstValueFrom } from "rxjs";
+
+describe("CustomerService", () => {
+  let service: CustomerService;
+  let httpTesting: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(CustomerService);
+    httpTesting = TestBed.inject(HttpTestingController);
+  });
+
+  it("should be created", () => {
+    expect(service).toBeTruthy();
+  });
+
+  describe("getAll", () => {
+    it("should exist", () => {
+      expect(service.getAll).toBeTruthy();
+    });
+
+    it("should call get", async () => {
+      // $ bedeutet Observable
+      const customers$ = service.getAll();
+      const customersPromise = firstValueFrom(customers$);
+
+      const url = "http://localhost:3001/customers/";
+      const req = httpTesting.expectOne(url);
+      req.flush([]); // mock response
+
+      expect(await customersPromise).toEqual([]);
+      httpTesting.verify();
+
+      expect(req.request.method).toBe("GET");
+    });
+  });
+
+  describe("deleteById", () => {
+    it("should call delete", async () => {
+      // $ bedeutet Observable
+      const deleteId = 1;
+      service.deleteById(deleteId).subscribe();
+
+      const url = `http://localhost:3001/customers/${deleteId}`;
+      const req = httpTesting.expectOne(url);
+      req.flush({}); // mock response
+
+      httpTesting.verify();
+
+      expect(req.request.method).toBe("DELETE");
+    });
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- `HttpTestingController` überwacht alle HTTP-Aufrufe
+- `expectOne(url)` prüft die exakte API-URL
+- `req.flush({})` simuliert eine erfolgreiche leere Response
+- Die HTTP-Methode (`DELETE`) wird überprüft
+- Kein echter Netzwerkverkehr — vollständige Isolierung im Unit-Test
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich            | Ziel                             | Werkzeug / Konzept              |
+| ------------------ | -------------------------------- | ------------------------------- |
+| Laden von Daten    | Sicherstellung des GET-Aufrufs   | `expectOne()` + `req.flush([])` |
+| Löschen von Daten  | Prüfung des DELETE-Endpunkts     | `expectOne()` + `req.flush({})` |
+| Test-Isolation     | Kein echter HTTP-Traffic         | `HttpTestingController`         |
+| Asynchrone Prüfung | Kontrolle der Observable-Ausgabe | RxJS + `firstValueFrom()`       |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular HttpClient Testing Guide:**
+  [https://angular.io/guide/http#testing-http-requests](https://angular.io/guide/http#testing-http-requests)
+
+- 🧭 **HttpTestingController API Referenz:**
+  [https://angular.io/api/common/http/testing/HttpTestingController](https://angular.io/api/common/http/testing/HttpTestingController)
+
+- 🧩 **RxJS `firstValueFrom()` Dokumentation:**
+  [https://rxjs.dev/api/index/function/firstValueFrom](https://rxjs.dev/api/index/function/firstValueFrom)
+
+---
+
+Perfekt 👍 — verstanden: **Tag 04** ist also ein komplett neuer Abschnitt im Projekt, nicht die Fortsetzung der Tests vom Vortag.
+Dann bekommst du hier den gewohnten neutralen **Startblock für einen neuen Projekttag**, so wie an deinen vorherigen Tagen — sauber strukturiert, als Einstiegspunkt für die kommenden Arbeiten.
+
+---
+
+# 📅 Tag 4 - 09.10.25
+
+Mit **Tag 04** beginnt ein neuer Abschnitt des Projekts.
+Die Arbeiten und Tests der vorherigen Tage wurden erfolgreich abgeschlossen,
+und das System befindet sich nun auf einem stabilen Stand.
+
+An diesem Tag werden **neue Themen**, **Erweiterungen** oder **Refactorings** vorbereitet und umgesetzt.
+Der Fokus liegt darauf, den nächsten Funktionsblock zu entwickeln, bestehende Strukturen zu optimieren
+und die Projektbasis weiter auszubauen.
+
+---
+
+✅ **Ziele für Tag 04 (geplant / initial):**
+
+- Analyse und Planung der anstehenden Erweiterungen
+- Implementierung neuer Features oder Module
+- Überprüfung und ggf. Verbesserung bestehender Komponenten
+- Vorbereitung weiterer Tests oder Integration neuer Schnittstellen
+
+---
+
+🧩 **Ausgangsbasis:**
+
+| Bereich                 | Status zum Ende von Tag 03                          |
+| ----------------------- | --------------------------------------------------- |
+| `CustomerFeature`       | vollständig implementiert & getestet                |
+| `CustomerService`       | API-Integration (GET / DELETE) abgeschlossen        |
+| `UI-Komponenten`        | modularisiert (Table, ErrorBox, LoadingIndicator)   |
+| `Testing-Infrastruktur` | Jest + HttpTestingController erfolgreich im Einsatz |
+
+---
+
+## Routing & neue Edit-/New-Views\*\*
+
+Zum Start von **Tag 04** wurde das Customer-Feature um neue **Ansichts-Komponenten** und **Routen** erweitert.
+Damit beginnt die Implementierung der **Detail- und Formularseiten** für Kundenanlage und -bearbeitung.
+
+---
+
+### 🧩 Neue Komponenten
+
+Mit Angular CLI wurden zwei neue Views erstellt:
+
+```bash
+ng g c views/CustomerEdit
+ng g c views/CustomerNew
+```
+
+Diese dienen als Seiten für das **Erstellen** und **Bearbeiten** von Kunden.
+
+---
+
+### 📄 `customer.routes.ts` (aktualisiert)
+
+```typescript
+import { Routes } from "@angular/router";
+import { CustomerIndexComponent } from "./customer-index.component";
+import { CustomerListComponent } from "./views/customer-list/customer-list/customer-list.component";
+import { CustomerNewComponent } from "./views/customer-new/customer-new.component";
+import { CustomerEditComponent } from "./views/customer-edit/customer-edit.component";
+
+export const customerRoutes: Routes = [
+  {
+    path: "customers",
+    component: CustomerIndexComponent,
+    children: [
+      {
+        path: "",
+        redirectTo: "/customers/dashboard",
+        pathMatch: "full",
+      },
+      {
+        path: "dashboard",
+        component: CustomerListComponent,
+      },
+      {
+        path: "new",
+        component: CustomerNewComponent,
+      },
+      {
+        path: "edit/:customerId",
+        component: CustomerEditComponent,
+      },
+    ],
+  },
+];
+```
+
+✅ **Ergebnis:**
+
+- `/customers/dashboard` → Kundenübersicht
+- `/customers/new` → Neue Kunden anlegen
+- `/customers/edit/:customerId` → Kunden bearbeiten
+- Klare Trennung zwischen Index-, Listen- und Formularansichten
+
+---
+
+### 📄 `customer-list.component.html` (angepasst)
+
+```html
+<h2>Kundenliste</h2>
+
+<div class="d-flex justify-content-between my-4">
+  <button class="btn btn-primary" [routerLink]="['/customers/new']">
+    Neuer Kunde
+  </button>
+  <button class="btn btn-outline-secondary" (click)="loadCustomers()">
+    Aktualisieren
+  </button>
+</div>
+
+@if(errorMessage !== null) {
+<app-error-box>{{ errorMessage }}</app-error-box>
+} @if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else if (errorMessage === null) {
+<app-customer-table
+  [customers]="customers"
+  (deleteCustomer)="deleteCustomer($event)"
+>
+</app-customer-table>
+}
+```
+
+✅ **Ergebnis:**
+
+- „Neuer Kunde“-Button navigiert über `[routerLink]` direkt zur **CustomerNewComponent**
+- Navigation erfolgt deklarativ über Angular-Router
+
+---
+
+### 📄 `customer-table.component.ts` (angepasst)
+
+```typescript
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Customer } from "../../model/customer";
+import { CommonModule } from "@angular/common";
+import { RouterLink } from "@angular/router";
+
+@Component({
+  selector: "app-customer-table",
+  imports: [CommonModule, RouterLink],
+  templateUrl: "./customer-table.component.html",
+  styleUrl: "./customer-table.component.scss",
+})
+export class CustomerTableComponent {
+  @Input()
+  public customers: Customer[] = [];
+
+  @Output()
+  deleteCustomer = new EventEmitter<Customer>();
+
+  deleteHandler(customer: Customer) {
+    this.deleteCustomer.emit(customer);
+  }
+}
+```
+
+---
+
+### 📄 `customer-table.component.html` (angepasst)
+
+```html
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Kredit Limit</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(customer of customers; track customer.id) {
+    <tr>
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.name }}</td>
+      <td class="text-end">
+        {{ customer.credit_limit | currency : 'EUR' : 'symbol' }}
+      </td>
+      <td class="text-end">
+        <button
+          class="btn btn-sm btn-primary"
+          [routerLink]="['/customers', 'edit', customer.id]"
+        >
+          Bearbeiten
+        </button>
+        <button class="btn btn-sm btn-danger" (click)="deleteHandler(customer)">
+          Löschen
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+```
+
+✅ **Ergebnis:**
+
+- **Bearbeiten-Button** öffnet `/customers/edit/:id`
+- **Löschen-Button** bleibt unverändert mit EventEmitter
+- RouterLink sorgt für klare, deklarative Navigation
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich            | Ziel                                     | Werkzeug / Konzept            |
+| ------------------ | ---------------------------------------- | ----------------------------- |
+| Routing            | Navigation zwischen Dashboard, New, Edit | Angular Router                |
+| Kundenanlage       | Neue View für Kundenerstellung           | `CustomerNewComponent`        |
+| Kundenbearbeitung  | Neue View für Bearbeitungsseite          | `CustomerEditComponent`       |
+| Navigation Buttons | Benutzerfreundliche Navigation im UI     | `[routerLink]`                |
+| Code-Struktur      | Saubere Trennung von Routing & Views     | Child Routes im Feature-Modul |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧭 **Angular Router Basics:**
+  [https://angular.io/guide/router](https://angular.io/guide/router)
+
+- ⚙️ **RouterLink Directive:**
+  [https://angular.io/api/router/RouterLink](https://angular.io/api/router/RouterLink)
+
+- 🧩 **Feature Module Routing (Child Routes):**
+  [https://angular.io/guide/feature-modules#routing](https://angular.io/guide/feature-modules#routing)
+
+---
+
+## 🧩 Wiederverwendbares Kundenformular (`CustomerFormComponent`)
+
+Zur Vereinheitlichung und besseren Wartbarkeit wurde ein **gemeinsames Formular** für die Kundenerstellung und -bearbeitung erstellt.
+Die neue `CustomerFormComponent` kapselt alle Eingabefelder und Schaltflächen und wird von den Views
+`CustomerNewComponent` und `CustomerEditComponent` wiederverwendet.
+
+---
+
+### 📄 Erstellung der Komponente
+
+```bash
+ng g c features/customer/components/CustomerForm
+```
+
+---
+
+### 📄 `customer-form.component.ts`
+
+```typescript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-customer-form",
+  imports: [],
+  templateUrl: "./customer-form.component.html",
+  styleUrl: "./customer-form.component.scss",
+})
+export class CustomerFormComponent {}
+```
+
+✅ **Ergebnis:**
+
+- Eigenständige, wiederverwendbare Formular-Komponente
+- Kann in unterschiedlichen Views mit individuellen Buttons/Texten verwendet werden
+- Keine Logik notwendig — reines Template für Eingaben
+
+---
+
+### 📄 `customer-form.component.html`
+
+```html
+<form>
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input type="text" name="name" id="name" class="form-control" />
+  </div>
+
+  <div class="mb-3">
+    <label for="credit_limit" class="form-label">Kreditlimit:</label>
+    <input
+      type="number"
+      step="0.01"
+      name="credit_limit"
+      id="credit_limit"
+      class="form-control"
+    />
+  </div>
+
+  <div class="mb-3">
+    <button class="btn btn-primary">
+      <ng-content></ng-content>
+    </button>
+  </div>
+</form>
+```
+
+✅ **Ergebnis:**
+
+- Verwendung von Bootstrap-Formular-Styles
+- `ng-content` ermöglicht flexible Button-Beschriftungen
+- Eingabefelder für **Name** und **Kreditlimit**
+- Grundstruktur für spätere Anbindung an Reactive Forms oder Template Forms
+
+---
+
+### 📄 `customer-new.component.ts` / `customer-edit.component.ts` (angepasst)
+
+```typescript
+import { Component } from "@angular/core";
+import { CustomerFormComponent } from "../../components/customer-form/customer-form.component";
+
+@Component({
+  selector: "app-customer-new",
+  imports: [CustomerFormComponent],
+  templateUrl: "./customer-new.component.html",
+  styleUrl: "./customer-new.component.scss",
+})
+export class CustomerNewComponent {}
+```
+
+_(Analog auch für `CustomerEditComponent` implementiert.)_
+
+---
+
+### 📄 `customer-new.component.html`
+
+```html
+<h2>Neuer Kunde</h2>
+<app-customer-form> Jetzt anlegen </app-customer-form>
+```
+
+---
+
+### 📄 `customer-edit.component.html`
+
+```html
+<h2>Kunde mit der ID ?? bearbeiten</h2>
+<app-customer-form> Jetzt bearbeiten </app-customer-form>
+```
+
+✅ **Ergebnis:**
+
+- Beide Views nutzen dieselbe Formularstruktur
+- Unterschiedliche Beschriftungen über `<ng-content>`
+- Zentrale Stelle für spätere Formularlogik
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich          | Ziel                                        | Werkzeug / Konzept       |
+| ---------------- | ------------------------------------------- | ------------------------ |
+| Formularstruktur | Einheitliches Formular für New & Edit Views | `CustomerFormComponent`  |
+| Wiederverwendung | Einmalige Definition, mehrfacher Einsatz    | `ng-content` Slot        |
+| Layout & Design  | Bootstrap-Formular-Styling                  | `.form-control`, `.mb-3` |
+| Erweiterbarkeit  | Vorbereitung für `ReactiveFormsModule`      | Angular Form API         |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular Content Projection (`<ng-content>`):**
+  [https://angular.io/guide/content-projection](https://angular.io/guide/content-projection)
+
+- 🧭 **Angular Forms Overview:**
+  [https://angular.io/guide/forms-overview](https://angular.io/guide/forms-overview)
+
+- 💅 **Bootstrap Form Controls:**
+  [https://getbootstrap.com/docs/5.3/forms/overview/](https://getbootstrap.com/docs/5.3/forms/overview/)
+
+---
+
+## ⚙️ Formularlogik mit Reactive Forms (`FormBuilder` & `ReactiveFormsModule`)
+
+Die bisher statische `CustomerFormComponent` wurde um echte Formularlogik erweitert.
+Dazu wurde das **Reactive Forms Modul** von Angular eingebunden und mit einem `FormGroup` aus dem `FormBuilder` verbunden.
+Über `formHandler()` werden die Formularwerte verarbeitet.
+
+---
+
+### 📄 `customer-form.component.ts` (aktualisiert)
+
+```typescript
+import { Component, inject } from "@angular/core";
+import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
+
+@Component({
+  selector: "app-customer-form",
+  imports: [ReactiveFormsModule],
+  templateUrl: "./customer-form.component.html",
+  styleUrl: "./customer-form.component.scss",
+})
+export class CustomerFormComponent {
+  formHandler() {
+    const customer = this.fields.value;
+    console.log(customer);
+  }
+
+  fields = inject(FormBuilder).group({
+    name: [""],
+    credit_limit: [0],
+  });
+}
+```
+
+✅ **Ergebnis:**
+
+- Verwendung von `ReactiveFormsModule` zur Formularsteuerung
+- `FormBuilder` erzeugt ein `FormGroup` mit initialen Werten
+- `formHandler()` liest die Werte aus `fields.value` aus
+- Grundlage für Validierung, Edit-Modus und API-Integration
+
+---
+
+### 📄 `customer-form.component.html` (aktualisiert)
+
+```html
+<form (ngSubmit)="formHandler()" [formGroup]="fields">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      formControlName="name"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="credit_limit" class="form-label">Kreditlimit:</label>
+    <input
+      type="number"
+      step="0.01"
+      name="credit_limit"
+      id="credit_limit"
+      class="form-control"
+      formControlName="credit_limit"
+    />
+  </div>
+
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">
+      <ng-content></ng-content>
+    </button>
+  </div>
+</form>
+```
+
+✅ **Ergebnis:**
+
+- `formGroup` bindet das gesamte Formular an die `fields`-Definition
+- `formControlName` verbindet jedes Feld mit seiner Logik
+- `ngSubmit` ruft `formHandler()` beim Absenden auf
+- Konsolen-Output zeigt aktuell den Kundenwert als Objekt an
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich            | Ziel                                         | Werkzeug / Konzept     |
+| ------------------ | -------------------------------------------- | ---------------------- |
+| Formularsteuerung  | Wechsel von statischem zu reaktivem Formular | `ReactiveFormsModule`  |
+| Formularerstellung | Vereinfachte Definition der Felder           | `FormBuilder.group()`  |
+| Datenausgabe       | Zugriff auf Benutzerinput                    | `fields.value`         |
+| Erweiterbarkeit    | Vorbereitung für Validierung & API-Post      | Reactive Forms Pattern |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Reactive Forms – Angular Docs:**
+  [https://angular.io/guide/reactive-forms](https://angular.io/guide/reactive-forms)
+
+- 🧩 **FormBuilder API:**
+  [https://angular.io/api/forms/FormBuilder](https://angular.io/api/forms/FormBuilder)
+
+- 🧭 **FormGroup & FormControlName Erklärung:**
+  [https://angular.io/api/forms/FormGroup](https://angular.io/api/forms/FormGroup)
+
+---
+
+## ✅ Formularvalidierung mit Angular Validators
+
+Das `CustomerFormComponent` wurde erweitert, um **Eingabevalidierungen** über das Angular-Validator-System zu ermöglichen.
+Damit werden unvollständige oder fehlerhafte Eingaben bereits im Frontend erkannt,
+bevor die Daten verarbeitet oder an das Backend übergeben werden.
+
+---
+
+### 📄 `customer-form.component.ts` (aktualisiert)
+
+```typescript
+import { Component, inject } from "@angular/core";
+import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
+
+@Component({
+  selector: "app-customer-form",
+  imports: [ReactiveFormsModule],
+  templateUrl: "./customer-form.component.html",
+  styleUrl: "./customer-form.component.scss",
+})
+export class CustomerFormComponent {
+  formHandler() {
+    const customer = this.fields.value;
+    console.log(customer);
+  }
+
+  fields = inject(FormBuilder).group({
+    name: ["", [Validators.required, Validators.minLength(2)]],
+    credit_limit: [0, [Validators.required, Validators.min(0)]],
+  });
+}
+```
+
+✅ **Ergebnis:**
+
+- `Validators.required` sorgt dafür, dass kein Feld leer bleibt
+- `Validators.minLength(2)` prüft, dass der Name mindestens zwei Zeichen lang ist
+- `Validators.min(0)` verhindert negative Kreditlimits
+- Alle Prüfungen laufen **reaktiv** beim Tippen – kein manueller Check nötig
+
+---
+
+### 💡 Zusammenfassung
+
+| Feld             | Validierungen              | Beschreibung                                      |
+| ---------------- | -------------------------- | ------------------------------------------------- |
+| **name**         | `required`, `minLength(2)` | Muss vorhanden sein und mindestens 2 Zeichen lang |
+| **credit_limit** | `required`, `min(0)`       | Pflichtfeld, Wert darf nicht negativ sein         |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular Validators (Built-in):**
+  [https://angular.io/api/forms/Validators](https://angular.io/api/forms/Validators)
+
+- 🧩 **Reactive Forms Validierung:**
+  [https://angular.io/guide/reactive-forms#simple-form-validation](https://angular.io/guide/reactive-forms#simple-form-validation)
+
+- 💡 **FormBuilder.group() API:**
+  [https://angular.io/api/forms/FormBuilder#group](https://angular.io/api/forms/FormBuilder#group)
+
+---
+
+## ⚠️ Formularvalidierung im Template
+
+Zur besseren Benutzerfreundlichkeit wurden **sichtbare Fehlermeldungen** ergänzt.
+Diese erscheinen dynamisch, sobald ein Eingabefeld **ungültig** ist und **bereits bearbeitet (touched)** wurde.
+
+Damit erhält der Benutzer direktes Feedback zu falschen oder unvollständigen Eingaben.
+
+---
+
+### 📄 `customer-form.component.html` (aktualisiert)
+
+```html
+<form (ngSubmit)="formHandler()" [formGroup]="fields">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input type="text" id="name" class="form-control" formControlName="name" />
+
+    <!-- Fehlermeldungen für das Feld "name" -->
+    @if(fields.get('name')?.touched && fields.get('name')?.invalid) {
+    <div class="text-danger mt-1">
+      @if(fields.get('name')?.errors?.['required']) { Name ist erforderlich. }
+      @if(fields.get('name')?.errors?.['minlength']) { Name muss mindestens 2
+      Zeichen lang sein. }
+    </div>
+    }
+  </div>
+
+  <div class="mb-3">
+    <label for="credit_limit" class="form-label">Kreditlimit:</label>
+    <input
+      type="number"
+      step="0.01"
+      id="credit_limit"
+      class="form-control"
+      formControlName="credit_limit"
+    />
+
+    <!-- Fehlermeldungen für das Feld "credit_limit" -->
+    @if(fields.get('credit_limit')?.touched &&
+    fields.get('credit_limit')?.invalid) {
+    <div class="text-danger mt-1">
+      @if(fields.get('credit_limit')?.errors?.['required']) { Kreditlimit ist
+      erforderlich. } @if(fields.get('credit_limit')?.errors?.['min']) {
+      Kreditlimit darf nicht negativ sein. }
+    </div>
+    }
+  </div>
+
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary" [disabled]="fields.invalid">
+      <ng-content></ng-content>
+    </button>
+  </div>
+</form>
+```
+
+✅ **Ergebnis:**
+
+- Fehlermeldungen werden **dynamisch** angezeigt (nur wenn Feld „berührt“ und „ungültig“)
+- Button bleibt **deaktiviert**, solange das Formular ungültig ist
+- Nutzer erhält sofort visuelles Feedback
+- Saubere Integration in das Bootstrap-Layout
+
+---
+
+### 💡 Zusammenfassung
+
+| Feld            | Validierung                | Fehlermeldung                                                            |
+| --------------- | -------------------------- | ------------------------------------------------------------------------ |
+| **Name**        | `required`, `minLength(2)` | „Name ist erforderlich.“ / „Name muss mindestens 2 Zeichen lang sein.“   |
+| **Kreditlimit** | `required`, `min(0)`       | „Kreditlimit ist erforderlich.“ / „Kreditlimit darf nicht negativ sein.“ |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **Template-Driven Error Handling in Reactive Forms:**
+  [https://angular.io/guide/reactive-forms#validating-form-input](https://angular.io/guide/reactive-forms#validating-form-input)
+
+- 💅 **Bootstrap Text Utilities (Fehlermeldungen stylen):**
+  [https://getbootstrap.com/docs/5.3/utilities/colors/#text](https://getbootstrap.com/docs/5.3/utilities/colors/#text)
+
+---
+
+## 💬 Benutzerfeedback & visuelle Formularvalidierung
+
+Das `CustomerFormComponent` wurde erweitert, um **visuelles Feedback** für valide und invalide Eingaben anzuzeigen.
+Dazu wurde das `CommonModule` importiert, um Angular-Direktiven wie `ngClass` und die neuen `@if`-Blöcke zu verwenden.
+In Kombination mit Bootstrap-Klassen (`is-valid`, `is-invalid`, `alert-danger`) erhält der Benutzer sofort Rückmeldung über den Eingabestatus.
+
+---
+
+### 📄 `customer-form.component.ts` (aktualisiert)
+
+```typescript
+import { Component, inject } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
+
+@Component({
+  selector: "app-customer-form",
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: "./customer-form.component.html",
+  styleUrl: "./customer-form.component.scss",
+})
+export class CustomerFormComponent {
+  formHandler() {
+    const customer = this.fields.value;
+    console.log(customer);
+  }
+
+  fields = inject(FormBuilder).group({
+    name: ["", [Validators.required, Validators.minLength(2)]],
+    credit_limit: [0, [Validators.required, Validators.min(0)]],
+  });
+}
+```
+
+✅ **Ergebnis:**
+
+- `CommonModule` für `ngClass` und neue Angular-Control-Flows eingebunden
+- Eingabefelder reagieren **live** auf Validierungsstatus
+- Fehler werden über `alert-danger` angezeigt
+- Optisches Feedback direkt nach Interaktion (`touched`)
+
+---
+
+### 📄 `customer-form.component.html` (aktualisiert)
+
+```html
+<form (ngSubmit)="formHandler()" [formGroup]="fields">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    @if(fields.controls['name'].invalid && fields.touched) {
+    <div class="alert alert-danger">
+      <p>Mindestens 2 Buchstaben erforderlich.</p>
+    </div>
+    }
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      formControlName="name"
+      [ngClass]="{
+        'is-invalid': fields.controls['name'].invalid && fields.touched,
+        'is-valid': fields.controls['name'].valid
+      }"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="credit_limit" class="form-label">Kreditlimit:</label>
+    @if(fields.controls['credit_limit'].invalid && fields.touched) {
+    <div class="alert alert-danger">
+      <p>Kreditlimit muss eine positive Zahl sein.</p>
+    </div>
+    }
+    <input
+      type="number"
+      step="0.01"
+      min="0"
+      name="credit_limit"
+      id="credit_limit"
+      class="form-control"
+      formControlName="credit_limit"
+      [ngClass]="{
+        'is-invalid': fields.controls['credit_limit'].invalid && fields.touched,
+        'is-valid': fields.controls['credit_limit'].valid && fields.touched
+      }"
+    />
+  </div>
+
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary" [disabled]="fields.invalid">
+      <ng-content></ng-content>
+    </button>
+  </div>
+</form>
+```
+
+✅ **Ergebnis:**
+
+- Rote **Alerts** bei fehlerhaften Eingaben
+- Bootstrap-Klassen (`is-valid`, `is-invalid`) zeigen Feldstatus an
+- Button bleibt deaktiviert, bis alle Felder gültig sind
+- Sofortiges visuelles Feedback beim Tippen
+
+---
+
+### 💡 Zusammenfassung
+
+| Feature             | Beschreibung                            | Umsetzung                     |
+| ------------------- | --------------------------------------- | ----------------------------- |
+| **Live-Feedback**   | Dynamische optische Rückmeldung         | `ngClass` + Bootstrap-Klassen |
+| **Fehlermeldungen** | Alerts für ungültige Eingaben           | `@if`-Blöcke mit Conditions   |
+| **Button-Sperre**   | Kein Submit bei ungültigem Formular     | `[disabled]="fields.invalid"` |
+| **Usability**       | Klare visuelle Trennung gültig/ungültig | Bootstrap-Farbcodierung       |
+
+---
+
+### 🔗 Nützliche Links
+
+- 💅 **Bootstrap Form Validation Styles:**
+  [https://getbootstrap.com/docs/5.3/forms/validation/](https://getbootstrap.com/docs/5.3/forms/validation/)
+
+- 🧩 **Angular ngClass Directive:**
+  [https://angular.io/api/common/NgClass](https://angular.io/api/common/NgClass)
+
+- ⚙️ **Angular Control Flow (if/for/switch):**
+  [https://angular.dev/guide/template-control-flow](https://angular.dev/guide/template-control-flow)
+
+---
+
+## 🧩 Formular-Event & Übergabe der Kundendaten
+
+Das `CustomerFormComponent` wurde so erweitert, dass es die eingegebenen Daten beim Absenden
+über ein **Custom Event** (`customerSubmit`) an die übergeordnete Komponente weitergibt.
+Die `CustomerNewComponent` empfängt dieses Event und übernimmt die Erstellung des neuen Kunden.
+
+---
+
+### 📄 `customer-new.component.ts` (aktualisiert)
+
+```typescript
+import { Component } from "@angular/core";
+import { CustomerFormComponent } from "../../components/customer-form/customer-form.component";
+import { Customer } from "../../model/customer";
+
+@Component({
+  selector: "app-customer-new",
+  imports: [CustomerFormComponent],
+  templateUrl: "./customer-new.component.html",
+  styleUrl: "./customer-new.component.scss",
+})
+export class CustomerNewComponent {
+  createCustomer(customer: Partial<Customer>) {
+    console.log("Creating customer", customer);
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Die Methode `createCustomer()` empfängt die Formulardaten vom Kind-Element
+- Daten werden aktuell im Log ausgegeben (Platzhalter für spätere POST-Anbindung)
+- Typisierung über `Partial<Customer>` ermöglicht optionale Felder beim Erstellen
+
+---
+
+### 📄 `customer-new.component.html` (angepasst)
+
+```html
+<h2>Neuer Kunde</h2>
+<app-customer-form (customerSubmit)="createCustomer($event)">
+  Jetzt anlegen
+</app-customer-form>
+```
+
+✅ **Ergebnis:**
+
+- `customerSubmit` wird bei erfolgreicher Formularabgabe getriggert
+- Übergibt die erfassten Daten an `createCustomer()`
+- Flexible Wiederverwendung der Form-Komponente für verschiedene Szenarien (New/Edit)
+
+---
+
+### 📄 (Ergänzend) `customer-form.component.ts` (EventEmitter hinzufügen)
+
+Damit das Event funktioniert, muss die Formular-Komponente ein eigenes Event bereitstellen:
+
+```typescript
+import { Component, EventEmitter, Output, inject } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
+
+@Component({
+  selector: "app-customer-form",
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: "./customer-form.component.html",
+  styleUrl: "./customer-form.component.scss",
+})
+export class CustomerFormComponent {
+  @Output() customerSubmit = new EventEmitter<Partial<Customer>>();
+
+  fields = inject(FormBuilder).group({
+    name: ["", [Validators.required, Validators.minLength(2)]],
+    credit_limit: [0, [Validators.required, Validators.min(0)]],
+  });
+
+  formHandler() {
+    if (this.fields.valid) {
+      this.customerSubmit.emit(this.fields.value);
+    }
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Neues Event `customerSubmit` sendet das Formularobjekt an den Parent
+- Nur bei gültigen Eingaben (`fields.valid`) wird das Event ausgelöst
+- Parent-Komponenten können beliebige Aktionen ausführen (z. B. HTTP POST)
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                  | Ziel                                                       | Umsetzung                  |
+| ------------------------ | ---------------------------------------------------------- | -------------------------- |
+| **EventEmitter**         | Übergabe der Formulardaten an Parent-Komponenten           | `@Output() customerSubmit` |
+| **Parent-Komponente**    | Reagiert auf `customerSubmit` und erstellt neuen Datensatz | Methode `createCustomer()` |
+| **Formularprüfung**      | Nur gültige Daten werden gesendet                          | `if (fields.valid)`        |
+| **Wiederverwendbarkeit** | Gleiche Form-Komponente nutzbar für Create & Edit          | Input/Output-Architektur   |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **Angular EventEmitter Doku:**
+  [https://angular.io/api/core/EventEmitter](https://angular.io/api/core/EventEmitter)
+
+- ⚙️ **Component Interaction (Parent ↔ Child):**
+  [https://angular.io/guide/inputs-outputs](https://angular.io/guide/inputs-outputs)
+
+- 💅 **Bootstrap Alerts & Buttons:**
+  [https://getbootstrap.com/docs/5.3/components/alerts/](https://getbootstrap.com/docs/5.3/components/alerts/)
+
+---
+
+Sehr schön 👏 — das war ein richtig professioneller Schritt in Richtung **testgetriebene Entwicklung** mit realistischen Mockdaten.
+Ihr habt damit eure Tests nicht nur robuster, sondern auch **aussagekräftiger und reproduzierbar** gemacht.
+Hier ist der komplette README-Abschnitt im gewohnten Format 👇
+
+---
+
+## 🧪 Unit-Tests mit Mockdaten (CustomerService & CustomerListComponent)
+
+Um die Testabdeckung weiter zu verbessern, wurden **Mockdaten** in separaten Testdateien ausgelagert
+und die bestehenden Tests auf deren Basis erweitert.
+Dadurch können API-Aufrufe und Service-Logik **realitätsnah simuliert** werden,
+ohne eine echte Verbindung zum Backend herzustellen.
+
+---
+
+### 📁 Testdaten-Struktur
+
+```bash
+📁 frontend/
+└── 📁 testdata/
+    └── 📁 mocks/
+        └── 📁 api/
+            └── 📁 customers/
+                └── 📄 index.ts
+```
+
+---
+
+### 📄 `testdata/mocks/api/customers/index.ts`
+
+```typescript
+import { Customer } from "../../../../src/app/features/customer/model/customer";
+
+export const customersMock: Customer[] = [
+  {
+    id: 1,
+    name: "Testname 1",
+    credit_limit: 999.991,
+  },
+];
+```
+
+✅ **Ergebnis:**
+
+- Einheitliche Quelle für Testdaten
+- Vermeidung redundanter Inline-Mocks in mehreren Tests
+- Typensicherheit dank direkter `Customer`-Importe
+
+---
+
+## ⚙️ Service-Test: `customer.service.spec.ts`
+
+Die Tests des `CustomerService` wurden überarbeitet,
+um echte API-Interaktionen mit Hilfe von `HttpTestingController` zu simulieren.
+Zusätzlich werden nun **Mockdaten** (`customersMock`) verwendet,
+um realistische Antworten zu testen.
+
+---
+
+### 📄 `customer.service.spec.ts` (aktualisiert)
+
+```typescript
+import { TestBed } from "@angular/core/testing";
+import { CustomerService } from "./customer.service";
+import { provideHttpClient } from "@angular/common/http";
+import {
+  HttpTestingController,
+  provideHttpClientTesting,
+} from "@angular/common/http/testing";
+import { firstValueFrom } from "rxjs";
+import { customersMock } from "../../../../../testdata/mocks/api/customers";
+
+describe("CustomerService", () => {
+  let service: CustomerService;
+  let httpTesting: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(CustomerService);
+    httpTesting = TestBed.inject(HttpTestingController);
+  });
+
+  it("should be created", () => {
+    expect(service).toBeTruthy();
+  });
+
+  describe("getAll", () => {
+    it("should exist", () => {
+      expect(service.getAll).toBeTruthy();
+    });
+
+    it("should call GET and return customers", async () => {
+      const customers$ = service.getAll();
+      const customersPromise = firstValueFrom(customers$);
+
+      const url = "http://localhost:3001/customers/";
+      const req = httpTesting.expectOne(url);
+      expect(req.request.method).toBe("GET");
+
+      // Mock-Daten zurückgeben
+      req.flush(customersMock);
+
+      httpTesting.verify();
+
+      expect(await customersPromise).toEqual(customersMock);
+    });
+  });
+
+  describe("deleteById", () => {
+    it("should call DELETE", async () => {
+      const deleteId = customersMock[0].id;
+      service.deleteById(deleteId).subscribe();
+
+      const url = `http://localhost:3001/customers/${deleteId}`;
+      const req = httpTesting.expectOne(url);
+      expect(req.request.method).toBe("DELETE");
+
+      req.flush({});
+      httpTesting.verify();
+    });
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- Realistisches Testverhalten dank `HttpTestingController`
+- Mockdaten simulieren Backend-Antworten
+- Test überprüft korrekte HTTP-Methoden (`GET`, `DELETE`) und Endpunkte
+
+---
+
+## 🧩 Komponenten-Test: `customer-list.component.spec.ts`
+
+Die `CustomerListComponent` wurde mit erweiterten Tests versehen,
+um auch Fehlerszenarien (`throwError`) und Mock-Serviceaufrufe realitätsnah zu prüfen.
+Der `CustomerService` wird dabei vollständig gemockt.
+
+---
+
+### 📄 `customer-list.component.spec.ts` (aktualisiert)
+
+```typescript
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { CustomerListComponent } from "./customer-list.component";
+import { CustomerService } from "../../../services/customer.service";
+import { of, throwError } from "rxjs";
+import { Customer } from "../../../model/customer";
+import { provideRouter } from "@angular/router";
+
+const createCustomerServiceMock = function () {
+  const service = {
+    getAll: jest.fn(),
+    deleteById: jest.fn(),
+  };
+
+  service.deleteById.mockReturnValue(of(void 0));
+  service.getAll.mockReturnValue(of([]));
+
+  return service;
+};
+
+describe("CustomerListComponent", () => {
+  let component: CustomerListComponent;
+  let fixture: ComponentFixture<CustomerListComponent>;
+  let customerServiceMock: any;
+
+  beforeEach(async () => {
+    customerServiceMock = createCustomerServiceMock();
+
+    await TestBed.configureTestingModule({
+      imports: [CustomerListComponent],
+      providers: [
+        provideRouter([]),
+        {
+          provide: CustomerService,
+          useValue: customerServiceMock,
+        },
+      ],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(CustomerListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe("loadCustomers", () => {
+    it("should exist and work", () => {
+      expect(component.loadCustomers).toBeTruthy();
+      expect(customerServiceMock.getAll).toHaveBeenCalled();
+    });
+
+    it("should handle Error", () => {
+      const errorMessage = "Fehler";
+      customerServiceMock.getAll.mockReturnValueOnce(
+        throwError(() => new Error(errorMessage))
+      );
+
+      expect(component.errorMessage).toBeNull();
+      component.loadCustomers();
+      expect(customerServiceMock.getAll).toHaveBeenCalled();
+      expect(component.errorMessage).toEqual(errorMessage);
+    });
+  });
+
+  describe("deleteCustomer", () => {
+    it("should exist", () => {
+      expect(component.deleteCustomer).toBeTruthy();
+      component.deleteCustomer({ id: 1 } as Customer);
+      expect(customerServiceMock.deleteById).toHaveBeenCalled();
+    });
+
+    it("should handle Error", () => {
+      const errorMessage = "Fehler";
+      customerServiceMock.deleteById.mockReturnValueOnce(
+        throwError(() => new Error(errorMessage))
+      );
+
+      expect(component.errorMessage).toBeNull();
+      component.deleteCustomer({ id: 1 } as Customer);
+      expect(customerServiceMock.deleteById).toHaveBeenCalled();
+      expect(component.errorMessage).toEqual(errorMessage);
+    });
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- Service wird vollständig gemockt (`jest.fn()`)
+- Fehlerbehandlung (`throwError`) realistisch getestet
+- Erwartetes Verhalten bei `getAll()` und `deleteById()` wird überprüft
+- Router wird über `provideRouter([])` bereitgestellt
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                   | Ziel                                   | Technik                        |
+| ------------------------- | -------------------------------------- | ------------------------------ |
+| **Mockdaten**             | Einheitliche Testbasis für Services    | `testdata/mocks/api/customers` |
+| **CustomerService**       | HTTP-Requests & Responses testen       | `HttpTestingController`        |
+| **CustomerListComponent** | Serviceaufrufe & Error Handling prüfen | `jest.fn()`, `throwError()`    |
+| **Fehlerbehandlung**      | Verlässliche Tests für Edge Cases      | Mock-Fehler via RxJS           |
+| **Trennung von Logik**    | API, Komponenten und Tests isoliert    | Dependency Injection + Mocks   |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧪 **Angular HttpTestingController:**
+  [https://angular.io/guide/http#testing-http-requests](https://angular.io/guide/http#testing-http-requests)
+
+- ⚙️ **RxJS throwError:**
+  [https://rxjs.dev/api/index/function/throwError](https://rxjs.dev/api/index/function/throwError)
+
+- 🧩 **Jest Function Mocks:**
+  [https://jestjs.io/docs/mock-functions](https://jestjs.io/docs/mock-functions)
+
+---
+
+## 📤 POST-Request & Test für `CustomerService`
+
+Der `CustomerService` wurde um eine neue Methode **`postOne()`** erweitert,
+um neue Kunden per HTTP-POST an das Backend zu senden.
+Parallel dazu wurden entsprechende Tests in `customer.service.spec.ts` ergänzt,
+die das Verhalten und die Integration des Endpunkts absichern.
+
+---
+
+### 📄 `customer.service.ts` (aktualisiert)
+
+```typescript
+import { inject, Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Customer } from "../model/customer";
+import { environment } from "../../../../environments/environment";
+import { HttpClient } from "@angular/common/http";
+
+const url = environment.apiUrl + "/customers";
+
+@Injectable({
+  providedIn: "root",
+})
+export class CustomerService {
+  #http = inject(HttpClient);
+
+  getAll(): Observable<Customer[]> {
+    return this.#http.get<Customer[]>(url);
+  }
+
+  deleteById(id: number): Observable<void> {
+    return this.#http.delete<void>(url + "/" + id);
+  }
+
+  postOne(customer: Partial<Customer>): Observable<Customer> {
+    return this.#http.post<Customer>(url, customer);
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Neue Methode `postOne()` sendet einen neuen Kunden an das Backend
+- Rückgabewert ist ein `Observable<Customer>`
+- Einheitliche URL-Verwendung über `environment.apiUrl`
+- Typisierung durch `Partial<Customer>` für unvollständige Formulardaten
+
+---
+
+## 🧪 Tests für `CustomerService` (aktualisiert)
+
+Die Testdatei wurde um eine neue Test-Suite für **POST-Anfragen** erweitert.
+Dabei wird geprüft, ob:
+
+1. Die Methode existiert
+2. Ein korrekter `POST`-Request ausgeführt wird
+3. Das erwartete Kundenobjekt als Antwort zurückgegeben wird
+
+---
+
+### 📄 `customer.service.spec.ts` (aktualisiert)
+
+```typescript
+import { TestBed } from "@angular/core/testing";
+import { CustomerService } from "./customer.service";
+import { provideHttpClient } from "@angular/common/http";
+import {
+  HttpTestingController,
+  provideHttpClientTesting,
+} from "@angular/common/http/testing";
+import { firstValueFrom } from "rxjs";
+import { customersMock } from "../../../../../testdata/mocks/api/customers";
+
+describe("CustomerService", () => {
+  let service: CustomerService;
+  let httpTesting: HttpTestingController;
+  const url = "http://localhost:3001/customers/";
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(CustomerService);
+    httpTesting = TestBed.inject(HttpTestingController);
+  });
+
+  it("should be created", () => {
+    expect(service).toBeTruthy();
+  });
+
+  describe("getAll", () => {
+    it("should call GET and return customers", async () => {
+      const customers$ = service.getAll();
+      const customersPromise = firstValueFrom(customers$);
+
+      const req = httpTesting.expectOne(url);
+      expect(req.request.method).toBe("GET");
+      req.flush(customersMock);
+
+      expect(await customersPromise).toEqual(customersMock);
+      httpTesting.verify();
+    });
+  });
+
+  describe("deleteById", () => {
+    it("should call DELETE", async () => {
+      const deleteId = customersMock[0].id;
+      service.deleteById(deleteId).subscribe();
+
+      const req = httpTesting.expectOne(`${url}${deleteId}`);
+      expect(req.request.method).toBe("DELETE");
+
+      req.flush({});
+      httpTesting.verify();
+    });
+  });
+
+  describe("postOne", () => {
+    it("should exist", () => {
+      expect(service.postOne).toBeTruthy();
+    });
+
+    it("should POST one customer", async () => {
+      const customerToPost = customersMock[0];
+      const customerResponse = customerToPost;
+
+      const customer$ = service.postOne(customerToPost);
+      const customerPromise = firstValueFrom(customer$);
+
+      const req = httpTesting.expectOne(url);
+      expect(req.request.method).toBe("POST");
+
+      req.flush(customerResponse);
+      expect(await customerPromise).toEqual(customerResponse);
+
+      httpTesting.verify();
+    });
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- `postOne()` wird korrekt erkannt und ausgeführt
+- `HttpTestingController` prüft, dass ein `POST`-Request gesendet wird
+- Der Rückgabewert entspricht exakt den Mockdaten
+- Alle Requests werden nach jedem Test sauber mit `verify()` abgeschlossen
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich           | Ziel                                    | Technik                 |
+| ----------------- | --------------------------------------- | ----------------------- |
+| **Neue Methode**  | Kunde anlegen via POST                  | `postOne(customer)`     |
+| **Testabdeckung** | HTTP-POST prüfen                        | `HttpTestingController` |
+| **Mockdaten**     | Realistische Testantwort                | `customersMock`         |
+| **Typisierung**   | Teilobjekte möglich                     | `Partial<Customer>`     |
+| **Codequalität**  | Einheitliche API-URL & Testverifikation | `httpTesting.verify()`  |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧪 **Angular HttpClient Testing:**
+  [https://angular.io/guide/http#testing-http-requests](https://angular.io/guide/http#testing-http-requests)
+
+- ⚙️ **RxJS firstValueFrom():**
+  [https://rxjs.dev/api/index/function/firstValueFrom](https://rxjs.dev/api/index/function/firstValueFrom)
+
+- 🧩 **Jest Expect Matchers:**
+  [https://jestjs.io/docs/expect](https://jestjs.io/docs/expect)
+
+---
+
+## 🧪 Unit-Test für `CustomerFormComponent`
+
+Das `CustomerFormComponent` wurde durch gezielte **Formular- und Event-Tests** abgesichert.
+Diese Tests prüfen die Validierungen (`Validators`), die Formularstruktur (`FormGroup`)
+sowie die **korrekte Auslösung des Events** `customerSubmit`.
+
+---
+
+### 📄 `customer-form.component.spec.ts` (neu / erweitert)
+
+```typescript
+describe("formHandler()", () => {
+  const mockCustomer = customersMock[0];
+
+  it("should be invalid when empty", () => {
+    expect(component.fields.valid).toBeFalsy();
+  });
+
+  it("should be valid when filled with correct values", () => {
+    component.fields.setValue({
+      name: mockCustomer.name,
+      credit_limit: mockCustomer.credit_limit,
+    });
+    expect(component.fields.valid).toBeTruthy();
+  });
+
+  it("should exist and trigger customerSubmit", () => {
+    const emitSpy = jest.spyOn(component.customerSubmit, "emit");
+    component.formHandler();
+
+    expect(emitSpy).toHaveBeenCalled();
+  });
+
+  it("should mark credit_limit invalid when negative", () => {
+    const invalidCustomer = { ...mockCustomer, credit_limit: -5 };
+
+    component.fields.setValue({
+      name: invalidCustomer.name,
+      credit_limit: invalidCustomer.credit_limit,
+    });
+    expect(component.fields.valid).toBeFalsy();
+
+    const errors = (component.fields.controls as any).credit_limit.errors;
+    expect(errors).toBeTruthy();
+    expect(errors.min).toBeTruthy();
+  });
+});
+```
+
+✅ **Ergebnis:**
+
+- **Formularvalidität:** Wird geprüft, wenn Felder leer oder korrekt befüllt sind
+- **Event-Emitter:** Testet, ob `customerSubmit.emit()` korrekt ausgelöst wird
+- **Validierungen:** Überprüfen von `Validators.min()` bei negativen Kreditlimits
+- **Strukturtest:** `FormGroup`-Logik wird realistisch simuliert
+
+---
+
+### 💡 Zusammenfassung
+
+| Testziel                 | Beschreibung                       | Erwartetes Ergebnis                      |
+| ------------------------ | ---------------------------------- | ---------------------------------------- |
+| **Leeres Formular**      | Keine Eingaben gesetzt             | `fields.valid` → `false`                 |
+| **Gültige Eingaben**     | Felder korrekt ausgefüllt          | `fields.valid` → `true`                  |
+| **EventEmitter**         | `formHandler()` wird aufgerufen    | `customerSubmit.emit()` wurde getriggert |
+| **Negativer Kreditwert** | Ungültiger Wert für `credit_limit` | `errors.min` vorhanden                   |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧪 **Angular Testing Reactive Forms:**
+  [https://angular.io/guide/testing-components-scenarios#testing-reactive-forms](https://angular.io/guide/testing-components-scenarios#testing-reactive-forms)
+
+- ⚙️ **Angular FormGroup API:**
+  [https://angular.io/api/forms/FormGroup](https://angular.io/api/forms/FormGroup)
+
+- 🧩 **Jest Mock Functions & Spies:**
+  [https://jestjs.io/docs/mock-functions](https://jestjs.io/docs/mock-functions)
+
+---
+
+## ➕ Kunden anlegen mit Ladezustand & Fehlerbehandlung
+
+Die `CustomerNewComponent` wurde erweitert, um das Formular mit dem `CustomerService` zu verknüpfen.
+Dabei werden nun asynchrone **HTTP-POST-Anfragen** ausgeführt, inklusive visuellem **Loading Indicator**,
+**Error Handling** und **automatischer Weiterleitung** nach erfolgreicher Erstellung.
+
+---
+
+### 📄 `customer-new.component.ts` (aktualisiert)
+
+```typescript
+import { Component, inject } from "@angular/core";
+import { CustomerFormComponent } from "../../components/customer-form/customer-form.component";
+import { Customer } from "../../model/customer";
+import { CustomerService } from "../../services/customer.service";
+import { LoadingIndicatorComponent } from "../../../../components/loading-indicator/loading-indicator.component";
+import { ErrorBoxComponent } from "../../../../components/error-box/error-box.component";
+import { Router } from "@angular/router";
+
+@Component({
+  selector: "app-customer-new",
+  imports: [
+    CustomerFormComponent,
+    LoadingIndicatorComponent,
+    ErrorBoxComponent,
+  ],
+  templateUrl: "./customer-new.component.html",
+  styleUrl: "./customer-new.component.scss",
+})
+export class CustomerNewComponent {
+  public loading = false;
+  public errorMessage: string | null = null;
+
+  #router = inject(Router);
+
+  constructor(private customerService: CustomerService) {}
+
+  createCustomer(customer: Partial<Customer>) {
+    this.loading = true;
+    this.errorMessage = null;
+
+    this.customerService.postOne(customer).subscribe({
+      next: (customer) => {
+        console.log("Created customer", customer);
+        this.loading = false;
+        this.#router.navigate(["/customers"]);
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      },
+    });
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Neue Kunden werden über `CustomerService.postOne()` erstellt
+- Während des POST-Vorgangs wird ein Ladeindikator angezeigt
+- Fehler werden über `ErrorBoxComponent` visuell dargestellt
+- Nach erfolgreicher Erstellung erfolgt automatische Navigation zu `/customers`
+
+---
+
+### 📄 `customer-new.component.html` (aktualisiert)
+
+```html
+<h2>Neuer Kunde</h2>
+
+@if(errorMessage !== null) {
+<app-error-box>{{ errorMessage }}</app-error-box>
+} @if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else {
+<app-customer-form (customerSubmit)="createCustomer($event)">
+  Jetzt anlegen
+</app-customer-form>
+}
+```
+
+✅ **Ergebnis:**
+
+- Zeigt Fehler mit roter `ErrorBox` an
+- Zeigt Spinner, wenn `loading = true`
+- Bindet das Formular-Event `customerSubmit` an `createCustomer()`
+- Saubere Trennung von Anzeige, Logik und Service-Kommunikation
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                      | Ziel                                   | Umsetzung                                        |
+| ---------------------------- | -------------------------------------- | ------------------------------------------------ |
+| **Asynchrone Kommunikation** | Neue Kunden per API anlegen            | `CustomerService.postOne()`                      |
+| **Visuelles Feedback**       | Anzeige von Lade- & Fehlermeldungen    | `LoadingIndicatorComponent`, `ErrorBoxComponent` |
+| **Navigation**               | Automatische Weiterleitung nach Erfolg | `Router.navigate(['/customers'])`                |
+| **Error Handling**           | Fehler abfangen & anzeigen             | `errorMessage` Property + Template-Check         |
+| **State Management**         | Saubere UI-Zustände                    | `loading` + `errorMessage` Flags                 |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular HttpClient POST:**
+  [https://angular.io/guide/http#making-a-post-request](https://angular.io/guide/http#making-a-post-request)
+
+- 🧭 **Router Navigation API:**
+  [https://angular.io/api/router/Router#navigate](https://angular.io/api/router/Router#navigate)
+
+- 🧩 **Angular Async Patterns (Subscribe):**
+  [https://angular.io/guide/observables-in-angular#subscribing-to-observables](https://angular.io/guide/observables-in-angular#subscribing-to-observables)
+
+---
+
+## ✏️ Kundenbearbeitung mit `CustomerEditComponent`
+
+Die `CustomerEditComponent` ermöglicht das **Bearbeiten bestehender Kundendaten**.
+Beim Aufruf der Route `/customers/edit/:customerId` werden die Kundendaten geladen,
+im Formular (`CustomerFormComponent`) angezeigt und können anschließend aktualisiert werden.
+
+---
+
+### 📄 `customer-edit.component.ts` (neu / erweitert)
+
+```typescript
+import { Component, inject, OnInit, ViewChild } from "@angular/core";
+import { CustomerFormComponent } from "../../components/customer-form/customer-form.component";
+import { ActivatedRoute, Router } from "@angular/router";
+import { CustomerService } from "../../services/customer.service";
+import { LoadingIndicatorComponent } from "../../../../components/loading-indicator/loading-indicator.component";
+import { ErrorBoxComponent } from "../../../../components/error-box/error-box.component";
+import { Customer } from "../../model/customer";
+
+@Component({
+  selector: "app-customer-edit",
+  imports: [
+    CustomerFormComponent,
+    LoadingIndicatorComponent,
+    ErrorBoxComponent,
+  ],
+  templateUrl: "./customer-edit.component.html",
+  styleUrl: "./customer-edit.component.scss",
+})
+export class CustomerEditComponent implements OnInit {
+  public loading = false;
+  public errorMessage: string | null = null;
+
+  #router = inject(Router);
+  id = +(inject(ActivatedRoute).snapshot.paramMap.get("customerId") as string);
+  @ViewChild(CustomerFormComponent) form?: CustomerFormComponent;
+
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit(): void {
+    this.loadOneCustomer();
+  }
+
+  loadOneCustomer() {
+    this.loading = true;
+    this.errorMessage = null;
+    this.customerService.getOne(this.id).subscribe({
+      next: (customer) => {
+        this.loading = false;
+        // Formulardaten im Child setzen
+        if (this.form) {
+          this.form.initial = customer as any;
+        }
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      },
+    });
+  }
+
+  editCustomer(customer: Partial<Customer>) {
+    this.loading = true;
+    this.errorMessage = null;
+
+    // Sicherstellen, dass die ID vorhanden ist
+    if (!customer.id) {
+      (customer as any).id = this.id;
+    }
+
+    this.customerService.updateCustomer(customer).subscribe({
+      next: (customer) => {
+        console.log("Updated customer", customer);
+        this.loading = false;
+        this.#router.navigate(["/customers"]);
+      },
+      error: (e: Error) => {
+        this.errorMessage = e.message;
+        this.loading = false;
+      },
+    });
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Liest die `customerId` direkt aus der URL (`ActivatedRoute`)
+- Lädt Kundendaten via `CustomerService.getOne()`
+- Übergibt Daten an das Formular-Child über `@ViewChild`
+- Führt Updates mit `updateCustomer()` durch
+- Zeigt Ladezustände und Fehler über die bekannten UI-Komponenten an
+
+---
+
+### 📄 `customer-edit.component.html` (aktualisiert)
+
+```html
+<h2>Kunde mit der ID {{ id }} bearbeiten</h2>
+
+@if(errorMessage !== null) {
+<app-error-box>{{ errorMessage }}</app-error-box>
+} @if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else {
+<app-customer-form (customerSubmit)="editCustomer($event)">
+  Jetzt bearbeiten
+</app-customer-form>
+}
+```
+
+✅ **Ergebnis:**
+
+- Dynamische Anzeige der ID im Titel
+- Reaktive Anzeige von Lade- und Fehlermeldungen
+- Wiederverwendung des generischen `CustomerFormComponent`
+- Übergabe der `editCustomer()`-Funktion über Event-Binding
+
+---
+
+## ⚙️ Service-Erweiterung: `CustomerService`
+
+Zur Unterstützung der Edit-Funktion wurden zwei neue Methoden ergänzt:
+`getOne(id)` zum Laden eines Kunden und `updateCustomer(customer)` zum Aktualisieren der Daten.
+
+---
+
+### 📄 `customer.service.ts` (aktualisiert)
+
+```typescript
+import { inject, Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Customer } from "../model/customer";
+import { environment } from "../../../../environments/environment";
+import { HttpClient } from "@angular/common/http";
+
+const url = environment.apiUrl + "customers/";
+
+@Injectable({
+  providedIn: "root",
+})
+export class CustomerService {
+  #http = inject(HttpClient);
+
+  getAll(): Observable<Customer[]> {
+    return this.#http.get<Customer[]>(url);
+  }
+
+  getOne(id: number): Observable<Customer> {
+    return this.#http.get<Customer>(url + id);
+  }
+
+  postOne(customer: Partial<Customer>): Observable<Customer> {
+    return this.#http.post<Customer>(url, customer);
+  }
+
+  updateCustomer(customer: Partial<Customer>): Observable<Customer> {
+    return this.#http.put<Customer>(url + customer.id, customer);
+  }
+
+  deleteById(id: number) {
+    return this.#http.delete(url + id);
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- `getOne(id)` holt einzelne Kundendaten aus der API
+- `updateCustomer(customer)` sendet aktualisierte Daten mit `PUT`
+- Einheitliches URL-Muster über alle CRUD-Operationen
+- Vollständige CRUD-Unterstützung im `CustomerService`
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                 | Ziel                                  | Umsetzung                                        |
+| ----------------------- | ------------------------------------- | ------------------------------------------------ |
+| **Routing**             | Kunden-ID aus URL lesen               | `ActivatedRoute.snapshot.paramMap.get()`         |
+| **Formularbindung**     | Formular in Child-Komponente befüllen | `@ViewChild(CustomerFormComponent)`              |
+| **Service-Erweiterung** | API-Endpunkte für GET/PUT             | `getOne()` & `updateCustomer()`                  |
+| **Error & Loading**     | Einheitliche UI-Komponenten           | `ErrorBoxComponent`, `LoadingIndicatorComponent` |
+| **Navigation**          | Automatische Rückkehr zur Liste       | `Router.navigate(['/customers'])`                |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **ActivatedRoute Dokumentation:**
+  [https://angular.io/api/router/ActivatedRoute](https://angular.io/api/router/ActivatedRoute)
+
+- ⚙️ **Angular PUT-Request:**
+  [https://angular.io/guide/http#making-a-put-request](https://angular.io/guide/http#making-a-put-request)
+
+- 🧭 **ViewChild-Dekorator:**
+  [https://angular.io/api/core/ViewChild](https://angular.io/api/core/ViewChild)
+
+---
+
+## 🧹 Codequalität mit ESLint
+
+Zur Verbesserung der **Codequalität**, **Konsistenz** und **Fehlerprävention** wurde das Projekt um **ESLint** erweitert.
+ESLint überprüft den Quellcode auf potenzielle Probleme,
+setzt saubere Codekonventionen durch und ersetzt das frühere `tslint`.
+
+---
+
+### ⚙️ Installation über Angular CLI
+
+Im Terminal wurde der folgende Befehl ausgeführt:
+
+```bash
+ng lint
+```
+
+Da noch kein Linter konfiguriert war, bot Angular automatisch die Installation von **angular-eslint** an:
+
+```
+Cannot find "lint" target for the specified project.
+You can add a package that implements these capabilities.
+For example:
+  ESLint: ng add angular-eslint
+```
+
+Nach der Bestätigung (`Yes`) wurde die Einrichtung automatisch vorgenommen:
+
+```
+Would you like to add ESLint now? Yes
+All angular-eslint dependencies have been successfully installed 🎉
+```
+
+✅ **Ergebnis:**
+
+- `eslint.config.js` wurde automatisch erstellt
+- `package.json` & `angular.json` wurden aktualisiert
+- Alle benötigten Abhängigkeiten installiert
+- ESLint ist nun als Linter für das Projekt aktiv
+
+---
+
+### 📄 Generierte Dateien & Änderungen
+
+```bash
+CREATE eslint.config.js
+UPDATE package.json
+UPDATE angular.json
+```
+
+Beispielinhalt der ESLint-Konfiguration:
+
+```js
+import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import angular from "angular-eslint";
+
+export default [
+  js.configs.recommended,
+  ...angular.configs.recommended,
+  {
+    rules: {
+      "no-console": "warn",
+      quotes: ["error", "single"],
+      semi: ["error", "always"],
+    },
+  },
+];
+```
+
+---
+
+### ▶️ Linter ausführen
+
+Nach der Einrichtung kann der Code mit folgendem Befehl überprüft werden:
+
+```bash
+npm run lint
+```
+
+oder direkt über die Angular CLI:
+
+```bash
+ng lint
+```
+
+Beispielausgabe:
+
+```
+✔ All files pass linting.
+```
+
+oder bei Problemen:
+
+```
+src/app/features/customer/customer.service.ts
+  12:1  warning  Unexpected console statement  no-console
+```
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                  | Ziel                                    | Umsetzung             |
+| ------------------------ | --------------------------------------- | --------------------- |
+| **Codequalität**         | Einheitliche Codekonventionen           | ESLint                |
+| **Automatische Analyse** | Fehler und Warnungen im Code erkennen   | `ng lint`             |
+| **Projektintegration**   | Automatisch via `ng add angular-eslint` | CLI                   |
+| **Konfigurierbarkeit**   | Anpassbar über `eslint.config.js`       | z. B. eigene Regeln   |
+| **Empfohlene Regeln**    | Angular ESLint Recommended Set          | Standardkonfiguration |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **Angular ESLint GitHub:**
+  [https://github.com/angular-eslint/angular-eslint](https://github.com/angular-eslint/angular-eslint)
+
+- ⚙️ **ESLint Offizielle Website:**
+  [https://eslint.org/](https://eslint.org/)
+
+- 💡 **Angular Lint Command Doku:**
+  [https://angular.io/cli/lint](https://angular.io/cli/lint)
+
+---
+
+# 📅 Tag 5 - 10.10.25
+
+## 🚀 Build & lokaler Live-Server
+
+Zum Start des Tages wurde das Frontend-Projekt erstmals **produktiv gebaut**
+und anschließend über einen einfachen **lokalen HTTP-Server** bereitgestellt.
+Dadurch kann das fertige Angular-Bundle direkt im Browser getestet werden –
+ohne dass der Angular-Entwicklungsserver (`ng serve`) laufen muss.
+
+---
+
+### ⚙️ Build-Erstellung
+
+Im Terminal wurde der Build-Prozess mit folgendem Befehl gestartet:
+
+```bash
+npm run build
+```
+
+oder alternativ direkt über Angular CLI:
+
+```bash
+ng build
+```
+
+✅ **Ergebnis:**
+
+- Das optimierte Produktions-Bundle wurde unter
+
+  ```
+  /dist/frontend/
+  ```
+
+  erstellt
+
+- Assets, CSS und JavaScript wurden minifiziert
+- Die Build-Ausgabe ist bereit für die Auslieferung via Webserver
+
+---
+
+### 🌐 Installation des lokalen Servers
+
+Um den Build einfach lokal auszuführen, wurde der `http-server` als Dev-Abhängigkeit installiert:
+
+```bash
+npm i -D http-server
+```
+
+✅ **Ergebnis:**
+
+- Paket wird im `node_modules`-Ordner installiert
+- Kein globales Setup erforderlich
+- Ermöglicht schnelles Testen der statischen Angular-Dateien
+
+---
+
+### 📄 `package.json` (erweitert)
+
+In der Datei `package.json` wurde unter **scripts** ein neuer Eintrag ergänzt,
+um den Server bequem per Befehl zu starten:
+
+```json
+{
+  "scripts": {
+    "build": "ng build",
+    "live": "http-server ./dist/frontend -p 8080"
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Der Build kann über `npm run build` erstellt werden
+- Der Live-Server startet mit
+
+  ```bash
+  npm run live
+  ```
+
+- Standardport: **8080**
+
+---
+
+### ▶️ Projekt starten
+
+Nach erfolgreichem Build:
+
+```bash
+npm run live
+```
+
+Ausgabe im Terminal:
+
+```
+Starting up http-server, serving ./dist/frontend
+Available on:
+  http://127.0.0.1:8080
+  http://192.168.x.x:8080
+Hit CTRL-C to stop the server
+```
+
+💡 Das Frontend ist jetzt über `http://localhost:8080` erreichbar.
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich             | Ziel                                | Umsetzung       |
+| ------------------- | ----------------------------------- | --------------- |
+| **Build**           | Produktionsversion erzeugen         | `npm run build` |
+| **Server**          | Lokale Bereitstellung               | `http-server`   |
+| **Automatisierung** | Einfacher Startbefehl               | `npm run live`  |
+| **Ausgabepfad**     | Bereitstellung aus `/dist/frontend` | Build-Output    |
+
+---
+
+### 🔗 Nützliche Links
+
+- ⚙️ **Angular Build-Kommando:**
+  [https://angular.io/cli/build](https://angular.io/cli/build)
+
+- 🌐 **http-server (NPM-Paket):**
+  [https://www.npmjs.com/package/http-server](https://www.npmjs.com/package/http-server)
+
+---
+
+## 🧠 State Management mit NgRx
+
+Um komplexe Zustände (z. B. Kundendaten, Ladezustände, Fehlermeldungen) zentral zu verwalten,
+wurde das **NgRx-Framework** in das Projekt integriert.
+NgRx basiert auf dem **Redux-Pattern** und sorgt für vorhersagbare, nachvollziehbare Zustandsänderungen im gesamten Angular-Projekt.
+
+---
+
+### ⚙️ Installation von NgRx Store
+
+Der Store stellt den **zentralen globalen Zustand** der Anwendung bereit.
+Er ersetzt die rein komponentenbasierte Datenhaltung durch ein strukturiertes, reaktives Modell.
+
+Im Terminal wurde ausgeführt:
+
+```bash
+ng add @ngrx/store@19
+```
+
+🧩 **Ergebnis:**
+
+- Installation der Pakete und Abhängigkeiten
+- Automatische Aktualisierung der Projektkonfiguration
+- Anpassung von:
+
+  - `src/app/app.config.ts`
+  - `package.json`
+
+Auszug aus der Terminalausgabe:
+
+```
+✔ Packages installed successfully.
+UPDATE src/app/app.config.ts (476 bytes)
+UPDATE package.json (1532 bytes)
+```
+
+✅ Der Store ist jetzt als Modul integriert und bereit für die Konfiguration.
+
+---
+
+### ⚙️ Installation von NgRx Effects
+
+Um **asynchrone Logik** (wie HTTP-Requests, API-Aufrufe oder Router-Navigationen)
+vom Store zu entkoppeln, wurden zusätzlich die **NgRx Effects** installiert.
+
+```bash
+ng add @ngrx/effects@19
+```
+
+🧩 **Ergebnis:**
+
+- Installation der `@ngrx/effects`-Bibliothek
+- Automatische Ergänzung der Angular-Konfiguration
+- Bereit für die Implementierung von Side-Effects (z. B. `loadCustomers$`, `deleteCustomer$`, `createCustomer$`)
+
+✅ **Status:**
+Die Grundstruktur für Store und Effects ist erfolgreich eingerichtet und im Projekt registriert.
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                  | Ziel                                         | Paket              |
+| ------------------------ | -------------------------------------------- | ------------------ |
+| **State-Verwaltung**     | Zentrale Verwaltung aller Anwendungsdaten    | `@ngrx/store`      |
+| **Side Effects**         | Asynchrone Prozesse & API-Aufrufe trennen    | `@ngrx/effects`    |
+| **Projektkonfiguration** | Automatische Einbindung via CLI              | `ng add @ngrx/...` |
+| **Version**              | Aktuell NgRx v19 (kompatibel mit Angular 19) | ✅                 |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **NgRx Store Dokumentation:**
+  [https://ngrx.io/guide/store](https://ngrx.io/guide/store)
+
+- ⚙️ **NgRx Effects Dokumentation:**
+  [https://ngrx.io/guide/effects](https://ngrx.io/guide/effects)
+
+- 💡 **Redux Pattern (NgRx Konzept):**
+  [https://ngrx.io/guide/store/concepts](https://ngrx.io/guide/store/concepts)
+
+---
+
+## 🧩 Komplettes NgRx-Setup mit Store, Effects & DevTools
+
+Das Projekt wurde um ein vollständiges **NgRx State-Management-System** erweitert.
+Neben dem zentralen Store und den Effects wurden auch die **Schematics** für automatisierte Codegenerierung
+und die **Store DevTools** für visuelle State-Analyse integriert.
+
+---
+
+### ⚙️ Installation der NgRx-Pakete
+
+#### 1️⃣ Store (Zentraler State)
+
+```bash
+ng add @ngrx/store@19
+```
+
+Verwaltet den globalen Applikationszustand (State) über ein reaktives Datenmodell.
+
+#### 2️⃣ Effects (Asynchrone Logik)
+
+```bash
+ng add @ngrx/effects@19
+```
+
+Ermöglicht die Trennung von **Daten-Logik** (API-Aufrufe, HTTP-Requests)
+vom eigentlichen State (z. B. Laden, Speichern, Löschen von Daten).
+
+#### 3️⃣ Schematics (Codegeneratoren)
+
+```bash
+ng add @ngrx/schematics@19
+```
+
+Ermöglicht das Erstellen von NgRx-Strukturen (Actions, Reducer, Effects, Selectors)
+über einfache CLI-Befehle wie:
+
+```bash
+ng generate feature customers/store --creators
+```
+
+✅ **Ergebnis:**
+
+- Automatisierte Strukturierung nach NgRx-Standard
+- Spart Boilerplate-Code
+- Einheitliche Architektur über alle Features hinweg
+
+---
+
+### 🧠 Integration der Store DevTools
+
+Zur Laufzeit-Analyse und Fehlerdiagnose wurde zusätzlich folgendes Paket installiert:
+
+```bash
+ng add @ngrx/store-devtools@19
+```
+
+🧩 **Ergebnis:**
+
+- Erweiterung `StoreDevtoolsModule` in `app.config.ts` eingetragen
+- Ermöglicht das **Live-Debugging** des NgRx-States im Browser
+- Unterstützt **Time-Travel-Debugging** (Vor-/Zurückspringen zwischen States)
+
+---
+
+### 🧭 Browser-Erweiterung: Redux DevTools
+
+Zur Visualisierung des globalen States wurde im Browser die Erweiterung
+**Redux DevTools** installiert:
+
+🔗 [https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+
+✅ **Ergebnis:**
+
+- Alle NgRx-Actions sind in Echtzeit sichtbar
+- State-Änderungen werden Schritt für Schritt protokolliert
+- Ideal zum Debuggen und Performance-Monitoring
+
+---
+
+### ⚙️ Beispielkonfiguration in `app.config.ts`
+
+```typescript
+import { provideStore } from "@ngrx/store";
+import { provideEffects } from "@ngrx/effects";
+import { provideStoreDevtools } from "@ngrx/store-devtools";
+
+export const appConfig = {
+  providers: [
+    provideStore({}),
+    provideEffects([]),
+    provideStoreDevtools({
+      maxAge: 25, // speichert die letzten 25 States
+      logOnly: false, // ermöglicht Debugging im Entwicklungsmodus
+    }),
+  ],
+};
+```
+
+✅ **Ergebnis:**
+
+- Der Store ist im gesamten Projekt verfügbar
+- Effekte sind integriert und erweiterbar
+- DevTools aktivieren State-Überwachung in der Redux-Erweiterung
+
+---
+
+### 💡 Zusammenfassung
+
+| Paket                        | Zweck                                  | CLI-Befehl                       |
+| ---------------------------- | -------------------------------------- | -------------------------------- |
+| `@ngrx/store`                | Zentrale State-Verwaltung              | `ng add @ngrx/store@19`          |
+| `@ngrx/effects`              | Asynchrone Nebenläufigkeit (HTTP etc.) | `ng add @ngrx/effects@19`        |
+| `@ngrx/schematics`           | Automatische Codegenerierung           | `ng add @ngrx/schematics@19`     |
+| `@ngrx/store-devtools`       | Debugging & Time Travel                | `ng add @ngrx/store-devtools@19` |
+| **Redux DevTools (Browser)** | Live-State-Visualisierung              | Chrome Extension                 |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **NgRx Store Docs:**
+  [https://ngrx.io/guide/store](https://ngrx.io/guide/store)
+
+- ⚙️ **NgRx Effects:**
+  [https://ngrx.io/guide/effects](https://ngrx.io/guide/effects)
+
+- ⚡ **NgRx Schematics:**
+  [https://ngrx.io/guide/schematics](https://ngrx.io/guide/schematics)
+
+- 🧭 **NgRx Store DevTools:**
+  [https://ngrx.io/guide/store-devtools](https://ngrx.io/guide/store-devtools)
+
+- 🧠 **Redux DevTools (Chrome):**
+  [https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+
+---
+
+## 🔐 Authentifizierungsmodul (Login-Feature)
+
+Zur Vorbereitung der Benutzeranmeldung wurde ein neues **Auth-Feature** im Projekt angelegt.
+Dieses Modul wird zukünftig alle Login-, Logout- und Token-bezogenen Prozesse kapseln
+und ist über eine eigene Route erreichbar.
+
+---
+
+### 📁 Ordnerstruktur
+
+```bash
+📁 src/
+ └── 📁 app/
+      └── 📁 features/
+           └── 📁 auth/
+                ├── 📄 auth.routes.ts
+                └── 📁 pages/
+                     └── 📁 login-page/
+                          ├── 📄 login-page.component.ts
+                          ├── 📄 login-page.component.html
+                          ├── 📄 login-page.component.scss
+                          └── 📄 login-page.component.spec.ts
+```
+
+✅ **Ergebnis:**
+
+- Neues Feature-Modul `auth` unter `features/`
+- Enthält eigene Routing-Konfiguration (`auth.routes.ts`)
+- Erste Seite: **LoginPageComponent**
+
+---
+
+### ⚙️ Routing-Konfiguration (`auth.routes.ts`)
+
+Die Datei definiert die Login-Route des Authentifizierungsmoduls.
+
+```typescript
+import { Routes } from "@angular/router";
+import { LoginPageComponent } from "./pages/login-page/login-page.component";
+
+export const authRoutes: Routes = [
+  {
+    path: "login",
+    component: LoginPageComponent,
+  },
+];
+```
+
+✅ **Ergebnis:**
+
+- `/login` als Einstiegspunkt für Authentifizierung
+- Lädt `LoginPageComponent` beim Aufruf der Route
+- Bereit für zukünftige Guards, Redirects und State-Anbindung (NgRx)
+
+---
+
+### 🧩 LoginPageComponent
+
+Die Komponente wurde über Angular CLI generiert:
+
+```bash
+ng g c features/auth/pages/LoginPage
+```
+
+Erstellt folgende Dateien:
+
+```bash
+CREATE src/app/features/auth/pages/login-page/login-page.component.ts
+CREATE src/app/features/auth/pages/login-page/login-page.component.html
+CREATE src/app/features/auth/pages/login-page/login-page.component.scss
+CREATE src/app/features/auth/pages/login-page/login-page.component.spec.ts
+```
+
+Beispielgrundstruktur (automatisch generiert):
+
+```typescript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-login-page",
+  templateUrl: "./login-page.component.html",
+  styleUrl: "./login-page.component.scss",
+})
+export class LoginPageComponent {}
+```
+
+✅ **Ergebnis:**
+
+- Erste Seite des Authentifizierungsmoduls
+- Bereit für Formular-Integration (Username/Password)
+- Wird über `authRoutes` direkt angesprochen
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich             | Ziel                                  | Umsetzung                |
+| ------------------- | ------------------------------------- | ------------------------ |
+| **Auth-Modul**      | Separates Feature für Login & Tokens  | `src/app/features/auth/` |
+| **Routing**         | Login-Seite erreichbar über `/login`  | `auth.routes.ts`         |
+| **Login-Seite**     | UI-Komponente für Anmeldung           | `LoginPageComponent`     |
+| **CLI-Integration** | Automatische Generierung via `ng g c` | Schnell und konsistent   |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **Angular Router Guide:**
+  [https://angular.io/guide/router](https://angular.io/guide/router)
+
+- ⚙️ **Feature-Routing Best Practices:**
+  [https://angular.io/guide/feature-modules](https://angular.io/guide/feature-modules)
+
+- 🔐 **NgRx Auth Patterns (Vorschau):**
+  [https://ngrx.io/guide/store/authentication](https://ngrx.io/guide/store/authentication)
+
+---
+
+## 🔐 Aufbau des Auth-Features mit Model, Service & NgRx Store
+
+Das **Auth-Modul** wurde weiter ausgebaut und um klar getrennte Verantwortlichkeiten ergänzt.
+Ziel ist eine skalierbare, wartbare Struktur für Login, Logout, Benutzerzustand und Token-Management.
+
+---
+
+### 📁 Neue Ordnerstruktur
+
+```bash
+📁 src/
+ └── 📁 app/
+      └── 📁 features/
+           └── 📁 auth/
+                ├── 📄 auth.routes.ts
+                ├── 📁 model/
+                │    ├── 📄 user.ts
+                │    └── 📄 login-data.ts
+                │
+                ├── 📁 services/
+                │    └── 📄 auth.service.ts
+                │
+                └── 📁 store/
+                     ├── 📄 auth.actions.ts
+                     ├── 📄 auth.reducer.ts
+                     ├── 📄 auth.selectors.ts
+                     ├── 📄 auth.effects.ts
+                     └── 📄 index.ts
+```
+
+✅ **Ergebnis:**
+
+- **`model/`**: Typisierte Datenstrukturen für User & Login
+- **`services/`**: Zentrale Logik für Authentifizierung & Tokenverarbeitung
+- **`store/`**: NgRx-basierte State-Verwaltung für Auth-Zustände
+- **`auth.routes.ts`**: Einstiegspunkt für das Login-Feature
+
+---
+
+### ⚙️ Model-Interfaces
+
+#### 📄 `model/user.ts`
+
+```typescript
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  token?: string;
+}
+```
+
+#### 📄 `model/login-data.ts`
+
+```typescript
+export interface LoginData {
+  username: string;
+  password: string;
+}
+```
+
+✅ **Ergebnis:**
+
+- Klare Typisierung für Authentifizierungsdaten
+- Verhindert Tippfehler und sorgt für Typ-Sicherheit in Services und Store
+
+---
+
+### 🧩 AuthService
+
+#### 📄 `services/auth.service.ts`
+
+```typescript
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { LoginData } from "../model/login-data";
+import { User } from "../model/user";
+import { environment } from "../../../../environments/environment";
+
+@Injectable({
+  providedIn: "root",
+})
+export class AuthService {
+  #http = inject(HttpClient);
+  #apiUrl = environment.apiUrl + "auth/";
+
+  login(data: LoginData): Observable<User> {
+    return this.#http.post<User>(this.#apiUrl + "login", data);
+  }
+
+  logout(): void {
+    localStorage.removeItem("auth_token");
+  }
+
+  saveToken(token: string): void {
+    localStorage.setItem("auth_token", token);
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem("auth_token");
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Verantwortlich für API-Aufrufe (`/auth/login`)
+- Tokenverwaltung über `localStorage`
+- Schlanker Service für spätere Integration in NgRx Effects
+
+---
+
+### 🧠 NgRx Feature Store
+
+Mit dem Befehl:
+
+```bash
+ng g feature auth --group
+```
+
+wurde ein vollständiges NgRx-Feature-Set für Auth erstellt.
+Dies beinhaltet automatisch generierte Dateien für Actions, Reducer, Selectors und Effects.
+
+📄 **Beispielhafte Struktur nach Generierung:**
+
+```bash
+📁 store/
+ ├── auth.actions.ts
+ ├── auth.reducer.ts
+ ├── auth.selectors.ts
+ ├── auth.effects.ts
+ └── index.ts
+```
+
+---
+
+#### Beispielhafte Actions (`auth.actions.ts`)
+
+```typescript
+import { createActionGroup, props } from "@ngrx/store";
+import { LoginData } from "../model/login-data";
+import { User } from "../model/user";
+
+export const AuthActions = createActionGroup({
+  source: "Auth",
+  events: {
+    "Login Start": props<{ data: LoginData }>(),
+    "Login Success": props<{ user: User }>(),
+    "Login Failure": props<{ error: string }>(),
+    Logout: emptyProps(),
+  },
+});
+```
+
+---
+
+#### Beispiel-Reducer (`auth.reducer.ts`)
+
+```typescript
+import { createReducer, on } from "@ngrx/store";
+import { AuthActions } from "./auth.actions";
+import { User } from "../model/user";
+
+export interface AuthState {
+  user: User | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export const initialState: AuthState = {
+  user: null,
+  loading: false,
+  error: null,
+};
+
+export const authReducer = createReducer(
+  initialState,
+  on(AuthActions.loginStart, (state) => ({
+    ...state,
+    loading: true,
+    error: null,
+  })),
+  on(AuthActions.loginSuccess, (state, { user }) => ({
+    ...state,
+    user,
+    loading: false,
+  })),
+  on(AuthActions.loginFailure, (state, { error }) => ({
+    ...state,
+    error,
+    loading: false,
+  })),
+  on(AuthActions.logout, () => initialState)
+);
+```
+
+✅ **Ergebnis:**
+
+- State-Management für Login-/Logout-Prozesse
+- Automatische State-Updates über Actions
+- Erweiterbar für Registrierung, Token-Refresh etc.
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich      | Ziel                                 | Umsetzung                            |
+| ------------ | ------------------------------------ | ------------------------------------ |
+| **Models**   | Typisierte Daten für User & Login    | `user.ts`, `login-data.ts`           |
+| **Service**  | HTTP-Kommunikation & Tokenverwaltung | `AuthService`                        |
+| **Store**    | State-Management für Auth-Status     | `auth.actions.ts`, `auth.reducer.ts` |
+| **Routing**  | Einstiegspunkt `/login`              | `auth.routes.ts`                     |
+| **NgRx CLI** | Automatisierte Store-Erstellung      | `ng g feature auth --group`          |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🔐 **NgRx Auth Patterns:**
+  [https://ngrx.io/guide/store/authentication](https://ngrx.io/guide/store/authentication)
+
+- ⚙️ **NgRx CLI Features:**
+  [https://ngrx.io/guide/schematics/feature](https://ngrx.io/guide/schematics/feature)
+
+- 🧩 **Angular HttpClient Doku:**
+  [https://angular.io/guide/http](https://angular.io/guide/http)
+
+---
+
+## 🔐 NgRx Authentifizierungssystem mit Login Flow
+
+Das Authentifizierungsmodul wurde vollständig mit **NgRx Store**, **Effects**, **Selectors** und einer reaktiven Login-Seite aufgebaut.
+Damit kann der Login-Prozess sauber über den Store gesteuert und der Zustand (Laden, Erfolg, Fehler) global verwaltet werden.
+
+---
+
+### 📁 Modulstruktur
+
+```bash
+📁 src/
+ └── 📁 app/
+      └── 📁 features/
+           └── 📁 auth/
+                ├── 📁 model/
+                │   ├── 📄 login-data.ts
+                │   └── 📄 user.ts
+                │
+                ├── 📁 services/
+                │   └── 📄 auth.service.ts
+                │
+                ├── 📁 store/
+                │   ├── 📁 actions/
+                │   │   └── 📄 auth.actions.ts
+                │   ├── 📁 reducers/
+                │   │   └── 📄 auth.reducer.ts
+                │   ├── 📁 selectors/
+                │   │   └── 📄 auth.selectors.ts
+                │   └── 📁 effects/
+                │       └── 📄 auth.effects.ts
+                │
+                ├── 📁 pages/
+                │   └── 📁 login-page/
+                │       ├── 📄 login-page.component.ts
+                │       ├── 📄 login-page.component.html
+                │       └── 📄 login-page.component.scss
+                │
+                └── 📄 auth.routes.ts
+```
+
+✅ **Ergebnis:**
+
+- Vollständiger NgRx-Datenfluss von `Action` → `Effect` → `Reducer` → `Selector`
+- Getrennter, klar typisierter Auth-Feature-State
+- Asynchroner Login-Prozess über den Store steuerbar
+- Reaktives Formular mit Live-Feedback über den globalen State
+
+---
+
+### ⚙️ Actions – `auth.actions.ts`
+
+Definiert alle Auth-bezogenen Zustandsänderungen:
+`Login`, `Login Success`, `Login Failure`.
+
+```typescript
+import { createActionGroup, props } from "@ngrx/store";
+import { LoginData } from "../../model/login-data";
+import { User } from "../../model/user";
+
+export const AuthActions = createActionGroup({
+  source: "Auth",
+  events: {
+    Login: props<{ data: LoginData }>(),
+    "Login Success": props<{ user: User }>(),
+    "Login Failure": props<{ error: unknown }>(),
+  },
+});
+```
+
+✅ **Ergebnis:**
+
+- Typisierte Aktionen mit Payload
+- Basis für alle Effekte und Reducer-Übergänge
+
+---
+
+### ⚙️ Reducer – `auth.reducer.ts`
+
+Verwaltet den Zustand für Login, User und Ladezustände.
+
+```typescript
+import { createFeature, createReducer, on } from "@ngrx/store";
+import { AuthActions } from "../actions/auth.actions";
+import { User } from "../../model/user";
+
+export const authFeatureKey = "auth";
+
+export interface State {
+  loading: boolean;
+  user: User | null;
+  error: string | null;
+}
+
+export const initialState: State = {
+  loading: false,
+  user: null,
+  error: null,
+};
+
+export const reducer = createReducer(
+  initialState,
+  on(
+    AuthActions.login,
+    (state): State => ({
+      ...state,
+      loading: true,
+    })
+  ),
+  on(
+    AuthActions.loginSuccess,
+    (state, { user }): State => ({
+      ...state,
+      loading: false,
+      user,
+    })
+  )
+);
+
+export const authFeature = createFeature({
+  name: authFeatureKey,
+  reducer,
+});
+```
+
+✅ **Ergebnis:**
+
+- Zentrale State-Verwaltung für Login-Prozess
+- Reaktive UI-Updates über `loading` und `user`
+
+---
+
+### ⚙️ Selectors – `auth.selectors.ts`
+
+Erlauben gezielten Zugriff auf Teilbereiche des Auth-States.
+
+```typescript
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import * as fromAuth from "../reducers/auth.reducer";
+
+export const selectAuthState = createFeatureSelector<fromAuth.State>(
+  fromAuth.authFeatureKey
+);
+
+export const selectLoading = createSelector(
+  selectAuthState,
+  (auth) => auth.loading
+);
+
+export const selectUserName = createSelector(selectAuthState, (auth) =>
+  auth.user ? auth.user.name : null
+);
+```
+
+✅ **Ergebnis:**
+
+- `selectLoading` → zeigt Ladezustand
+- `selectUserName` → liefert aktuellen Benutzername oder `null`
+
+---
+
+### ⚙️ Effects – `auth.effects.ts`
+
+Behandelt asynchrone Vorgänge, wie den Login-Vorgang über den Service.
+
+```typescript
+import { inject, Injectable } from "@angular/core";
+import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { catchError, map, concatMap } from "rxjs/operators";
+import { of } from "rxjs";
+import { AuthActions } from "../actions/auth.actions";
+import { AuthService } from "../../services/auth.service";
+
+@Injectable()
+export class AuthEffects {
+  actions$ = inject(Actions);
+  authService = inject(AuthService);
+
+  login$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(AuthActions.login),
+      concatMap(({ data }) =>
+        this.authService.login(data).pipe(
+          map((user) => AuthActions.loginSuccess({ user })),
+          catchError((error) => of(AuthActions.loginFailure({ error })))
+        )
+      )
+    );
+  });
+}
+```
+
+✅ **Ergebnis:**
+
+- Beobachtet `AuthActions.login`
+- Führt asynchronen Login aus
+- Sendet `loginSuccess` oder `loginFailure` je nach Ergebnis
+
+---
+
+### ⚙️ AuthService – `auth.service.ts`
+
+Simuliert aktuell den Login-Vorgang mit einer verzögerten RxJS-Antwort (später API-Integration).
+
+```typescript
+import { Injectable } from "@angular/core";
+import { LoginData } from "../model/login-data";
+import { delay, of } from "rxjs";
+
+@Injectable({
+  providedIn: "root",
+})
+export class AuthService {
+  login(data: LoginData) {
+    console.log(data);
+    return of({
+      id: 34,
+      name: "Tim",
+    }).pipe(delay(1000));
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Mock-Backend mit RxJS `of()` + `delay()`
+- Rückgabe eines simulierten Benutzers
+
+---
+
+### 🧩 Login-Seite – `login-page.component.ts`
+
+Zentrale UI für den Login-Prozess mit **Reactive Forms** und **NgRx Store-Anbindung**.
+
+```typescript
+import { Component, inject } from "@angular/core";
+import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { AuthActions } from "../store/actions/auth.actions";
+import { LoginData } from "../model/login-data";
+import {
+  selectLoading,
+  selectUserName,
+} from "../store/selectors/auth.selectors";
+import { AsyncPipe } from "@angular/common";
+import { LoadingIndicatorComponent } from "../../../components/loading-indicator/loading-indicator.component";
+
+@Component({
+  selector: "app-login-page",
+  imports: [ReactiveFormsModule, AsyncPipe, LoadingIndicatorComponent],
+  templateUrl: "./login-page.component.html",
+  styleUrl: "./login-page.component.scss",
+})
+export class LoginPageComponent {
+  store = inject(Store);
+
+  loading$ = this.store.select(selectLoading);
+  userName$ = this.store.select(selectUserName);
+
+  fields = inject(FormBuilder).nonNullable.group({
+    email: ["tim@example.com"],
+    password: ["20q934wtaefijo"],
+  });
+
+  submitHandler() {
+    console.log(this.fields.value);
+    this.store.dispatch(
+      AuthActions.login({
+        data: this.fields.value as LoginData,
+      })
+    );
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- Formulareingaben reaktiv über `FormBuilder`
+- Dispatch von `AuthActions.login` an den Store
+- Ausgabe des Ladezustands & Benutzernamens über Selektoren
+
+---
+
+### 💡 Template – `login-page.component.html`
+
+Zeigt wahlweise:
+
+- Ladeindikator während des Logins
+- Formular bei noch nicht eingeloggtem Nutzer
+- Begrüßung nach erfolgreichem Login
+
+```html
+@let loading = loading$ | async; @let userName = userName$ | async;
+
+<h1 class="display-3">Login</h1>
+
+@if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else if (userName === null) {
+
+<form [formGroup]="fields" (ngSubmit)="submitHandler()">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
+    <input
+      type="email"
+      id="email"
+      class="form-control"
+      formControlName="email"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Passwort:</label>
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      formControlName="password"
+    />
+  </div>
+
+  <button class="btn btn-primary">Login</button>
+</form>
+
+} @else {
+<h2>Willkommen {{ userName }}</h2>
+}
+```
+
+✅ **Ergebnis:**
+
+- Dynamische Anzeige abhängig vom Auth-Zustand
+- Reaktives Formular mit Store-Verknüpfung
+
+---
+
+### ⚙️ Routing – `auth.routes.ts`
+
+```typescript
+import { Routes } from "@angular/router";
+import { LoginPageComponent } from "./login-page/login-page.component";
+
+export const authRoutes: Routes = [
+  {
+    path: "login",
+    component: LoginPageComponent,
+  },
+];
+```
+
+✅ **Ergebnis:**
+
+- Route `/login` lädt das Auth-Feature
+- Einstiegspunkt für den gesamten Login-Flow
+
+---
+
+### 🧠 Zusammenfassung
+
+| Bereich       | Ziel                                      | Umsetzung                 |
+| ------------- | ----------------------------------------- | ------------------------- |
+| **Actions**   | Definieren Login-Events                   | `auth.actions.ts`         |
+| **Reducer**   | Aktualisiert State basierend auf Aktionen | `auth.reducer.ts`         |
+| **Selectors** | Zugriff auf Ladezustand & User            | `auth.selectors.ts`       |
+| **Effects**   | Asynchrone Kommunikation mit Service      | `auth.effects.ts`         |
+| **Service**   | Simulierter Backend-Login                 | `auth.service.ts`         |
+| **Component** | Reaktive UI + Store-Anbindung             | `login-page.component.ts` |
+| **Routing**   | Route `/login` verfügbar                  | `auth.routes.ts`          |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **NgRx Store Doku:**
+  [https://ngrx.io/guide/store](https://ngrx.io/guide/store)
+
+- ⚙️ **NgRx Effects Doku:**
+  [https://ngrx.io/guide/effects](https://ngrx.io/guide/effects)
+
+- 🔐 **NgRx Auth Patterns:**
+  [https://ngrx.io/guide/store/authentication](https://ngrx.io/guide/store/authentication)
+
+- 🧠 **Angular Reactive Forms:**
+  [https://angular.io/guide/reactive-forms](https://angular.io/guide/reactive-forms)
+
+---
+
+## 🔐 Authentifizierungs-Flow mit Login, Logout & Navigation (NgRx + Router)
+
+Der Authentifizierungsprozess wurde vollständig umgesetzt und an die globale Anwendung angebunden.
+Login, Logout und der aktuelle Benutzerstatus werden über den **NgRx Store** gesteuert.
+Die **Navigation** reagiert dynamisch auf den Authentifizierungsstatus des Benutzers.
+
+---
+
+### ⚙️ `app.config.ts` – Integration des Auth Stores und Effects
+
+Der Auth-Store und die zugehörigen Effects wurden zentral in der Angular-Applikationskonfiguration registriert.
+
+```typescript
+import {
+  ApplicationConfig,
+  provideZoneChangeDetection,
+  isDevMode,
+} from "@angular/core";
+import { provideRouter } from "@angular/router";
+import { routes } from "./app.routes";
+import { provideHttpClient } from "@angular/common/http";
+import { provideStore } from "@ngrx/store";
+import { provideEffects } from "@ngrx/effects";
+import { provideStoreDevtools } from "@ngrx/store-devtools";
+import { authFeature } from "./features/auth/store/reducers/auth.reducer";
+import { AuthEffects } from "./features/auth/store/effects/auth.effects";
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideHttpClient(),
+    provideStore({
+      [authFeature.name]: authFeature.reducer,
+    }),
+    provideEffects(AuthEffects),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+  ],
+};
+```
+
+✅ **Ergebnis:**
+
+- Auth-Feature ist im globalen Store registriert
+- Effekte werden automatisch initialisiert
+- DevTools sind aktiviert (Time Travel Debugging über Redux-Extension)
+
+---
+
+### ⚡ `auth.actions.ts` – Erweiterung um Logout
+
+Der `AuthActions`-Satz wurde um eine `Logout`-Action ergänzt.
+
+```typescript
+import { createActionGroup, emptyProps, props } from "@ngrx/store";
+import { LoginData } from "../../model/login-data";
+import { User } from "../../model/user";
+
+export const AuthActions = createActionGroup({
+  source: "Auth",
+  events: {
+    Login: props<{ data: LoginData }>(),
+    "Login Success": props<{ user: User }>(),
+    "Login Failure": props<{ error: unknown }>(),
+    Logout: emptyProps(),
+  },
+});
+```
+
+✅ **Ergebnis:**
+
+- `Logout` kann jetzt aus beliebigen Komponenten (z. B. Navigation) ausgelöst werden
+
+---
+
+### 🧩 `auth.reducer.ts` – State-Reset beim Logout
+
+Der Reducer wurde um die Logout-Logik erweitert, um den User im State zu löschen.
+
+```typescript
+import { createFeature, createReducer, on } from "@ngrx/store";
+import { AuthActions } from "../actions/auth.actions";
+import { User } from "../../model/user";
+
+export const authFeatureKey = "auth";
+
+export interface State {
+  loading: boolean;
+  user: null | User;
+  error: string | null;
+}
+
+export const initialState: State = {
+  loading: false,
+  user: null,
+  error: null,
+};
+
+export const reducer = createReducer(
+  initialState,
+  on(
+    AuthActions.login,
+    (state): State => ({
+      ...state,
+      loading: true,
+    })
+  ),
+  on(
+    AuthActions.loginSuccess,
+    (state, { user }): State => ({
+      ...state,
+      loading: false,
+      user,
+    })
+  ),
+  on(
+    AuthActions.logout,
+    (state): State => ({
+      ...state,
+      user: null,
+    })
+  )
+);
+
+export const authFeature = createFeature({
+  name: authFeatureKey,
+  reducer,
+});
+```
+
+✅ **Ergebnis:**
+
+- Der Benutzer wird nach Logout aus dem State entfernt
+- UI-Selektoren reagieren sofort auf die Statusänderung
+
+---
+
+### ⚙️ `auth.effects.ts` – Login & Logout mit Navigation
+
+Der Effect verwaltet jetzt sowohl den Login-Vorgang als auch die Navigation nach dem Logout.
+
+```typescript
+import { inject, Injectable } from "@angular/core";
+import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { catchError, map, concatMap, tap } from "rxjs/operators";
+import { of } from "rxjs";
+import { AuthActions } from "../actions/auth.actions";
+import { AuthService } from "../../services/auth.service";
+import { Router } from "@angular/router";
+
+@Injectable()
+export class AuthEffects {
+  actions$ = inject(Actions);
+  authService = inject(AuthService);
+  router = inject(Router);
+
+  login$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(AuthActions.login),
+      concatMap(({ data }) =>
+        this.authService.login(data).pipe(
+          map((user) => AuthActions.loginSuccess({ user })),
+          catchError((error) => of(AuthActions.loginFailure({ error })))
+        )
+      )
+    );
+  });
+
+  logout$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(AuthActions.logout),
+        tap(() => {
+          console.log("Logout effect triggered");
+          this.router.navigate(["/start"]);
+        })
+      ),
+    { dispatch: false }
+  );
+}
+```
+
+✅ **Ergebnis:**
+
+- Nach Logout → automatische Weiterleitung auf `/start`
+- Kein Dispatch nötig (`dispatch: false`)
+- Klare Trennung zwischen Business- und Navigationslogik
+
+---
+
+### 🧭 Dynamische Navigation – `navigation.component.html`
+
+Die Navigationsleiste wurde angepasst, um Login/Logout dynamisch anzuzeigen
+und die **Kundenverwaltung nur bei aktivem Login** einzublenden.
+
+```html
+@let loggedIn = loggedIn$ | async;
+
+<nav class="navbar navbar-expand-lg navbar-dark fancy-navbar">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand fw-bold d-flex align-items-center gap-2"
+      routerLink="/"
+    >
+      <i class="bi bi-gem text-accent"></i> CRM
+    </a>
+
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarFancy"
+      aria-controls="navbarFancy"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarFancy">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/start" routerLinkActive="active"
+            >Start</a
+          >
+        </li>
+
+        @if (loggedIn) {
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customers" routerLinkActive="active"
+            >Kundenverwaltung</a
+          >
+        </li>
+        }
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active"
+            >Über uns</a
+          >
+        </li>
+      </ul>
+
+      @if (loggedIn) {
+      <button class="btn btn-outline-light ms-lg-3" (click)="logout()">
+        Logout
+      </button>
+      } @else {
+      <button class="btn btn-warning" routerLink="/login">Login</button>
+      }
+    </div>
+  </div>
+</nav>
+```
+
+✅ **Ergebnis:**
+
+- Kundenverwaltung nur sichtbar, wenn `loggedIn$` true ist
+- Logout-Button dispatcht `AuthActions.logout()`
+- Bei Logout → State wird geleert und Router navigiert
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                         | Ziel                                     | Ergebnis                              |
+| ------------------------------- | ---------------------------------------- | ------------------------------------- |
+| **`app.config.ts`**             | NgRx Store & Effects global registrieren | Auth-Feature integriert               |
+| **`auth.actions.ts`**           | Logout-Action hinzufügen                 | Einheitlicher Action-Flow             |
+| **`auth.reducer.ts`**           | User aus State entfernen                 | Nach Logout kein Benutzer aktiv       |
+| **`auth.effects.ts`**           | Navigation bei Logout                    | Automatischer Redirect auf `/start`   |
+| **`navigation.component.html`** | Dynamisches UI                           | Menü abhängig vom Login-State         |
+| **NgRx DevTools**               | Live-State-Debugging                     | Login/Logout im Redux-Stream sichtbar |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧩 **NgRx Store Doku:**
+  [https://ngrx.io/guide/store](https://ngrx.io/guide/store)
+
+- ⚙️ **NgRx Effects (Navigation & Side-Effects):**
+  [https://ngrx.io/guide/effects](https://ngrx.io/guide/effects)
+
+- 🧠 **Angular Router Navigation im Effect:**
+  [https://angular.io/guide/router](https://angular.io/guide/router)
+
+- 🧰 **NgRx Debugging mit Store DevTools:**
+  [https://ngrx.io/guide/store-devtools](https://ngrx.io/guide/store-devtools)
+
+---
+
+### 🧭 `navigation.component.ts` – Store-Anbindung & Logout-Dispatch
+
+Die `NavigationComponent` wurde erweitert, um den Authentifizierungsstatus direkt aus dem NgRx Store zu lesen
+und Logout-Ereignisse an den Store zu senden.
+
+```typescript
+import { Component, inject } from "@angular/core";
+import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { selectLoggedIn } from "../../features/auth/store/selectors/auth.selectors";
+import { AuthActions } from "../../features/auth/store/actions/auth.actions";
+import { AsyncPipe } from "@angular/common";
+
+@Component({
+  selector: "app-navigation",
+  imports: [RouterLink, RouterLinkActive, AsyncPipe],
+  templateUrl: "./navigation.component.html",
+  styleUrls: ["./navigation.component.scss"],
+})
+export class NavigationComponent {
+  store = inject(Store);
+  loggedIn$ = this.store.select(selectLoggedIn);
+
+  logout() {
+    this.store.dispatch(AuthActions.logout());
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- `loggedIn$` beobachtet den aktuellen Authentifizierungsstatus
+- Template rendert Login/Logout-Buttons abhängig vom Zustand
+- `logout()` löst `AuthActions.logout()` aus
+- Durch `AuthEffects.logout$` erfolgt anschließend automatische Navigation nach `/start`
+
+---
+
+### 🧠 Zusammenspiel der Komponenten
+
+| Ebene         | Aufgabe                       | Umsetzung              |
+| ------------- | ----------------------------- | ---------------------- |
+| **Component** | UI-Interaktion (Button, Menü) | `NavigationComponent`  |
+| **Selector**  | Login-Status ermitteln        | `selectLoggedIn`       |
+| **Action**    | Logout-Ereignis               | `AuthActions.logout()` |
+| **Effect**    | Navigation nach Logout        | `AuthEffects.logout$`  |
+| **Reducer**   | Entfernt User aus State       | `auth.reducer.ts`      |
+
+Damit ist der **komplette Auth-Zyklus** geschlossen:
+
+```
+UI → Action → Effect → Reducer → Store → UI
+```
+
+---
+
+### 🧩 Beispiel-Selector `selectLoggedIn`
+
+Zur Vollständigkeit (da dieser in der Navigation verwendet wird),
+so sieht der typische `selectLoggedIn`-Selector aus:
+
+```typescript
+import { createSelector } from "@ngrx/store";
+import { selectAuthState } from "./auth.selectors";
+
+export const selectLoggedIn = createSelector(
+  selectAuthState,
+  (auth) => !!auth.user
+);
+```
+
+✅ **Ergebnis:**
+
+- Gibt `true` zurück, wenn ein Benutzer im Store vorhanden ist
+- Ideal für UI-Steuerung (Buttons, Menü, Guards, etc.)
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                       | Ziel                                           | Umsetzung              |
+| ----------------------------- | ---------------------------------------------- | ---------------------- |
+| **NavigationComponent**       | Steuert Login-/Logout-Buttons                  | Store-gebundene UI     |
+| **Selector `selectLoggedIn`** | Prüft Authentifizierungsstatus                 | Rückgabe `true/false`  |
+| **Logout-Action**             | Entfernt Benutzer und navigiert zur Startseite | NgRx-Effect mit Router |
+| **Gesamtfluss**               | UI ↔ Store ↔ Router integriert                 | Reaktiver Auth-Flow    |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧠 **NgRx Selectors (Best Practices):**
+  [https://ngrx.io/guide/store/selectors](https://ngrx.io/guide/store/selectors)
+
+- ⚙️ **NgRx Component Integration:**
+  [https://ngrx.io/guide/store/using-selectors](https://ngrx.io/guide/store/using-selectors)
+
+- 🧩 **Reactive Navigation mit NgRx:**
+  [https://ngrx.io/guide/effects/lifecycle](https://ngrx.io/guide/effects/lifecycle)
+
+---
+
+## 🛡️ Zugriffsschutz mit `authGuard` (NgRx + Angular Router)
+
+Um sicherzustellen, dass **nur angemeldete Benutzer** Zugriff auf geschützte Bereiche wie die Kundenverwaltung haben,
+wurde ein **Angular Route Guard** implementiert.
+Dieser prüft über den NgRx Store, ob der Benutzer eingeloggt ist, und leitet bei Bedarf automatisch zur Login-Seite weiter.
+
+---
+
+### ⚙️ Erstellung des Guards
+
+Der Guard wurde über das Angular CLI generiert:
+
+```bash
+ng g guard features/auth/guards/auth
+```
+
+🧩 Ergebnis:
+
+```bash
+CREATE src/app/features/auth/guards/auth.guard.ts
+```
+
+---
+
+### 📄 `auth.guard.ts`
+
+Der Guard nutzt den **NgRx Store**, um den Login-Status (`selectLoggedIn`) zu prüfen.
+Falls kein Benutzer angemeldet ist, erfolgt eine automatische Weiterleitung zu `/login`.
+
+```typescript
+import { inject } from "@angular/core";
+import { CanActivateFn, Router } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { selectLoggedIn } from "../store/selectors/auth.selectors";
+import { tap } from "rxjs";
+
+export const authGuard: CanActivateFn = () => {
+  const store = inject(Store);
+  const router = inject(Router);
+
+  return store.select(selectLoggedIn).pipe(
+    tap((loggedIn) => {
+      if (!loggedIn) {
+        router.navigate(["/login"]);
+      }
+    })
+  );
+};
+```
+
+✅ **Ergebnis:**
+
+- Prüft beim Routing, ob ein Benutzer eingeloggt ist
+- Wenn nicht → Weiterleitung zu `/login`
+- Nutzt den NgRx-Selector `selectLoggedIn` → kein separater AuthService nötig
+
+---
+
+### 🔐 Anwendung des Guards auf Kundenrouten
+
+Um die Kundenverwaltung abzusichern, wurde der Guard in der Routen-Definition der Customer-Features eingebunden.
+
+#### 📄 `customer.routes.ts`
+
+```typescript
+import { Routes } from "@angular/router";
+import { CustomerIndexComponent } from "./customer-index.component";
+import { CustomerListComponent } from "./views/customer-list/customer-list/customer-list.component";
+import { CustomerNewComponent } from "./views/customer-new/customer-new.component";
+import { CustomerEditComponent } from "./views/customer-edit/customer-edit.component";
+import { authGuard } from "../auth/guards/auth.guard";
+
+export const customerRoutes: Routes = [
+  {
+    path: "customers",
+    component: CustomerIndexComponent,
+    canActivate: [authGuard],
+    children: [
+      {
+        path: "",
+        redirectTo: "/customers/dashboard",
+        pathMatch: "full",
+      },
+      {
+        path: "dashboard",
+        component: CustomerListComponent,
+      },
+      {
+        path: "new",
+        component: CustomerNewComponent,
+      },
+      {
+        path: "edit/:customerId",
+        component: CustomerEditComponent,
+      },
+    ],
+  },
+];
+```
+
+✅ **Ergebnis:**
+
+- Der gesamte Kundenbereich ist geschützt
+- Bei unautorisierter Navigation (z. B. direkte URL-Eingabe `/customers/...`)
+  → automatischer Redirect zur Login-Seite
+- Funktioniert komplett reaktiv über den Store
+
+---
+
+### 🧠 Datenfluss beim Routing
+
+```
+User klickt auf "Kundenverwaltung"
+          ↓
+Router prüft canActivate → authGuard
+          ↓
+authGuard → Store → selectLoggedIn
+          ↓
+✅ True → Route erlaubt
+❌ False → Redirect /login
+```
+
+---
+
+### 📁 Projektstruktur-Erweiterung
+
+```bash
+📁 src/
+ └── 📁 app/
+      └── 📁 features/
+           └── 📁 auth/
+                ├── 📁 guards/
+                │   └── 📄 auth.guard.ts
+                ├── 📁 model/
+                ├── 📁 services/
+                ├── 📁 store/
+                └── 📁 pages/
+```
+
+✅ **Ergebnis:**
+
+- Authentifizierungslogik sauber gekapselt
+- Guards sind direkt im Auth-Feature untergebracht
+- Wiederverwendbar für andere Module (z. B. Admin-Bereich)
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                | Ziel                                           | Umsetzung                     |
+| ---------------------- | ---------------------------------------------- | ----------------------------- |
+| **Auth Guard**         | Schützt Routen vor unbefugtem Zugriff          | `auth.guard.ts`               |
+| **NgRx Store**         | Prüft Login-Status (`selectLoggedIn`)          | Reaktiver Zugriff über Store  |
+| **Router Integration** | Weiterleitung bei nicht authentifiziertem User | `router.navigate(['/login'])` |
+| **Kundenrouten**       | Nur mit Login erreichbar                       | `canActivate: [authGuard]`    |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🛡️ **Angular Router Guards:**
+  [https://angular.io/guide/router#milestone-5-route-guards](https://angular.io/guide/router#milestone-5-route-guards)
+
+- ⚙️ **NgRx Selectors:**
+  [https://ngrx.io/guide/store/selectors](https://ngrx.io/guide/store/selectors)
+
+- 🔐 **Auth & Guards Patterns (NgRx):**
+  [https://ngrx.io/guide/store/authentication](https://ngrx.io/guide/store/authentication)
+
+---
+
+## 🙋 Benutzername im UI anzeigen (NgRx Selector)
+
+Nach erfolgreichem Login soll der aktuell eingeloggte Benutzer im UI angezeigt werden —
+z. B. als Begrüßung oder neben dem Logout-Button.
+
+Dazu verwenden wir einen **NgRx Selector (`selectUserName`)**,
+der aus dem Auth-State den Benutzernamen zurückgibt.
+
+---
+
+### ⚙️ `auth.selectors.ts` – Erweiterung um `selectUserName`
+
+Falls noch nicht vorhanden, wird in den Selectors der Benutzername aus dem State abgeleitet:
+
+```typescript
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import * as fromAuth from "../reducers/auth.reducer";
+
+export const selectAuthState = createFeatureSelector<fromAuth.State>(
+  fromAuth.authFeatureKey
+);
+
+export const selectLoggedIn = createSelector(
+  selectAuthState,
+  (auth) => !!auth.user
+);
+
+export const selectUserName = createSelector(selectAuthState, (auth) =>
+  auth.user ? auth.user.name : null
+);
+```
+
+✅ **Ergebnis:**
+
+- `selectUserName` liefert den Namen des aktuell eingeloggten Users
+- Gibt `null` zurück, falls kein User vorhanden ist
+
+---
+
+### 🧭 Anpassung der `navigation.component.ts`
+
+In der Navigation soll der Name des Benutzers angezeigt werden,
+sobald dieser eingeloggt ist.
+
+```typescript
+import { Component, inject } from "@angular/core";
+import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Store } from "@ngrx/store";
+import {
+  selectLoggedIn,
+  selectUserName,
+} from "../../features/auth/store/selectors/auth.selectors";
+import { AuthActions } from "../../features/auth/store/actions/auth.actions";
+import { AsyncPipe } from "@angular/common";
+
+@Component({
+  selector: "app-navigation",
+  imports: [RouterLink, RouterLinkActive, AsyncPipe],
+  templateUrl: "./navigation.component.html",
+  styleUrls: ["./navigation.component.scss"],
+})
+export class NavigationComponent {
+  store = inject(Store);
+  loggedIn$ = this.store.select(selectLoggedIn);
+  userName$ = this.store.select(selectUserName);
+
+  logout() {
+    this.store.dispatch(AuthActions.logout());
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- `userName$` ist ein Observable, das automatisch aktualisiert wird
+- Kann direkt im Template angezeigt werden
+
+---
+
+### 🖼️ Anpassung der `navigation.component.html`
+
+In der Navbar wird der Benutzername rechts neben dem Logout-Button angezeigt,
+sobald ein Benutzer angemeldet ist.
+
+```html
+@let loggedIn = loggedIn$ | async; @let userName = userName$ | async;
+
+<nav class="navbar navbar-expand-lg navbar-dark fancy-navbar">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand fw-bold d-flex align-items-center gap-2"
+      routerLink="/"
+    >
+      <i class="bi bi-gem text-accent"></i> CRM
+    </a>
+
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarFancy"
+      aria-controls="navbarFancy"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarFancy">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/start" routerLinkActive="active"
+            >Start</a
+          >
+        </li>
+
+        @if (loggedIn) {
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customers" routerLinkActive="active"
+            >Kundenverwaltung</a
+          >
+        </li>
+        }
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active"
+            >Über uns</a
+          >
+        </li>
+      </ul>
+
+      @if (loggedIn) {
+      <span class="navbar-text text-light me-3">
+        👋 Hallo, <strong>{{ userName }}</strong>
+      </span>
+      <button class="btn btn-outline-light ms-lg-2" (click)="logout()">
+        Logout
+      </button>
+      } @else {
+      <button class="btn btn-warning" routerLink="/login">Login</button>
+      }
+    </div>
+  </div>
+</nav>
+```
+
+✅ **Ergebnis:**
+
+- Benutzername erscheint nach erfolgreichem Login
+- Automatische Aktualisierung durch NgRx Store
+- Logout blendet den Namen sofort aus
+
+---
+
+### 💡 Zusammenfassung
+
+| Bereich                 | Ziel                                | Umsetzung                          |
+| ----------------------- | ----------------------------------- | ---------------------------------- |
+| **Selector**            | Liefert aktuellen Benutzernamen     | `selectUserName`                   |
+| **NavigationComponent** | Abonniert `userName$` & `loggedIn$` | NgRx Store                         |
+| **Template**            | Zeigt Namen im Navbar-Header        | Dynamische Anzeige per `AsyncPipe` |
+| **Reaktivität**         | Änderungen im State sofort sichtbar | Store → Selector → Template        |
+
+---
+
+### 🔗 Nützliche Links
+
+- 🧠 **NgRx Selectors Guide:**
+  [https://ngrx.io/guide/store/selectors](https://ngrx.io/guide/store/selectors)
+
+- 🧩 **AsyncPipe (Angular Doku):**
+  [https://angular.io/api/common/AsyncPipe](https://angular.io/api/common/AsyncPipe)
+
+- ⚙️ **NgRx Store State & UI Binding:**
+  [https://ngrx.io/guide/store/using-selectors](https://ngrx.io/guide/store/using-selectors)
+
+---
+
+✨ **Ergebnis in der Anwendung:**
+
+Nach erfolgreichem Login zeigt die Navbar nun:
+
+```
+👋 Hallo, Tim        [Logout]
+```
+
+## ⚡ Was sind Angular Signals?
+
+**Signals** sind ein neues Reaktivitätssystem in Angular.
+Sie ersetzen in vielen Fällen die bisherige Kombination aus
+`RxJS + Observables + Change Detection`.
+
+Man kann sich ein Signal vorstellen wie eine **reaktive Variable** —
+sie speichert einen Wert und **benachrichtigt automatisch** alle Abhängigkeiten,
+wenn sich dieser Wert ändert.
+
+---
+
+### 🧩 Beispiel: Der einfachste Signal-Case
+
+```typescript
+import { signal, computed, effect } from "@angular/core";
+
+export class CounterComponent {
+  // 🧠 Signal-Variable (reaktiver Wert)
+  count = signal(0);
+
+  // 💡 Abgeleitetes Signal
+  doubleCount = computed(() => this.count() * 2);
+
+  constructor() {
+    // 👀 Effekt (reagiert auf Änderungen)
+    effect(() => {
+      console.log("Count geändert:", this.count());
+    });
+  }
+
+  increment() {
+    this.count.update((v) => v + 1);
+  }
+}
+```
+
+✅ **Ergebnis:**
+
+- `count()` ist der aktuelle Wert
+- Änderungen über `update()` oder `set()` lösen automatisch Reaktionen aus
+- `computed()` erstellt automatisch abgeleitete Werte (wie „getters“ in Vue)
+- `effect()` funktioniert wie ein „reaktiver Listener“
+
+---
+
+### 🔍 Unterschiede zu Observables
+
+| Thema                   | Observable                           | Signal                           |
+| ----------------------- | ------------------------------------ | -------------------------------- |
+| Quelle                  | RxJS (Streams)                       | Angular Core                     |
+| Zugriff                 | `.subscribe()`                       | Funktionsaufruf `mySignal()`     |
+| Push/Next               | `next(value)`                        | `set(value)` oder `update()`     |
+| Lazy/Eager              | Lazy (wird erst aktiv bei Subscribe) | Eager (reagiert sofort)          |
+| Speicher                | Kein State – streambasiert           | Enthält immer den aktuellen Wert |
+| Integration in Template | `async` Pipe                         | Direkt: `{{ mySignal() }}`       |
+
+---
+
+### 🧠 Wann man Signals statt Observables nutzt
+
+| Anwendungsfall                                                         | Empfehlung                       |
+| ---------------------------------------------------------------------- | -------------------------------- |
+| **Lokale UI-Zustände** (z. B. Spinner, Tabs, Filter, Input-Werte)      | ✅ Signals (einfach, performant) |
+| **Server-Daten oder asynchrone Streams** (z. B. HTTP, WebSocket, NgRx) | ✅ Observables                   |
+| **App-weit geteilte States / Stores**                                  | ✅ NgRx oder `signalStore`       |
+| **Performance-kritische Komponenten**                                  | ✅ Signals (keine Zone nötig)    |
+
+---
+
+### 🧩 Beispiel im Angular-Template
+
+```typescript
+@Component({
+  selector: "app-counter",
+  template: `
+    <h2>Zähler: {{ count() }}</h2>
+    <p>Doppelt: {{ doubleCount() }}</p>
+    <button (click)="increment()">+1</button>
+  `,
+})
+export class CounterComponent {
+  count = signal(0);
+  doubleCount = computed(() => this.count() * 2);
+
+  increment() {
+    this.count.update((v) => v + 1);
+  }
+}
+```
+
+✅ Keine `async` Pipe nötig
+✅ Kein manuelles `ChangeDetectionRef.detectChanges()`
+✅ Immer aktuell
+
+---
+
+### 🧠 Kombination Signals + NgRx
+
+NgRx bietet seit Version 17 das **SignalStore** und **Signal Selectors**,
+mit denen man den Store reaktiv über Signals anbinden kann.
+
+#### Beispiel: Signal-Selector in eurer Auth-Feature
+
+```typescript
+import { selectSignal } from "@ngrx/signals";
+import { selectUserName } from "./store/selectors/auth.selectors";
+
+@Component({
+  selector: "app-header",
+  template: ` <h2 *ngIf="userName()">👋 Hallo, {{ userName() }}</h2> `,
+})
+export class HeaderComponent {
+  userName = selectSignal(selectUserName);
+}
+```
+
+✅ **Ergebnis:**
+
+- Der Store liefert den Namen direkt als Signal
+- Keine `AsyncPipe` nötig
+- Kein `subscribe()` mehr
+- Template reagiert sofort auf Änderungen
+
+---
+
+### 🧩 Beispiel: SignalStore
+
+```typescript
+import { signalStore, withState, withMethods } from "@ngrx/signals";
+
+interface AuthState {
+  user: string | null;
+}
+
+export const AuthStore = signalStore(
+  { providedIn: "root" },
+  withState<AuthState>({ user: null }),
+  withMethods((store) => ({
+    login(name: string) {
+      store.user.set(name);
+    },
+    logout() {
+      store.user.set(null);
+    },
+  }))
+);
+```
+
+✅ Jetzt habt ihr eine **NgRx-ähnliche Store-Struktur**, aber komplett auf **Signals-Basis**
+→ kein `Actions`/`Reducers`-Overhead, aber volle Reaktivität
+
+---
+
+### 💡 Fazit
+
+| Vorteil               | Beschreibung                                                        |
+| --------------------- | ------------------------------------------------------------------- |
+| ⚡ **Schneller**      | Keine Zone-Trigger, Change Detection minimal                        |
+| 💬 **Einfacher**      | Kein Subscribing/Unsubscribing                                      |
+| 🔄 **Reaktiv**        | Template reagiert automatisch                                       |
+| 🧱 **Kompatibel**     | Funktioniert mit RxJS, NgRx, und reinem Angular                     |
+| 🧩 **Zukunftssicher** | Angular-Team selbst nutzt Signals als Standard für State Management |
+
+---
+
+### 🔗 Nützliche Links
+
+- 📘 **Offizielle Angular Signals-Doku:**
+  [https://angular.dev/guide/signals](https://angular.dev/guide/signals)
+
+- ⚙️ **NgRx SignalStore:**
+  [https://ngrx.io/guide/signals](https://ngrx.io/guide/signals)
+
+- 🧠 **Deep Dive Blog:**
+  [https://blog.angular.io/angular-signals-reactivity-model](https://blog.angular.io/angular-signals-reactivity-model)
+
+---
+
+### 🚀 TL;DR
+
+**Signals = Reaktive Variablen für Angular.**
+Sie sind:
+
+- einfacher als Observables
+- performanter als klassische Change Detection
+- kompatibel mit NgRx über `selectSignal`
+- der neue Standard für lokale Zustände
+
+👉 In eurem Projekt könnt ihr sie z. B. einsetzen für:
+
+- UI-Zustände (Loading, Filter, Pagination)
+- lokale Cache-Werte
+- sofort reaktive Formular- oder Detailanzeigen
