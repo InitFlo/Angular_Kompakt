@@ -14,7 +14,7 @@ import { LoginData } from '../model/login-data';
 })
 export class LoginPageComponent {
   store = inject(Store);
-  fields = inject(FormBuilder).group({
+  fields = inject(FormBuilder).nonNullable.group({
     email: [
       'tim@example.com'
     ],
