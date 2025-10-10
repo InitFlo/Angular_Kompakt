@@ -3,7 +3,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '../store/actions/auth.actions';
 import { LoginData } from '../model/login-data';
-import { selectLoading } from '../store/selectors/auth.selectors';
+import { selectLoading, selectUserName } from '../store/selectors/auth.selectors';
 import { AsyncPipe } from '@angular/common';
 import { LoadingIndicatorComponent } from "../../../components/loading-indicator/loading-indicator.component";
 
@@ -20,7 +20,9 @@ import { LoadingIndicatorComponent } from "../../../components/loading-indicator
 export class LoginPageComponent {
   store = inject(Store);
 
-loading$ = this.store.select(selectLoading);
+  loading$ = this.store.select(selectLoading);
+  userName$ = this.store.select(selectUserName);
+
 
   fields = inject(FormBuilder).nonNullable.group({
     email: [

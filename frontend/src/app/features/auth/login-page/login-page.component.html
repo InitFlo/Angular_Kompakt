@@ -1,9 +1,11 @@
 @let loading = loading$ | async;
+@let userName = userName$ | async;
 
 <h1 class="display-3">Login</h1>
+
 @if(loading) {
-<app-loading-indicator></app-loading-indicator>
-} @else {
+    <app-loading-indicator></app-loading-indicator>
+} @else if (userName === null) {
 
 <form [formGroup]="fields" (ngSubmit)="submitHandler()">
     <div class="mb-3">
@@ -18,4 +20,6 @@
     <button class="btn btn-primary">Login</button>
 </form>
 
+} @else {
+    <h2>Willkommen {{ userName }}</h2>
 }

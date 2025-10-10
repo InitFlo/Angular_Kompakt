@@ -24,7 +24,7 @@ export const reducer = createReducer(
       loading: true,
     }
   }),
-  on(AuthActions.loginSuccess, (state, { user }): State => {
+  on(AuthActions.loginSuccess, (state, {user}): State => {
     return {
       ...state,
       loading: false,
@@ -37,3 +37,4 @@ export const authFeature = createFeature({
   name: authFeatureKey,
   reducer,
 });
+

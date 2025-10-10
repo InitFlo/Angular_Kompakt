@@ -8,9 +8,10 @@ export const selectAuthState = createFeatureSelector<fromAuth.State>(
 export const selectLoading = createSelector(
   selectAuthState,
   auth => auth.loading
-)
+);
 
-export const selectUser = createSelector(
+
+export const selectUserName = createSelector(
   selectAuthState,
-  auth => auth.user
-)
+  auth => (auth.user) ? auth.user.name : null
+);

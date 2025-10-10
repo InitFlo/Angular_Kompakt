@@ -6,7 +6,6 @@ import { delay, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-
   login(data: LoginData) {
     console.log(data);
     return of({
