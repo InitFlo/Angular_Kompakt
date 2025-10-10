@@ -1,4 +1,10 @@
+@let loading = loading$ | async;
+
 <h1 class="display-3">Login</h1>
+@if(loading) {
+<app-loading-indicator></app-loading-indicator>
+} @else {
+
 <form [formGroup]="fields" (ngSubmit)="submitHandler()">
     <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
@@ -11,3 +17,5 @@
 
     <button class="btn btn-primary">Login</button>
 </form>
+
+}

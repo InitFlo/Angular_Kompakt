@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LoginData } from '../model/login-data';
-import { of } from 'rxjs';
+import { delay, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,6 @@ export class AuthService {
     return of({
       id: 34,
       name: 'Tim'
-    });
+    }).pipe(delay(1000));
   }
 }
