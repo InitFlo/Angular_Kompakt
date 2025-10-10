@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectLoggedIn } from '../../features/auth/store/selectors/auth.selectors';
+import { selectLoggedIn, selectUserName } from '../../features/auth/store/selectors/auth.selectors';
 import { AsyncPipe } from '@angular/common';
 import { AuthActions } from '../../features/auth/store/actions/auth.actions';
 
@@ -18,6 +18,7 @@ import { AuthActions } from '../../features/auth/store/actions/auth.actions';
 export class NavigationComponent {
   store = inject(Store);
   loggedIn$ = this.store.select(selectLoggedIn);
+  userName$ = this.store.select(selectUserName);
 
   logout() {
     this.store.dispatch(AuthActions.logout());
