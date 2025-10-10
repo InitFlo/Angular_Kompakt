@@ -9,3 +9,8 @@ export const selectLoading = createSelector(
   selectAuthState,
   auth => auth.loading
 )
+
+export const selectUser = createSelector(
+  selectAuthState,
+  auth => auth.user
+)

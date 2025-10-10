@@ -23,6 +23,13 @@ export const reducer = createReducer(
       ...state,
       loading: true,
     }
+  }),
+  on(AuthActions.loginSuccess, (state, { user }): State => {
+    return {
+      ...state,
+      loading: false,
+      user,
+    }
   })
 );
 
@@ -30,4 +37,3 @@ export const authFeature = createFeature({
   name: authFeatureKey,
   reducer,
 });
-
